@@ -1,39 +1,50 @@
 package org.example;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.mockito.Mockito.*;
 
 public class EnemyTest {
 
-    @Mock
-    Point mockPoint;
-
     @Test
-    public void testHurt() {
-        // Configuração do objeto mock
-        when(mockPoint.getX()).thenReturn(10.0);
-        when(mockPoint.getY()).thenReturn(20.0);
+    public void enemyHurtTest() {
+        // Criar um mock para Enemy
+        Enemy enemy = mock(Enemy.class);
 
-        // Criando um inimigo mock
-        Enemy enemy = new Enemy(1.5, 100, mockPoint);
+        // Configurar o mock com valores iniciais
+        when(enemy.getActHP()).thenReturn(100);
 
-        // Chamando o método a ser testado
-        enemy.hurt(20);
+        // Mockar o dano
+        int damage = 30;
 
-        // Verificando se os métodos foram chamados corretamente
-        verify(mockPoint, times(1)).getX();
-        verify(mockPoint, times(1)).getY();
+        // Chamar o método hurt no objeto mock Enemy
+        enemy.hurt(damage);
 
-        // Verificando se o método die() foi chamado corretamente
-        verify(enemy, times(1)).die();
+        // Verificar se o método hurt foi chamado corretamente
+        verify(enemy).hurt(damage);
+
+        // Verificar se o método getActHP foi chamado corretamente após chamar o método hurt
+        Assertions.assertEquals(70, enemy.getActHP());
     }
 
     @Test
-    public void testDie() {
-        // Criando um inimigo mock
-        Enemy enemy = spy(new Enemy(1.5, 100, new Point(10, 20)));
+    public void enemyDieTest() {
+        // Criar um mock para Enemy
+        Enemy enemy = mock(Enemy.class);
 
-        // Chamando o método a ser testado
-        enemy.die();
+        // Configurar o mock com valores iniciais
+        when(enemy.getActHP()).thenReturn(50);
 
-        // Verificando se o método foi chamado corretamente
-        verify(enemy, times(1)).die();
+        // Mockar o dano para exceder o atHP
+        int damage = 60;
+
+        // Chamar o método hurt no objeto mock Enemy
+        enemy.hurt(damage);
+
+        // Verificar se o método hurt foi chamado corretamente
+        verify(enemy).hurt(damage);
+
+        // Verificar se o método die é chamado quando actHP é <= 0
+        verify(enemy).die();
     }
 }

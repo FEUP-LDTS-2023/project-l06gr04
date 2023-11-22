@@ -1,8 +1,7 @@
 package org.example;
-import java.awt.Point;
 
 public abstract class Enemy {
-    Point pos;
+    int x, y;
     double speed;
     int totHP;
     int actHP;
@@ -13,7 +12,8 @@ public abstract class Enemy {
         this.speed = speed;
         this.totHP = totHP;
         actHP = totHP;
-        this.pos= new Point(x,y);
+        this.x = x;
+        this.y = y;
     }
 
     public void hurt(int damage)
