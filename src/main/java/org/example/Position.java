@@ -3,27 +3,27 @@ package org.example;
 import java.util.Objects;
 
 public class Position {
-    int weight;
-    int height;
+    int row;
+    int col;
 
-    public Position(int weight, int height) {
-        this.weight = weight;
-        this.height = height;
+    public Position(int row, int col) {
+        this.row = row;
+        this.col = col;
     }
-    public int getWeight() {
-        return weight;
-    }
-
-    public int getHeight() {
-        return height;
+    public int getRow() {
+        return row;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public int getCol() {
+        return col;
     }
 
-    public void setWeight(int row) {
-        this.weight = row;
+    public void setCol(int col) {
+        this.col = col;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 
     @Override
@@ -31,10 +31,10 @@ public class Position {
         if (this == o) return true;
         if (!(o instanceof Position)) return false;
         Position position = (Position) o;
-        return weight == position.weight && height == position.height;
+        return row == position.row && col == position.col;
     }
     @Override
     public int hashCode() {
-        return Objects.hash(weight, height);
+        return Objects.hash(row, col);
     }
 }
