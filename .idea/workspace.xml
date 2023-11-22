@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Golum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TowerUpgrades.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/EnemyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/EnemyTest.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,9 +68,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+
     "android.gradle.sync.needed": "true",
     "git-widget-placeholder": "enemy/projectile",
     "last_opened_file_path": "/home/up202206280/Desktop/project-l06gr04",
+
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
