@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 
 public class EnemyTest {
 
+<<<<<<< HEAD
     @Test
     public void enemyHurtTest() {
         // Criar um mock para Enemy
@@ -47,4 +48,7 @@ public class EnemyTest {
         // Verificar se o método die é chamado quando actHP é <= 0
         verify(enemy).die();
     }
+=======
+
+>>>>>>> main
 }
