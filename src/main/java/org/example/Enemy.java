@@ -8,7 +8,7 @@ public abstract class Enemy {
     double angle;
     Double[] path;
 
-    Enemy(double speed, int totHP, double x, double y){
+    public Enemy(double speed, int totHP, double x, double y){
         this.speed = speed;
         this.totHP = totHP;
         actHP = totHP;
