@@ -1,13 +1,18 @@
 package org.example;
 
-public class ArcherTower implements Tower{
-    private int level = 1;
-    private int range = 3;
-    private int cost = 250;
-    @Override
+public class ArcherTower extends Tower{
+    int life;
+    int level;
+    int range;
+    int cost;
+    public ArcherTower(){
+        super(250, 1, 3, 250);
+
+    }
     public void atack(Enemy enemy) {
         if (isInRange(enemy)) {
             int damage = dealDamage();
+            enemy.hurt(damage);
         }
     }
 
@@ -16,17 +21,20 @@ public class ArcherTower implements Tower{
         return 5 + level * 5;
     }
 
-    @Override
+    public int getLife(){
+        return life;
+    }
+
     public int getLevel() {
         return level;
     }
 
-    @Override
+
     public int getRange() {
         return range;
     }
 
-    @Override
+
     public boolean isInRange(Enemy enemy) {
         return false;
     }
@@ -35,10 +43,7 @@ public class ArcherTower implements Tower{
     public void upgrade() {
         level++;
         range+=2;
-    }
+        life+=50;
 
-    @Override
-    public int cost(){
-        return cost;
     }
 }

@@ -1,43 +1,28 @@
 package org.example;
 
-public class MageTower implements Tower {
-    private int level = 1;
-    private int range = 5;
-    private int cost = 500;
-    @Override
+public class MageTower extends Tower {
+    int life;
+    int level;
+    int range;
+    int cost;
+    public MageTower(){
+        super(100, 1, 5, 500);
+
+    }
     public void atack(Enemy enemy) {
         if (isInRange(enemy)) {
             int damage = dealDamage();
+            enemy.hurt(damage);
         }
     }
-
     @Override
     public int dealDamage() {
-        return 10 + level * 5;
-    }
-
-    @Override
-    public int getLevel() {
-        return level;
-    }
-
-    @Override
-    public int getRange() {
-        return range;
-    }
-
-    @Override
-    public boolean isInRange(Enemy enemy) {
-        return false;
+        return 20 + level * 5;
     }
 
     @Override
     public void upgrade() {
         level++;
         range+=2;
-    }
-    @Override
-    public int cost(){
-        return cost;
     }
 }
