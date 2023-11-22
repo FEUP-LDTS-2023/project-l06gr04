@@ -8,12 +8,10 @@ public abstract class Enemy {
     double angle;
     Double[] path;
 
-    public Enemy(double speed, int totHP, int x, int y){
+    public Enemy(double speed, int totHP){
         this.speed = speed;
         this.totHP = totHP;
         actHP = totHP;
-        this.x = x;
-        this.y = y;
     }
 
     public void hurt(int damage)
