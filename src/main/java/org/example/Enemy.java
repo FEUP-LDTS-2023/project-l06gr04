@@ -1,7 +1,7 @@
 package org.example;
-import java.awt.Point;
 
 public abstract class Enemy {
+    int x, y;
     double speed;
     int totHP;
     int actHP;
@@ -9,7 +9,6 @@ public abstract class Enemy {
     Double[] path;
 
     public Enemy(double speed, int totHP){
-
         this.speed = speed;
         this.totHP = totHP;
         actHP = totHP;
