@@ -1,6 +1,6 @@
 package org.example.model.game.elements.enemys;
 
-public abstract class Enemy {
+public abstract class Enemy{
     int x, y;
     double speed;
     int totHP;

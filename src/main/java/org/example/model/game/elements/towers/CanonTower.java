@@ -3,13 +3,11 @@ package org.example.model.game.elements.towers;
 import org.example.model.game.elements.enemys.Enemy;
 
 public class CanonTower extends Tower{
-    int life;
-    int level;
-    int range;
-    int cost;
+
     public CanonTower(){
         super(300, 1, 2, 100);
     }
+
     public void attack(Enemy enemy) {
         if (isInRange(enemy)) {
             int damage = dealDamage();
@@ -18,8 +16,9 @@ public class CanonTower extends Tower{
     }
     @Override
     public int dealDamage() {
-        return 1 + level * 5;
+        return 1 + getLevel() * 5;
     }
+
     @Override
     public void upgrade() {
         setLevel(getLevel()+1);

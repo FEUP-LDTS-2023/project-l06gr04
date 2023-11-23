@@ -2,7 +2,7 @@ package org.example.model.game.elements.towers;
 
 import org.example.model.game.elements.enemys.Enemy;
 
-public abstract class Tower {
+public abstract class Tower{
     int life;
     int level;
     int range;
@@ -14,7 +14,6 @@ public abstract class Tower {
         this.range = range;
         this.cost = cost;
     }
-
     public boolean isInRange(Enemy enemy) {
         return true;
     }
@@ -23,7 +22,7 @@ public abstract class Tower {
         return life;
     }
 
-    void atack(Enemy enemy){
+    void attack(Enemy enemy){
         if (isInRange(enemy)) {
             int damage = dealDamage();
             enemy.hurt(damage);

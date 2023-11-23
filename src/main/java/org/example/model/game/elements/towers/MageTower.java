@@ -3,23 +3,22 @@ package org.example.model.game.elements.towers;
 import org.example.model.game.elements.enemys.Enemy;
 
 public class MageTower extends Tower {
-    int life;
-    int level;
-    int range;
-    int cost;
+
     public MageTower(){
         super(100, 1, 5, 500);
 
     }
-    public void atack(Enemy enemy) {
+    @Override
+    public void attack(Enemy enemy) {
         if (isInRange(enemy)) {
             int damage = dealDamage();
             enemy.hurt(damage);
         }
     }
+
     @Override
     public int dealDamage() {
-        return 20 + level * 5;
+        return 20 + getLevel() * 5;
     }
 
     @Override

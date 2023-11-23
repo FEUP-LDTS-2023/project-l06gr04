@@ -1,12 +1,15 @@
 package org.example.gui;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import org.example.model.Position;
 
 import java.io.IOException;
 
@@ -23,7 +26,7 @@ public class Window implements WindowInterface {
 
     public Window() {
         try {
-            TerminalSize terminalSize = new TerminalSize(80, 20);
+            TerminalSize terminalSize = new TerminalSize(120, 40);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
             Terminal terminal = terminalFactory.createTerminal();
             this.screen = new TerminalScreen(terminal);
@@ -72,6 +75,24 @@ public class Window implements WindowInterface {
 
         return KEY.NONE;
 
+    }
+
+    @Override
+    public void drawWall(Position position) {
+        drawIntoGame(position.getRow(), position.getCol(), '#', "#4682b$");
+    }
+    @Override
+    public void drawTower(Position position) {
+        drawIntoGame(position.getRow(), position.getCol(), 'T', "#4682b$");
+    }
+    @Override
+    public void drawEnemy(Position position) {
+        drawIntoGame(position.getRow(), position.getCol(), 'E', "#4682b$");
+    }
+    private void drawIntoGame(int x, int y, char c, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(x, y + 1, "" + c);
     }
 
     public void run() throws IOException {
