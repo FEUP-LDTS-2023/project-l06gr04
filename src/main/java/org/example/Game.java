@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.gui.Window;
 import java.io.IOException;
 
 public class Game {
