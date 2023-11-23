@@ -8,7 +8,7 @@ public class ArcherTower extends Tower {
     }
 
     @Override
-    public void atack(Enemy enemy) {
+    public void attack(Enemy enemy) {
         if (isInRange(enemy)) {
             int damage = dealDamage();
             enemy.hurt(damage);

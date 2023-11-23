@@ -14,7 +14,7 @@ public class ArcherTowerTest {
         Enemy enemy = Mockito.mock(Enemy.class);
         ArcherTower archerTower = new ArcherTower();
         if(archerTower.isInRange(enemy)) {
-            archerTower.atack(enemy);
+            archerTower.attack(enemy);
         }
         verify(enemy).hurt(archerTower.dealDamage());
     }
@@ -34,5 +34,16 @@ public class ArcherTowerTest {
         assertEquals(2, archerTower.getLevel());
         assertEquals(5, archerTower.getRange());
         assertEquals(300, archerTower.getLife());
+    }
+
+    @Test
+    public void testTripleUpgrade() {
+        ArcherTower archerTower = new ArcherTower();
+        archerTower.upgrade();
+        archerTower.upgrade();
+        archerTower.upgrade();
+        assertEquals(4, archerTower.getLevel());
+        assertEquals(9, archerTower.getRange());
+        assertEquals(400, archerTower.getLife());
     }
 }

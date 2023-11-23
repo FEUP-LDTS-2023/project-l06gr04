@@ -14,7 +14,9 @@ public class CanonTowerTest {
     public void testAttack() {
         Enemy enemy = Mockito.mock(Enemy.class);
         CanonTower canonTower = new CanonTower();
-        canonTower.attack(enemy);
+        if(canonTower.isInRange(enemy)) {
+            canonTower.attack(enemy);
+        }
         verify(enemy).hurt(canonTower.dealDamage());
     }
 
@@ -22,7 +24,7 @@ public class CanonTowerTest {
     public void testDealDamage() {
         CanonTower canonTower = new CanonTower();
         int damage = canonTower.dealDamage();
-        assertEquals(1 + canonTower.getLevel() * 5, damage);
+        assertEquals(6, damage);
     }
 
     @Test
@@ -33,5 +35,16 @@ public class CanonTowerTest {
         assertEquals(2, canonTower.getLevel());
         assertEquals(3, canonTower.getRange());
         assertEquals(400, canonTower.getLife());
+    }
+
+    @Test
+    public void testTripleUpgrade() {
+        CanonTower canonTower = new CanonTower();
+        canonTower.upgrade();
+        canonTower.upgrade();
+        canonTower.upgrade();
+        assertEquals(4, canonTower.getLevel());
+        assertEquals(5, canonTower.getRange());
+        assertEquals(600, canonTower.getLife());
     }
 }

@@ -10,6 +10,7 @@ public class Element {
     }
 
     public Position getPosition() {
+
         return this.position;
     }
 
