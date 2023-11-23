@@ -14,10 +14,9 @@ public abstract class Enemy {
         actHP = totHP;
     }
 
-    public void hurt(int damage)
-    {
+    public void hurt(int damage) {
         actHP -= damage;
-        if(actHP <= 0)
+        if (actHP <= 0)
             die();
     }
 
