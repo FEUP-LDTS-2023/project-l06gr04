@@ -21,23 +21,6 @@ public class ArcherTower extends Tower{
         return 5 + level * 5;
     }
 
-    public int getLife(){
-        return life;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-
-    public int getRange() {
-        return range;
-    }
-
-
-    public boolean isInRange(Enemy enemy) {
-        return false;
-    }
 
     @Override
     public void upgrade() {

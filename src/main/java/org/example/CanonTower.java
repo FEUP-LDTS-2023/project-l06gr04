@@ -5,7 +5,7 @@ public class CanonTower extends Tower{
     int level;
     int range;
     int cost;
-    CanonTower(int life, int level, int range, int cost){
+    CanonTower(){
         super(300, 1, 2, 100);
     }
     public void atack(Enemy enemy) {
