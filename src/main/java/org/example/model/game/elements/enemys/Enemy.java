@@ -1,19 +1,26 @@
 package org.example.model.game.elements.enemys;
 
-public abstract class Enemy{
+import org.example.model.game.Point;
+import org.example.model.game.elements.Element;
+
+public abstract class Enemy extends Element {
     int x, y;
+    Point position;
     double speed;
     int totHP;
     int actHP;
     double angle;
     Double[] path;
 
-    public Enemy(double speed, int totHP){
+    public Enemy(double speed, int totHP, int x, int y){
+        super(x,y);
         this.speed = speed;
         this.totHP = totHP;
         actHP = totHP;
+        this.position = new Point(x,y);
     }
-    public int getActHP(){
+
+    public int getActHP() {
         return this.actHP;
     }
 
@@ -25,4 +32,21 @@ public abstract class Enemy{
 
     void die() {
     }
+    public int getX(){
+        return position.getX();
+    }
+    public int getY(){
+        return position.getY();
+    }
+    public void setX(int newx){
+        position = new Point(newx,y);
+    }
+    public void setY(int newy){
+        position = new Point(x, newy);
+    }
+    @Override
+    public Point getPosition() {
+        return this.position;
+    }
+
 }

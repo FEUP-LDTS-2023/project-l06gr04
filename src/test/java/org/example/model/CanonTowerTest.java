@@ -1,6 +1,7 @@
 package org.example.model;
 
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.ArcherTower;
 import org.example.model.game.elements.towers.CanonTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -46,5 +47,30 @@ public class CanonTowerTest {
         assertEquals(4, canonTower.getLevel());
         assertEquals(5, canonTower.getRange());
         assertEquals(600, canonTower.getLife());
+    }
+    @Test
+    public void testGetX() {
+        CanonTower canonTower = new CanonTower();
+        assertEquals(2, canonTower.getX());
+    }
+
+    @Test
+    public void testGetY() {
+        CanonTower canonTower = new CanonTower();
+        assertEquals(1, canonTower.getY());
+    }
+
+    @Test
+    public void testSetX() {
+        CanonTower canonTower = new CanonTower();
+        canonTower.setX(30);
+        assertEquals(30, canonTower.getX());
+    }
+
+    @Test
+    public void testSetY() {
+        CanonTower canonTower = new CanonTower();
+        canonTower.setY(40);
+        assertEquals(40, canonTower.getY());
     }
 }

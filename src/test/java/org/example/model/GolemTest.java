@@ -12,4 +12,29 @@ public class GolemTest {
         golem.hurt(30);
         assertEquals(970, golem.getActHP());
     }
+    @Test
+    public void testGetX() {
+        Golem golem = new Golem();
+        assertEquals(1, golem.getX());
+    }
+
+    @Test
+    public void testGetY() {
+        Golem golem = new Golem();
+        assertEquals(1, golem.getY());
+    }
+
+    @Test
+    public void testSetX() {
+        Golem golem = new Golem();
+        golem.setX(30);
+        assertEquals(30, golem.getX());
+    }
+
+    @Test
+    public void testSetY() {
+        Golem golem = new Golem();
+        golem.setY(40);
+        assertEquals(40, golem.getY());
+    }
 }

@@ -3,6 +3,6 @@ import org.example.model.game.elements.enemys.Enemy;
 
 public class Orc extends Enemy {
     public Orc(){
-        super(2,300);
+        super(2,300,1,1);
     }
 }
