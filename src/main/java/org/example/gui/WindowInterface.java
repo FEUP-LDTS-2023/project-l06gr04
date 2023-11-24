@@ -1,6 +1,7 @@
 package org.example.gui;
 
 import org.example.model.Position;
+import org.example.model.game.arena.Point;
 
 import java.io.IOException;
 
@@ -13,7 +14,7 @@ public interface WindowInterface {
 
     void drawTower(Position position);
 
-    void drawEnemy(Position position);
+    void drawEnemy(Point position);
 
     enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
     void drawWall(Position position);

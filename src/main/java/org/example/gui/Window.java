@@ -10,6 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import org.example.model.Position;
+import org.example.model.game.arena.Point;
 
 import java.io.IOException;
 
@@ -78,6 +79,16 @@ public class Window implements WindowInterface {
     }
 
     @Override
+    public void drawHero(Position position) {
+
+    }
+
+    @Override
+    public void drawMonster(Position position) {
+
+    }
+
+    @Override
     public void drawWall(Position position) {
         drawIntoGame(position.getRow(), position.getCol(), '#', "#4682b$");
     }
@@ -86,8 +97,8 @@ public class Window implements WindowInterface {
         drawIntoGame(position.getRow(), position.getCol(), 'T', "#4682b$");
     }
     @Override
-    public void drawEnemy(Position position) {
-        drawIntoGame(position.getRow(), position.getCol(), 'E', "#4682b$");
+    public void drawEnemy(Point position) {
+        drawIntoGame(position.getX(), position.getY(), 'E', "#4682b$");
     }
     private void drawIntoGame(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();

@@ -4,16 +4,10 @@ import org.example.model.game.elements.enemys.Enemy;
 
 public class ArcherTower extends Tower {
     public ArcherTower() {
-        super(250, 1, 3, 250);
+        super(250, 1, 3, 250,2,1);
     }
 
-    @Override
-    public void attack(Enemy enemy) {
-        if (isInRange(enemy)) {
-            int damage = dealDamage();
-            enemy.hurt(damage);
-        }
-    }
+
 
     @Override
     public int dealDamage() {

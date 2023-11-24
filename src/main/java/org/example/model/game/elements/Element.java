@@ -1,20 +1,19 @@
 package org.example.model.game.elements;
 
-import org.example.model.Position;
+import org.example.model.game.arena.Point;
 
 public class Element {
-    private Position position;
+    private Point position;
 
     public Element(int x, int y) {
-        this.position = new Position(x, y);
+        this.position = new Point(x, y);
     }
 
-    public Position getPosition() {
-
+    public Point getPosition() {
         return this.position;
     }
 
-    public void setPosition(Position position) {
+    public void setPosition(Point position) {
         this.position = position;
     }
 }

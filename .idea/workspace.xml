@@ -6,28 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gui/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gui/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gui/WindowInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gui/WindowInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Golem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Golem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/Tower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/Viewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/Viewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/ElementViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/ElementViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/EnemyViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/EnemyViewer.java" afterDir="false" />
-    </list>
-    <list id="e6a10eb4-ced5-4558-8be1-3ee51f7ae04f" name="Changes by david" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/ProjectileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/ProjectileTest.java" afterDir="false" />
-    </list>
-    <list id="fdab5f5a-857e-44dd-a1e5-244a82ca8adb" name="Changes by dioguerox" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/ArcherTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/ArcherTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/CanonTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/CanonTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/MageTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/MageTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/Tower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/ArcherTowerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/ArcherTowerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/CanonTowerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/CanonTowerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/MageTowerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/MageTowerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,20 +73,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "CodeWithMe",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "/home/up202206280/Desktop/project-l06gr04",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/example/Controller" />
@@ -267,6 +231,7 @@
       </list>
     </recent_temporary>
   </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
