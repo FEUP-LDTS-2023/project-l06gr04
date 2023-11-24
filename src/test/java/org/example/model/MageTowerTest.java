@@ -1,12 +1,10 @@
 package org.example.model;
-
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.CanonTower;
 import org.example.model.game.elements.towers.MageTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 
 public class MageTowerTest {

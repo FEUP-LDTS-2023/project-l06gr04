@@ -1,6 +1,6 @@
 package org.example.model.game.elements;
 
-import org.example.model.game.arena.Point;
+import org.example.model.game.Point;
 
 public class Element {
     private Point position;

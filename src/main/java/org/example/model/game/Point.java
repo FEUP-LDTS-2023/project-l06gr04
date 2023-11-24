@@ -1,4 +1,4 @@
-package org.example.model.game.arena;
+package org.example.model.game;
 
 
 public class Point {
@@ -17,4 +17,10 @@ public class Point {
     public int getY() {
         return y;
     }
+
+
+    public boolean equals(Point position) {
+        return x == position.getX() && y == position.getY();
+    }
+
 }

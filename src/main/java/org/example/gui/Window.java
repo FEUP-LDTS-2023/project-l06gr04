@@ -9,8 +9,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import org.example.model.Position;
-import org.example.model.game.arena.Point;
+import org.example.model.game.Point;
 
 import java.io.IOException;
 
@@ -79,22 +78,22 @@ public class Window implements WindowInterface {
     }
 
     @Override
-    public void drawHero(Position position) {
+    public void drawHero(Point position) {
 
     }
 
     @Override
-    public void drawMonster(Position position) {
+    public void drawMonster(Point position) {
 
     }
 
     @Override
-    public void drawWall(Position position) {
-        drawIntoGame(position.getRow(), position.getCol(), '#', "#4682b$");
+    public void drawWall(Point position) {
+        drawIntoGame(position.getX(), position.getY(), '#', "#4682b$");
     }
     @Override
-    public void drawTower(Position position) {
-        drawIntoGame(position.getRow(), position.getCol(), 'T', "#4682b$");
+    public void drawTower(Point position) {
+        drawIntoGame(position.getX(), position.getY(), 'T', "#4682b$");
     }
     @Override
     public void drawEnemy(Point position) {

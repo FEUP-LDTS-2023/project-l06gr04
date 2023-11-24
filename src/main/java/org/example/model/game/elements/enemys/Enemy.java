@@ -1,6 +1,6 @@
 package org.example.model.game.elements.enemys;
 
-import org.example.model.game.arena.Point;
+import org.example.model.game.Point;
 import org.example.model.game.elements.Element;
 
 public abstract class Enemy extends Element {

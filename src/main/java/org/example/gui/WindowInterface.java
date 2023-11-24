@@ -1,23 +1,22 @@
 package org.example.gui;
 
-import org.example.model.Position;
-import org.example.model.game.arena.Point;
+import org.example.model.game.Point;
 
 import java.io.IOException;
 
 public interface WindowInterface {
     KEY processKey() throws IOException;
 
-    void drawHero(Position position);
+    void drawHero(Point position);
 
-    void drawMonster(Position position);
+    void drawMonster(Point position);
 
-    void drawTower(Position position);
+    void drawTower(Point position);
 
     void drawEnemy(Point position);
 
     enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
-    void drawWall(Position position);
+    void drawWall(Point position);
     void clear();
     void refresh() throws IOException;
     void close() throws IOException;

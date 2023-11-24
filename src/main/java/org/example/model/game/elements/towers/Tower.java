@@ -1,7 +1,7 @@
 package org.example.model.game.elements.towers;
 
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.arena.Point;
+import org.example.model.game.Point;
 public abstract class Tower{
     Point position;
     int x,y;
@@ -51,7 +51,7 @@ public abstract class Tower{
     void setLife(int life){
         this.life = life;
     }
-    Point getPosition(){
+    public Point getPosition(){
         return this.position;
     }
     public int getX(){
