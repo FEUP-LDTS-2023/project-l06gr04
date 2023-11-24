@@ -1,10 +1,11 @@
 package org.example;
 
+import org.example.gui.Window;
 import java.io.IOException;
 
 public class Game {
 
-    private Window window;
+    private final Window window;
 
     public Game() throws IOException {
         this.window = new Window();
