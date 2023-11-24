@@ -1,6 +1,7 @@
 package org.example.model;
 
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.enemys.Skeleton;
 import org.example.model.game.elements.towers.ArcherTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -45,5 +46,30 @@ public class ArcherTowerTest {
         assertEquals(4, archerTower.getLevel());
         assertEquals(9, archerTower.getRange());
         assertEquals(400, archerTower.getLife());
+    }
+    @Test
+    public void testGetX() {
+        ArcherTower archerTower = new ArcherTower();
+        assertEquals(2, archerTower.getX());
+    }
+
+    @Test
+    public void testGetY() {
+        ArcherTower archerTower = new ArcherTower();
+        assertEquals(1, archerTower.getY());
+    }
+
+    @Test
+    public void testSetX() {
+        ArcherTower archerTower = new ArcherTower();
+        archerTower.setX(30);
+        assertEquals(30, archerTower.getX());
+    }
+
+    @Test
+    public void testSetY() {
+        ArcherTower archerTower = new ArcherTower();
+        archerTower.setY(40);
+        assertEquals(40, archerTower.getY());
     }
 }

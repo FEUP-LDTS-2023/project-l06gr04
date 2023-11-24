@@ -21,7 +21,7 @@ public class GolemTest {
     @Test
     public void testGetY() {
         Golem golem = new Golem();
-        assertEquals(1, golem.getX());
+        assertEquals(1, golem.getY());
     }
 
     @Test

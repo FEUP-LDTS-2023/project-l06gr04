@@ -22,7 +22,7 @@ public class OrcTest {
     @Test
     public void testGetY() {
         Orc orc = new Orc();
-        assertEquals(1, orc.getX());
+        assertEquals(1, orc.getY());
     }
 
     @Test

@@ -48,4 +48,29 @@ public class MageTowerTest {
         assertEquals(17, mageTower.getRange());
         assertEquals(175, mageTower.getLife());
     }
+    @Test
+    public void testGetX() {
+        MageTower mageTower = new MageTower();
+        assertEquals(2, mageTower.getX());
+    }
+
+    @Test
+    public void testGetY() {
+        MageTower mageTower = new MageTower();
+        assertEquals(1, mageTower.getY());
+    }
+
+    @Test
+    public void testSetX() {
+        MageTower mageTower = new MageTower();
+        mageTower.setX(30);
+        assertEquals(30, mageTower.getX());
+    }
+
+    @Test
+    public void testSetY() {
+        MageTower mageTower = new MageTower();
+        mageTower.setY(40);
+        assertEquals(40, mageTower.getY());
+    }
 }

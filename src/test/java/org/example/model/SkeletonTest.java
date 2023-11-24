@@ -22,7 +22,7 @@ public class SkeletonTest {
     @Test
     public void testGetY() {
         Skeleton skel = new Skeleton();
-        assertEquals(1, skel.getX());
+        assertEquals(1, skel.getY());
     }
 
     @Test

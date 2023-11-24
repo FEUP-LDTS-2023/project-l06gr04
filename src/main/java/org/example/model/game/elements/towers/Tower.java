@@ -54,10 +54,10 @@ public abstract class Tower{
     Point getPosition(){
         return this.position;
     }
-    int getX(){
+    public int getX(){
         return position.getX();
     }
-    int getY(){
+    public int getY(){
         return position.getY();
     }
     public void setX(int newx){
