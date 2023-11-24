@@ -22,6 +22,12 @@ public abstract class Tower{
         return distance <= this.range;
     }
 
+    public void setX(int newx){
+        position = new Point(newx,y);
+    }
+    public void setY(int newy){
+        position = new Point(x, newy);
+    }
     public int getLife() {
         return life;
     }

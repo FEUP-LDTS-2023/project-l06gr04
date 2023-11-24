@@ -4,6 +4,7 @@ import org.example.model.game.arena.Point;
 import org.example.model.game.elements.Element;
 
 public abstract class Enemy extends Element {
+    int x, y;
     Point position;
     double speed;
     int totHP;
@@ -35,6 +36,12 @@ public abstract class Enemy extends Element {
     }
     public int getY(){
         return position.getY();
+    }
+    public void setX(int newx){
+        position = new Point(newx,y);
+    }
+    public void setY(int newy){
+        position = new Point(x, newy);
     }
     @Override
     public Point getPosition() {
