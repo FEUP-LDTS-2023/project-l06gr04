@@ -21,13 +21,6 @@ public abstract class Tower{
         int distance = (int) Math.sqrt(Math.pow(enemy.getX() - this.x, 2) + Math.pow(enemy.getY() - this.y, 2));
         return distance <= this.range;
     }
-
-    public void setX(int newx){
-        position = new Point(newx,y);
-    }
-    public void setY(int newy){
-        position = new Point(x, newy);
-    }
     public int getLife() {
         return life;
     }
@@ -66,5 +59,11 @@ public abstract class Tower{
     }
     int getY(){
         return position.getY();
+    }
+    public void setX(int newx){
+        position = new Point(newx,y);
+    }
+    public void setY(int newy){
+        position = new Point(x, newy);
     }
 }

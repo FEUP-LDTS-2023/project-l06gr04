@@ -17,6 +17,7 @@ public abstract class Enemy extends Element {
         this.speed = speed;
         this.totHP = totHP;
         actHP = totHP;
+        this.position = new Point(x,y);
     }
 
     public int getActHP() {
