@@ -7,10 +7,6 @@ import java.io.IOException;
 public interface WindowInterface {
     KEY processKey() throws IOException;
 
-    void drawHero(Point position);
-
-    void drawMonster(Point position);
-
     void drawTower(Point position);
 
     void drawEnemy(Point position);

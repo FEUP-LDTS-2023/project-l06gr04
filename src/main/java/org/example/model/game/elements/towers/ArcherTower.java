@@ -3,11 +3,14 @@ package org.example.model.game.elements.towers;
 import org.example.model.game.elements.enemys.Enemy;
 
 public class ArcherTower extends Tower {
-    public ArcherTower() {
-        super(250, 1, 3, 250,2,1);
+    private static final int AT_LIFE = 250;
+    private static final int LEVEL = 1;
+    private static final int RANGE= 3;
+    private static final int COST = 250;
+    public ArcherTower(int x, int y) {
+        super(AT_LIFE, LEVEL, RANGE, COST, x, y);
+
     }
-
-
 
     @Override
     public int dealDamage() {

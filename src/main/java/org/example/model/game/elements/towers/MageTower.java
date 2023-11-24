@@ -3,9 +3,12 @@ package org.example.model.game.elements.towers;
 import org.example.model.game.elements.enemys.Enemy;
 
 public class MageTower extends Tower {
-
-    public MageTower(){
-        super(100, 1, 5, 500,2,1);
+    private static final int MT_LIFE = 100;
+    private static final int LEVEL = 1;
+    private static final int RANGE= 5;
+    private static final int COST = 500;
+    public MageTower(int x, int y){
+        super(MT_LIFE, LEVEL, RANGE, COST,x,y);
 
     }
 

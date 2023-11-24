@@ -12,7 +12,7 @@ public class MageTowerTest {
     @Test
     public void testAttack() {
         Enemy enemy = Mockito.mock(Enemy.class);
-        MageTower mageTower = new MageTower();
+        MageTower mageTower = new MageTower(1,1);
         if(mageTower.isInRange(enemy)){
             mageTower.attack(enemy);
         }
@@ -21,14 +21,14 @@ public class MageTowerTest {
 
     @Test
     public void testDealDamage() {
-        MageTower mageTower = new MageTower();
+        MageTower mageTower = new MageTower(1,1);
         int damage = mageTower.dealDamage();
         assertEquals(25, damage);
     }
 
     @Test
     public void testUpgrade() {
-        MageTower mageTower = new MageTower();
+        MageTower mageTower = new MageTower(1,1);
 
         mageTower.upgrade();
         assertEquals(2, mageTower.getLevel());
@@ -38,7 +38,7 @@ public class MageTowerTest {
 
     @Test
     public void testTripleUpgrade() {
-        MageTower mageTower = new MageTower();
+        MageTower mageTower = new MageTower(1,1);
         mageTower.upgrade();
         mageTower.upgrade();
         mageTower.upgrade();
@@ -48,26 +48,26 @@ public class MageTowerTest {
     }
     @Test
     public void testGetX() {
-        MageTower mageTower = new MageTower();
-        assertEquals(2, mageTower.getX());
+        MageTower mageTower = new MageTower(1,1);
+        assertEquals(1, mageTower.getX());
     }
 
     @Test
     public void testGetY() {
-        MageTower mageTower = new MageTower();
+        MageTower mageTower = new MageTower(1,1);
         assertEquals(1, mageTower.getY());
     }
 
     @Test
     public void testSetX() {
-        MageTower mageTower = new MageTower();
+        MageTower mageTower = new MageTower(1,1);
         mageTower.setX(30);
         assertEquals(30, mageTower.getX());
     }
 
     @Test
     public void testSetY() {
-        MageTower mageTower = new MageTower();
+        MageTower mageTower = new MageTower(1,1);
         mageTower.setY(40);
         assertEquals(40, mageTower.getY());
     }

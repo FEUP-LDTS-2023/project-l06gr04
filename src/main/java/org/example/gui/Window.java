@@ -1,5 +1,4 @@
 package org.example.gui;
-
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.TextColor;
@@ -10,8 +9,14 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import org.example.model.game.Point;
+import org.example.model.game.arena.Arena;
+import org.example.model.game.elements.Wall;
+import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.Tower;
 
 import java.io.IOException;
+
+import static java.awt.Color.RED;
 
 public class Window implements WindowInterface {
     private static final int FPS = 30;
@@ -19,12 +24,13 @@ public class Window implements WindowInterface {
     private long lastFrameTime;
     private long elapsedTime;
     private Screen screen;
+    private Arena arena;
 
     public Window(Screen newScreen) {
         screen = newScreen;
     }
-
-    public Window() {
+    public Window(Arena arena){
+        this.arena = arena;
         try {
             TerminalSize terminalSize = new TerminalSize(120, 40);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
@@ -36,6 +42,23 @@ public class Window implements WindowInterface {
         } catch (IOException e) {
             throw new RuntimeException("Erro ao iniciar a tela", e);
         }
+    }
+    public void drawArena(Arena arena) {
+        for (Wall wall : arena.getWalls()) {
+            drawWall(wall.getPosition());
+        }
+        for (Tower tower : arena.getTowers()) {
+            drawTower(tower.getPosition());
+        }
+        for (Enemy enemy : arena.getEnemies()) {
+            drawEnemy(enemy.getPosition());
+        }
+    }
+
+    private void draw() throws IOException {
+        screen.clear();
+        drawArena(arena);
+        screen.refresh();
     }
     @Override
     public void clear() {
@@ -50,12 +73,6 @@ public class Window implements WindowInterface {
     @Override
     public void close() throws IOException {
         screen.close();
-    }
-
-    private void draw() throws IOException {
-        screen.clear();
-        //arena.draw(screen.newTextGraphics());
-        screen.refresh();
     }
 
     @Override
@@ -78,26 +95,16 @@ public class Window implements WindowInterface {
     }
 
     @Override
-    public void drawHero(Point position) {
-
-    }
-
-    @Override
-    public void drawMonster(Point position) {
-
-    }
-
-    @Override
     public void drawWall(Point position) {
-        drawIntoGame(position.getX(), position.getY(), '#', "#4682b$");
+        drawIntoGame(position.getX(), position.getY(), '#', "WHITE");
     }
     @Override
     public void drawTower(Point position) {
-        drawIntoGame(position.getX(), position.getY(), 'T', "#4682b$");
+        drawIntoGame(position.getX(), position.getY(), 'T', "GREEN");
     }
     @Override
     public void drawEnemy(Point position) {
-        drawIntoGame(position.getX(), position.getY(), 'E', "#4682b$");
+        drawIntoGame(position.getX(), position.getY(), 'E', "RED");
     }
     private void drawIntoGame(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
