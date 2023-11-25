@@ -1,8 +1,9 @@
 package org.example.model.game.elements.towers;
 
 import org.example.model.game.Position;
+import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
-public abstract class Tower{
+public abstract class Tower extends Element {
     Position position;
     int x,y;
     int life;
@@ -11,6 +12,7 @@ public abstract class Tower{
     int cost;
 
     public Tower(int life, int level, int range, int cost, int x, int y){
+        super(x,y);
         this.life = life;
         this.level = level;
         this.range = range;
@@ -51,6 +53,7 @@ public abstract class Tower{
     void setLife(int life){
         this.life = life;
     }
+    @Override
     public Position getPosition(){
         return this.position;
     }

@@ -51,4 +51,7 @@ public class Arena{
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
+    public void setTowers(List<Tower> towers){
+        this.towers = towers;
+    }
 }

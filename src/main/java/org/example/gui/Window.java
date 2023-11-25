@@ -13,6 +13,7 @@ import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.arena.LoadArenaBuilder;
 import org.example.viewer.game.EnemyViewer;
+import org.example.viewer.game.TowerViewer;
 import org.example.viewer.game.WallViewer;
 
 import java.io.IOException;
@@ -49,6 +50,11 @@ public class Window implements WindowInterface {
             drawEnemy(enemyView.getEnemy().getPosition(), enemyView.getEnemySymbol());
             refresh();
         }
+        List<TowerViewer> towerViews = arenaBuilder.createTowerViews(arena);
+        for(TowerViewer towerView : towerViews){
+            drawTower(towerView.getTower().getPosition(),towerView.getTowerSymbol() );
+            refresh();
+        }
     }
     @Override
     public KEY processKey() throws IOException {
@@ -70,18 +76,18 @@ public class Window implements WindowInterface {
 
 
     @Override
-    public void drawTower(Position position) {
-        drawIntoGame(position.getX(), position.getY(), 'T', "#4682b$");
+    public void drawTower(Position position, Character towerSymbol) {
+        drawIntoGame(position.getX(), position.getY(), towerSymbol, "GREEN");
     }
 
     @Override
     public void drawEnemy(Position position, Character enemySymbol) {
-        drawIntoGame(position.getX(), position.getY(), enemySymbol, "BLUE");
+        drawIntoGame(position.getX(), position.getY(), enemySymbol, "RED");
     }
 
     @Override
     public void drawWall(Position position) {
-        drawIntoGame(position.getX(), position.getY(), '#', "RED");
+        drawIntoGame(position.getX(), position.getY(), '#', "WHITE");
     }
 
     private void drawIntoGame(int x, int y, char c, String color) {

@@ -2,7 +2,9 @@ package org.example.model.game.arena;
 
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.Tower;
 import org.example.viewer.game.EnemyViewer;
+import org.example.viewer.game.TowerViewer;
 import org.example.viewer.game.WallViewer;
 
 import java.util.ArrayList;
@@ -15,6 +17,8 @@ public abstract class ArenaBuilder {
         arena.setWalls(walls);
         List<Enemy> enemies = createEnemys();
         arena.setEnemies(enemies);
+        List<Tower> towers = createTowers();
+        arena.setTowers(towers);
         return arena;
     }
 
@@ -24,7 +28,7 @@ public abstract class ArenaBuilder {
 
     protected abstract List<Wall> createWalls();
 
-    // protected abstract List<Tower> createTowers();
+    protected abstract List<Tower> createTowers();
 
     protected abstract List<Enemy> createEnemys();
     //protected abstract List<Path> createPaths();
@@ -48,5 +52,14 @@ public abstract class ArenaBuilder {
         }
 
         return enemyViews;
+    }
+    public List<TowerViewer> createTowerViews(Arena arena){
+        List<TowerViewer> towerViews = new ArrayList<>();
+        List<Tower> towers = arena.getTowers();
+        for(Tower tower : towers){
+            TowerViewer towerView = new TowerViewer(tower);
+            towerViews.add(towerView);
+        }
+        return towerViews;
     }
 }

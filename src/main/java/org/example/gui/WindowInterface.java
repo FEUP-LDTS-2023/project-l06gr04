@@ -8,7 +8,7 @@ public interface WindowInterface {
     KEY processKey() throws IOException;
 
 
-    void drawTower(Position position);
+    void drawTower(Position position, Character towerSymbol);
 
     void drawEnemy(Position position, Character enemySymbol);
 

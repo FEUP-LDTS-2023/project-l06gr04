@@ -5,6 +5,10 @@ import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.enemys.Golem;
 import org.example.model.game.elements.enemys.Orc;
 import org.example.model.game.elements.enemys.Skeleton;
+import org.example.model.game.elements.towers.ArcherTower;
+import org.example.model.game.elements.towers.CanonTower;
+import org.example.model.game.elements.towers.MageTower;
+import org.example.model.game.elements.towers.Tower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +38,15 @@ public class LoadArenaBuilder extends ArenaBuilder{
         }
         return walls;
     }
+    @Override
+    protected List<Tower> createTowers() {
+        List<Tower> towers = new ArrayList<>();
+        towers.add(new MageTower(25, 22));
+        towers.add(new ArcherTower(40, 20));
+        towers.add(new CanonTower(10, 30));
 
-//    @Override
-//    protected List<Tower> createTowers() {
-//        return List.of(new CanonTower());
-//    }
+        return towers;
+    }
 
     @Override
     protected List<Enemy> createEnemys() {
@@ -53,8 +61,8 @@ public class LoadArenaBuilder extends ArenaBuilder{
         enemies.add(new Skeleton(45, 45));
         enemies.add(new Skeleton(50, 50));
 
-        enemies.add(new Orc(70, 70));
-        enemies.add(new Orc(75, 75));
+        enemies.add(new Orc(20, 40));
+        enemies.add(new Orc(22, 20 ));
 
         return enemies;
     }
