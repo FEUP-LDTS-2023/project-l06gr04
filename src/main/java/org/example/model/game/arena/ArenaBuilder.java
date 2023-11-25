@@ -2,6 +2,7 @@ package org.example.model.game.arena;
 
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.viewer.game.EnemyViewer;
 import org.example.viewer.game.WallViewer;
 
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ public abstract class ArenaBuilder {
         Arena arena = new Arena(getWidth(), getHeight());
         List<Wall> walls = createWalls();
         arena.setWalls(walls);
+        List<Enemy> enemies = createEnemys();
+        arena.setEnemies(enemies);
         return arena;
     }
 
@@ -34,5 +37,16 @@ public abstract class ArenaBuilder {
         }
 
         return wallViews;
+    }
+    public List<EnemyViewer> createEnemyViews(Arena arena) {
+        List<EnemyViewer> enemyViews = new ArrayList<>();
+        List<Enemy> enemies = arena.getEnemies();
+
+        for (Enemy enemy : enemies) {
+            EnemyViewer enemyView = new EnemyViewer(enemy);
+            enemyViews.add(enemyView);
+        }
+
+        return enemyViews;
     }
 }

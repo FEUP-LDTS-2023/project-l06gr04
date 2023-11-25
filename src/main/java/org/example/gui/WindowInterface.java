@@ -10,7 +10,7 @@ public interface WindowInterface {
 
     void drawTower(Position position);
 
-    void drawEnemy(Position position);
+    void drawEnemy(Position position, Character enemySymbol);
 
     enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
     void drawWall(Position position);

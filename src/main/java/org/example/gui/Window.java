@@ -12,6 +12,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.arena.LoadArenaBuilder;
+import org.example.viewer.game.EnemyViewer;
 import org.example.viewer.game.WallViewer;
 
 import java.io.IOException;
@@ -41,7 +42,12 @@ public class Window implements WindowInterface {
         List<WallViewer> wallViews = arenaBuilder.createWallViews(arena);
         for (WallViewer wallView : wallViews) {
             drawWall(wallView.getModel().getPosition());
-        refresh();
+            refresh();
+        }
+        List<EnemyViewer> enemyViews = arenaBuilder.createEnemyViews(arena);
+        for (EnemyViewer enemyView : enemyViews) {
+            drawEnemy(enemyView.getEnemy().getPosition(), enemyView.getEnemySymbol());
+            refresh();
         }
     }
     @Override
@@ -69,8 +75,8 @@ public class Window implements WindowInterface {
     }
 
     @Override
-    public void drawEnemy(Position position) {
-        drawIntoGame(position.getX(), position.getY(), 'E', "#4682b$");
+    public void drawEnemy(Position position, Character enemySymbol) {
+        drawIntoGame(position.getX(), position.getY(), enemySymbol, "BLUE");
     }
 
     @Override
