@@ -12,7 +12,7 @@ public class WallViewer extends Viewer<Wall> {
     }
 
     @Override
-    protected void drawElements(Window window) {
+    public void drawElements(Window window) {
         Wall wall = getModel();
         Position position = wall.getPosition();
         window.drawWall(position);
