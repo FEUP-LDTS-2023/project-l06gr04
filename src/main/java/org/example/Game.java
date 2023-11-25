@@ -1,21 +1,24 @@
 package org.example;
 
 import org.example.gui.Window;
-import org.example.model.game.arena.Arena;
-import org.example.model.game.arena.LoadArenaBuilder;
 
 import java.io.IOException;
 
 public class Game {
-    private Window window;
+    private final Window window;
 
-    public Game() throws IOException {
-        LoadArenaBuilder arenaBuilder = new LoadArenaBuilder();
-        Arena arena = arenaBuilder.createArena();
-        this.window = new Window(arena);
+    public Game(Window window) {
+        this.window = window;
+    }
+    public void run() throws IOException {
+
+        window.draw();
     }
 
     public static void main(String[] args) throws IOException {
-        new Game().window.run();
+        Window window = new Window();
+        Game game = new Game(window);
+        game.run();
     }
+
 }

@@ -1,14 +1,10 @@
 package org.example.model.game.arena;
 
-import org.example.model.game.Point;
-import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.enemys.Golem;
 import org.example.model.game.elements.enemys.Orc;
 import org.example.model.game.elements.enemys.Skeleton;
-import org.example.model.game.elements.towers.CanonTower;
-import org.example.model.game.elements.towers.Tower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +13,12 @@ public class LoadArenaBuilder extends ArenaBuilder{
 
     @Override
     protected int getWidth() {
-        return 20;
+        return 120;
     }
 
     @Override
     protected int getHeight() {
-        return 80;
+        return 40;
     }
 
     @Override
@@ -67,4 +63,6 @@ public class LoadArenaBuilder extends ArenaBuilder{
 //    protected List<Path> createPaths() {
 //        return List.of(new Path());
 //    }
+
+
 }
