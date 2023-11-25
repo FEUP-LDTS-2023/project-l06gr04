@@ -11,7 +11,7 @@ public interface WindowInterface {
     void drawTower(Position position, Character towerSymbol);
 
     void drawEnemy(Position position, Character enemySymbol);
-
+    void drawIntoGameText(Position position, String text, String color);
     enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
     void drawWall(Position position);
     void clear();

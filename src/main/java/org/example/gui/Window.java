@@ -21,6 +21,9 @@ import java.util.List;
 
 public class Window implements WindowInterface {
     private final Screen screen;
+    public Window(Screen screen){
+        this.screen=screen;
+    }
 
     public Window() {
         try {
@@ -77,23 +80,29 @@ public class Window implements WindowInterface {
 
     @Override
     public void drawTower(Position position, Character towerSymbol) {
-        drawIntoGame(position.getX(), position.getY(), towerSymbol, "GREEN");
+        drawIntoGameChar(position.getX(), position.getY(), towerSymbol, "GREEN");
     }
 
     @Override
     public void drawEnemy(Position position, Character enemySymbol) {
-        drawIntoGame(position.getX(), position.getY(), enemySymbol, "RED");
+        drawIntoGameChar(position.getX(), position.getY(), enemySymbol, "RED");
     }
 
     @Override
     public void drawWall(Position position) {
-        drawIntoGame(position.getX(), position.getY(), '#', "WHITE");
+        drawIntoGameChar(position.getX(), position.getY(), '#', "WHITE");
     }
 
-    private void drawIntoGame(int x, int y, char c, String color) {
+    void drawIntoGameChar(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y, "" + c);
+    }
+    @Override
+    public void drawIntoGameText(Position position, String text, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), text);
     }
 
     @Override
