@@ -1,28 +1,26 @@
 package org.example.gui;
 
 import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import org.example.model.game.Point;
+import org.example.model.game.Position;
+import org.example.model.game.arena.Arena;
+import org.example.model.game.arena.LoadArenaBuilder;
+import org.example.viewer.game.EnemyViewer;
+import org.example.viewer.game.TowerViewer;
+import org.example.viewer.game.WallViewer;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Window implements WindowInterface {
-    private static final int FPS = 30;
-    private static final long FRAME_TIME = 1000 / FPS;
-    private long lastFrameTime;
-    private long elapsedTime;
-    private Screen screen;
-
-    public Window(Screen newScreen) {
-        screen = newScreen;
-    }
+    private final Screen screen;
 
     public Window() {
         try {
@@ -37,6 +35,67 @@ public class Window implements WindowInterface {
             throw new RuntimeException("Erro ao iniciar a tela", e);
         }
     }
+
+    public void draw() throws IOException {
+        clear();
+        LoadArenaBuilder arenaBuilder = new LoadArenaBuilder();
+        Arena arena = arenaBuilder.createArena();
+        List<WallViewer> wallViews = arenaBuilder.createWallViews(arena);
+        for (WallViewer wallView : wallViews) {
+            drawWall(wallView.getModel().getPosition());
+            refresh();
+        }
+        List<EnemyViewer> enemyViews = arenaBuilder.createEnemyViews(arena);
+        for (EnemyViewer enemyView : enemyViews) {
+            drawEnemy(enemyView.getEnemy().getPosition(), enemyView.getEnemySymbol());
+            refresh();
+        }
+        List<TowerViewer> towerViews = arenaBuilder.createTowerViews(arena);
+        for(TowerViewer towerView : towerViews){
+            drawTower(towerView.getTower().getPosition(),towerView.getTowerSymbol() );
+            refresh();
+        }
+    }
+    @Override
+    public KEY processKey() throws IOException {
+        KeyStroke keyStroke = screen.pollInput();
+        if (keyStroke == null) return KEY.NONE;
+
+        if (keyStroke.getKeyType() == KeyType.EOF) return KEY.QUIT;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return KEY.QUIT;
+
+        if (keyStroke.getKeyType() == KeyType.ArrowUp) return KEY.UP;
+        if (keyStroke.getKeyType() == KeyType.ArrowRight) return KEY.RIGHT;
+        if (keyStroke.getKeyType() == KeyType.ArrowDown) return KEY.DOWN;
+        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return KEY.LEFT;
+
+        if (keyStroke.getKeyType() == KeyType.Enter) return KEY.SELECT;
+
+        return KEY.NONE;
+    }
+
+
+    @Override
+    public void drawTower(Position position, Character towerSymbol) {
+        drawIntoGame(position.getX(), position.getY(), towerSymbol, "GREEN");
+    }
+
+    @Override
+    public void drawEnemy(Position position, Character enemySymbol) {
+        drawIntoGame(position.getX(), position.getY(), enemySymbol, "RED");
+    }
+
+    @Override
+    public void drawWall(Position position) {
+        drawIntoGame(position.getX(), position.getY(), '#', "WHITE");
+    }
+
+    private void drawIntoGame(int x, int y, char c, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(x, y, "" + c);
+    }
+
     @Override
     public void clear() {
         screen.clear();
@@ -50,79 +109,5 @@ public class Window implements WindowInterface {
     @Override
     public void close() throws IOException {
         screen.close();
-    }
-
-    private void draw() throws IOException {
-        screen.clear();
-        //arena.draw(screen.newTextGraphics());
-        screen.refresh();
-    }
-
-    @Override
-    public KEY processKey() throws IOException {
-        KeyStroke key = screen.pollInput();
-        if (key == null) return KEY.NONE;
-
-        if (key.getKeyType() == KeyType.EOF) return KEY.QUIT;
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') return KEY.QUIT;
-
-        if (key.getKeyType() == KeyType.ArrowUp) return KEY.UP;
-        if (key.getKeyType() == KeyType.ArrowRight) return KEY.RIGHT;
-        if (key.getKeyType() == KeyType.ArrowDown) return KEY.DOWN;
-        if (key.getKeyType() == KeyType.ArrowLeft) return KEY.LEFT;
-
-        if (key.getKeyType() == KeyType.Enter) return KEY.SELECT;
-
-        return KEY.NONE;
-
-    }
-
-    @Override
-    public void drawHero(Point position) {
-
-    }
-
-    @Override
-    public void drawMonster(Point position) {
-
-    }
-
-    @Override
-    public void drawWall(Point position) {
-        drawIntoGame(position.getX(), position.getY(), '#', "#4682b$");
-    }
-    @Override
-    public void drawTower(Point position) {
-        drawIntoGame(position.getX(), position.getY(), 'T', "#4682b$");
-    }
-    @Override
-    public void drawEnemy(Point position) {
-        drawIntoGame(position.getX(), position.getY(), 'E', "#4682b$");
-    }
-    private void drawIntoGame(int x, int y, char c, String color) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, "" + c);
-    }
-
-    public void run() throws IOException {
-        long lastFrameTime = System.currentTimeMillis();
-        long elapsedTime;
-
-        while (true) {
-            long currentTime = System.currentTimeMillis();
-            elapsedTime = currentTime - lastFrameTime;
-
-            if (elapsedTime >= FRAME_TIME) {
-                draw();
-                KeyStroke keyStroke = screen.pollInput();
-                if (keyStroke != null) {
-                    if (keyStroke.getKeyType() == KeyType.EOF || (keyStroke.getCharacter() != null && keyStroke.getCharacter() == 'q')) {
-                        break;
-                    }
-                }
-                lastFrameTime = currentTime;
-            }
-        }
     }
 }

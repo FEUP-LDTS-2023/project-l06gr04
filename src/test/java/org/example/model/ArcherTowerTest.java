@@ -13,7 +13,7 @@ public class ArcherTowerTest {
     @Test
     public void testAttack() {
         Enemy enemy = Mockito.mock(Enemy.class);
-        ArcherTower archerTower = new ArcherTower();
+        ArcherTower archerTower = new ArcherTower(1,1);
         if(archerTower.isInRange(enemy)) {
             archerTower.attack(enemy);
         }
@@ -23,14 +23,14 @@ public class ArcherTowerTest {
 
     @Test
     public void testDealDamage() {
-        ArcherTower archerTower = new ArcherTower();
+        ArcherTower archerTower = new ArcherTower(1,1);
         int damage = archerTower.dealDamage();
         assertEquals(5 + archerTower.getLevel() * 5, damage);
     }
 
     @Test
     public void testUpgrade() {
-        ArcherTower archerTower = new ArcherTower();
+        ArcherTower archerTower = new ArcherTower(1,1);
         archerTower.upgrade();
         assertEquals(2, archerTower.getLevel());
         assertEquals(5, archerTower.getRange());
@@ -39,7 +39,7 @@ public class ArcherTowerTest {
 
     @Test
     public void testTripleUpgrade() {
-        ArcherTower archerTower = new ArcherTower();
+        ArcherTower archerTower = new ArcherTower(1,1);
         archerTower.upgrade();
         archerTower.upgrade();
         archerTower.upgrade();
@@ -49,26 +49,26 @@ public class ArcherTowerTest {
     }
     @Test
     public void testGetX() {
-        ArcherTower archerTower = new ArcherTower();
-        assertEquals(2, archerTower.getX());
+        ArcherTower archerTower = new ArcherTower(1,1);
+        assertEquals(1, archerTower.getX());
     }
 
     @Test
     public void testGetY() {
-        ArcherTower archerTower = new ArcherTower();
+        ArcherTower archerTower = new ArcherTower(1,1);
         assertEquals(1, archerTower.getY());
     }
 
     @Test
     public void testSetX() {
-        ArcherTower archerTower = new ArcherTower();
+        ArcherTower archerTower = new ArcherTower(1,1);
         archerTower.setX(30);
         assertEquals(30, archerTower.getX());
     }
 
     @Test
     public void testSetY() {
-        ArcherTower archerTower = new ArcherTower();
+        ArcherTower archerTower = new ArcherTower(1,1);
         archerTower.setY(40);
         assertEquals(40, archerTower.getY());
     }

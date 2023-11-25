@@ -1,11 +1,11 @@
 package org.example.model.game.elements.enemys;
 
-import org.example.model.game.Point;
+import org.example.model.game.Position;
 import org.example.model.game.elements.Element;
 
 public abstract class Enemy extends Element {
     int x, y;
-    Point position;
+    Position position;
     double speed;
     int totHP;
     int actHP;
@@ -17,7 +17,7 @@ public abstract class Enemy extends Element {
         this.speed = speed;
         this.totHP = totHP;
         actHP = totHP;
-        this.position = new Point(x,y);
+        this.position = new Position(x,y);
     }
 
     public int getActHP() {
@@ -39,13 +39,13 @@ public abstract class Enemy extends Element {
         return position.getY();
     }
     public void setX(int newx){
-        position = new Point(newx,y);
+        position = new Position(newx,y);
     }
     public void setY(int newy){
-        position = new Point(x, newy);
+        position = new Position(x, newy);
     }
     @Override
-    public Point getPosition() {
+    public Position getPosition() {
         return this.position;
     }
 

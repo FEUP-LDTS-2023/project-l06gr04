@@ -1,8 +1,11 @@
 package org.example.model.game.elements.enemys;
 
 public class Golem extends Enemy {
-    public Golem(){
-        super(1,1000,1,1);
+    private static final double GOLEM_SPEED = 1;
+    private static final int GOLEM_TOT_HP = 1000;
+
+    public Golem(int x, int y){
+        super(GOLEM_SPEED,GOLEM_TOT_HP,x,y);
     }
 
 }

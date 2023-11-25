@@ -1,20 +1,24 @@
 package org.example;
 
 import org.example.gui.Window;
+
 import java.io.IOException;
 
 public class Game {
+    private final Window window;
 
-    private Window window;
+    public Game(Window window) {
+        this.window = window;
+    }
+    public void run() throws IOException {
 
-    public Game() throws IOException {
-        this.window = new Window();
+        window.draw();
     }
 
     public static void main(String[] args) throws IOException {
-        new Game().window.run();
+        Window window = new Window();
+        Game game = new Game(window);
+        game.run();
     }
-
-
 
 }

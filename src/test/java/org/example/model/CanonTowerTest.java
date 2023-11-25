@@ -14,7 +14,7 @@ public class CanonTowerTest {
     @Test
     public void testAttack() {
         Enemy enemy = Mockito.mock(Enemy.class);
-        CanonTower canonTower = new CanonTower();
+        CanonTower canonTower = new CanonTower(1,1);
         if(canonTower.isInRange(enemy)) {
             canonTower.attack(enemy);
         }
@@ -23,14 +23,14 @@ public class CanonTowerTest {
 
     @Test
     public void testDealDamage() {
-        CanonTower canonTower = new CanonTower();
+        CanonTower canonTower = new CanonTower(1,1);
         int damage = canonTower.dealDamage();
         assertEquals(6, damage);
     }
 
     @Test
     public void testUpgrade() {
-        CanonTower canonTower = new CanonTower();
+        CanonTower canonTower = new CanonTower(1,1);
 
         canonTower.upgrade();
         assertEquals(2, canonTower.getLevel());
@@ -40,7 +40,7 @@ public class CanonTowerTest {
 
     @Test
     public void testTripleUpgrade() {
-        CanonTower canonTower = new CanonTower();
+        CanonTower canonTower = new CanonTower(1,1);
         canonTower.upgrade();
         canonTower.upgrade();
         canonTower.upgrade();
@@ -50,26 +50,26 @@ public class CanonTowerTest {
     }
     @Test
     public void testGetX() {
-        CanonTower canonTower = new CanonTower();
-        assertEquals(2, canonTower.getX());
+        CanonTower canonTower = new CanonTower(1,1);
+        assertEquals(1, canonTower.getX());
     }
 
     @Test
     public void testGetY() {
-        CanonTower canonTower = new CanonTower();
+        CanonTower canonTower = new CanonTower(1,1);
         assertEquals(1, canonTower.getY());
     }
 
     @Test
     public void testSetX() {
-        CanonTower canonTower = new CanonTower();
+        CanonTower canonTower = new CanonTower(1,1);
         canonTower.setX(30);
         assertEquals(30, canonTower.getX());
     }
 
     @Test
     public void testSetY() {
-        CanonTower canonTower = new CanonTower();
+        CanonTower canonTower = new CanonTower(1,1);
         canonTower.setY(40);
         assertEquals(40, canonTower.getY());
     }

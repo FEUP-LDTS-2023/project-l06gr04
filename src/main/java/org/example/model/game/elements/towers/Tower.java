@@ -1,9 +1,10 @@
 package org.example.model.game.elements.towers;
 
+import org.example.model.game.Position;
+import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.Point;
-public abstract class Tower{
-    Point position;
+public abstract class Tower extends Element {
+    Position position;
     int x,y;
     int life;
     int level;
@@ -11,11 +12,12 @@ public abstract class Tower{
     int cost;
 
     public Tower(int life, int level, int range, int cost, int x, int y){
+        super(x,y);
         this.life = life;
         this.level = level;
         this.range = range;
         this.cost = cost;
-        this.position = new Point(x,y);
+        this.position = new Position(x,y);
     }
     public boolean isInRange(Enemy enemy) {
         int distance = (int) Math.sqrt(Math.pow(enemy.getX() - this.x, 2) + Math.pow(enemy.getY() - this.y, 2));
@@ -51,7 +53,8 @@ public abstract class Tower{
     void setLife(int life){
         this.life = life;
     }
-    public Point getPosition(){
+    @Override
+    public Position getPosition(){
         return this.position;
     }
     public int getX(){
@@ -61,9 +64,9 @@ public abstract class Tower{
         return position.getY();
     }
     public void setX(int newx){
-        position = new Point(newx,y);
+        position = new Position(newx,y);
     }
     public void setY(int newy){
-        position = new Point(x, newy);
+        position = new Position(x, newy);
     }
 }

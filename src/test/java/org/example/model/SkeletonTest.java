@@ -9,32 +9,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SkeletonTest {
     @Test
     public void testHurt() {
-        Skeleton skel = new Skeleton();
+        Skeleton skel = new Skeleton(1,1);
         skel.hurt(50);
         assertEquals(50, skel.getActHP());
     }
     @Test
     public void testGetX() {
-        Skeleton skel = new Skeleton();
+        Skeleton skel = new Skeleton(1,1);
         assertEquals(1, skel.getX());
     }
 
     @Test
     public void testGetY() {
-        Skeleton skel = new Skeleton();
+        Skeleton skel = new Skeleton(1,1);
         assertEquals(1, skel.getY());
     }
 
     @Test
     public void testSetX() {
-        Skeleton skel = new Skeleton();
+        Skeleton skel = new Skeleton(1,1);
         skel.setX(30);
         assertEquals(30, skel.getX());
     }
 
     @Test
     public void testSetY() {
-        Skeleton skel = new Skeleton();
+        Skeleton skel = new Skeleton(1,1);
         skel.setY(40);
         assertEquals(40, skel.getY());
     }
