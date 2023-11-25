@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/gui/WindowTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gui/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gui/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gui/WindowInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gui/WindowInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/EnemyViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/viewer/EnemyViewerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/TowerViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/viewer/TowerViewerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/WallViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/viewer/WallViewerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,8 +69,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "android.gradle.sync.needed": "true",
-    "git-widget-placeholder": "feature/Window",
-    "last_opened_file_path": "/home/up202206280/Desktop/project-l06gr04",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/david/Desktop/GAME/project-l06gr04",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
