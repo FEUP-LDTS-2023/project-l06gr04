@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/EnemyViewerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/TowerViewerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/WallViewerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gui/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gui/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gui/WindowInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gui/WindowInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/Arena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/Tower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/TowerViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/TowerViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/WallViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/WallViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,11 +79,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.model" />
       <recent name="org.example.viewer.game" />
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Game">
+  <component name="RunManager" selected="Gradle.Tests in 'TowerDefenceGame.test'">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Game" />
       <module name="TowerDefenceGame.main" />
@@ -148,8 +146,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Game" />
         <item itemvalue="Gradle.Tests in 'TowerDefenceGame.test'" />
+        <item itemvalue="Application.Game" />
         <item itemvalue="Gradle.Tests in 'org.example.model'" />
       </list>
     </recent_temporary>
