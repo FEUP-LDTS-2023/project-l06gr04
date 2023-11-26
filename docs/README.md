@@ -38,7 +38,7 @@ Furthermore, the Factory pattern proved fundamental in simplifying the process o
 
 The following UML class diagram illustrates how these patterns were applied.
 
-![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/yesss.drawio.png)
+![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/UML.drawio.png)
 
 These classes can be found in the following files:
 
