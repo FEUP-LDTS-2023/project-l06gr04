@@ -1,6 +1,6 @@
 package org.example.model;
 
-import org.example.model.game.elements.enemys.Orc;
+import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Skeleton;
 import org.junit.jupiter.api.Test;
 
@@ -28,14 +28,14 @@ public class SkeletonTest {
     @Test
     public void testSetX() {
         Skeleton skel = new Skeleton(1,1);
-        skel.setX(30);
+        skel.setPosition(new Position(30,1));
         assertEquals(30, skel.getX());
     }
 
     @Test
     public void testSetY() {
         Skeleton skel = new Skeleton(1,1);
-        skel.setY(40);
+        skel.setPosition(new Position(1,40));
         assertEquals(40, skel.getY());
     }
 }
