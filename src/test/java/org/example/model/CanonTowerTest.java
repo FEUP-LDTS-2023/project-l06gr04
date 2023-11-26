@@ -1,7 +1,7 @@
 package org.example.model;
 
+import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.ArcherTower;
 import org.example.model.game.elements.towers.CanonTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -63,14 +63,14 @@ public class CanonTowerTest {
     @Test
     public void testSetX() {
         CanonTower canonTower = new CanonTower(1,1);
-        canonTower.setX(30);
+        canonTower.setPosition(new Position(30,1));
         assertEquals(30, canonTower.getX());
     }
 
     @Test
     public void testSetY() {
         CanonTower canonTower = new CanonTower(1,1);
-        canonTower.setY(40);
+        canonTower.setPosition(new Position(1,40));
         assertEquals(40, canonTower.getY());
     }
 }

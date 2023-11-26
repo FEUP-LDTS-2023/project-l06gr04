@@ -1,4 +1,5 @@
 package org.example.model;
+import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.MageTower;
 import org.junit.jupiter.api.Test;
@@ -61,14 +62,14 @@ public class MageTowerTest {
     @Test
     public void testSetX() {
         MageTower mageTower = new MageTower(1,1);
-        mageTower.setX(30);
+        mageTower.setPosition(new Position(30,1));
         assertEquals(30, mageTower.getX());
     }
 
     @Test
     public void testSetY() {
         MageTower mageTower = new MageTower(1,1);
-        mageTower.setY(40);
+        mageTower.setPosition(new Position(1,40));
         assertEquals(40, mageTower.getY());
     }
 }

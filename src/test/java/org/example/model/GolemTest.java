@@ -1,5 +1,6 @@
 package org.example.model;
 
+import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Golem;
 import org.junit.jupiter.api.Test;
 
@@ -27,14 +28,14 @@ public class GolemTest {
     @Test
     public void testSetX() {
         Golem golem = new Golem(1,1);
-        golem.setX(30);
+        golem.setPosition(new Position(30,1));
         assertEquals(30, golem.getX());
     }
 
     @Test
     public void testSetY() {
         Golem golem = new Golem(1,1);
-        golem.setY(40);
+        golem.setPosition(new Position(1,40));
         assertEquals(40, golem.getY());
     }
 }

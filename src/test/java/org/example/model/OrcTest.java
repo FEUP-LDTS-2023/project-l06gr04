@@ -1,8 +1,9 @@
 package org.example.model;
 
-import org.example.model.game.elements.enemys.Golem;
+import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Orc;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrcTest {
@@ -28,14 +29,14 @@ public class OrcTest {
     @Test
     public void testSetX() {
         Orc orc = new Orc(1,1);
-        orc.setX(30);
+        orc.setPosition(new Position(30,1));
         assertEquals(30, orc.getX());
     }
 
     @Test
     public void testSetY() {
         Orc orc = new Orc(1,1);
-        orc.setY(40);
+        orc.setPosition(new Position(1,40));
         assertEquals(40, orc.getY());
     }
 }

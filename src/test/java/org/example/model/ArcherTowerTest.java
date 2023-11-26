@@ -1,7 +1,7 @@
 package org.example.model;
 
+import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.enemys.Skeleton;
 import org.example.model.game.elements.towers.ArcherTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -62,14 +62,14 @@ public class ArcherTowerTest {
     @Test
     public void testSetX() {
         ArcherTower archerTower = new ArcherTower(1,1);
-        archerTower.setX(30);
+        archerTower.setPosition(new Position(30 , 1));
         assertEquals(30, archerTower.getX());
     }
 
     @Test
     public void testSetY() {
         ArcherTower archerTower = new ArcherTower(1,1);
-        archerTower.setY(40);
+        archerTower.setPosition(new Position(1,40));
         assertEquals(40, archerTower.getY());
     }
 }
