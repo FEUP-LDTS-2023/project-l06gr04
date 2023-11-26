@@ -9,7 +9,7 @@ This project was developed by David Carvalho (up202208654@fe.up.pt), Diogo Vieir
 
 - **Tower Placement** - Place different types of towers, including Mage Tower, Archer Tower, and Canon Tower, at strategic positions on the game grid.
 - **Different Enemys** - Creation of various enemy classes such as Orc, Skeleton, and Golem, each with unique attributes and behaviors.
-- **Upgrades and Resources** - Allow players to upgrade towers. and manage resources to enhance their defense capabilities.
+- **Upgrades and Resources** - Allow players to upgrade towers and manage resources to enhance their defense capabilities.
 
 
 ### PLANNED FEATURES
@@ -22,19 +22,21 @@ This project was developed by David Carvalho (up202208654@fe.up.pt), Diogo Vieir
 
 ### DESIGN
 
-#### TOWER BEHAVIOR BASED ON ENEMY TYPES
+#### CODE DUPLICATION
 
 **Problem in Context**
 
-The implementation of tower behavior was becoming convoluted with scattered conditional statements, violating the **Single Responsibility Principle**. There was a need to centralize the logic for tower behavior based on different enemy types.
+In the initial implementation of our tower-defense game, we encountered several challenges that impeded code maintainability and scalability. One issue was the lack of a structured approach to create diverse types of towers and enemies. This resulted in code duplication.
 
 **The Pattern**
 
-We have applied the **Strategy** pattern. This pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. It allows the client to choose the appropriate algorithm at runtime. We also applied the Factory **Factory** pattern
+To solve this, we adopted the Factory Abstract pattern. By introducing abstract classes for towers and enemies, we created a framework that allowed the instantiation of various concrete objects without specifying their classes directly. This reduced redundancy and allowed a flexible foundation for extending the game with new tower and enemy types.
+
+Furthermore, the Factory pattern proved fundamental in simplifying the process of tower and enemy creation. By encapsulating the object instantiation logic, the code became more modular and easier to comprehend. This modularization also facilitated future modifications without affecting the existing codebase. Additionally, to enhance overall code organization, we integrated the Model-View-Controller (MVC) pattern. This architectural design pattern segregated the game logic (Model), user interface (View), and user input (Controller) into distinct components. This separation improved code readability and enabled easier maintenance and scalability. Modifications to one component could be made without significantly impacting the others, what made the code more adaptable.
 
 **Implementation**
 
-The following UML class diagram illustrates how the Strategy pattern was applied to manage tower behavior for different enemy types.
+The following UML class diagram illustrates how these patterns were applied.
 
 ![img](link-to-your-image.png)
 
@@ -48,11 +50,7 @@ These classes can be found in the following files:
 
 **Consequences**
 
-The use of the Strategy Pattern in the current design allows the following benefits:
-
-- Tower behavior is encapsulated in separate classes, adhering to the Single Responsibility Principle.
-- It's easier to add new enemy types or tower behaviors without modifying existing code.
-- Improved code readability and maintainability.
+The use of the Factory Abstract pattern, Factory pattern, and Model-View-Controller pattern played a central role in overcoming initial implementation challenges, resulting in a more modular, scalable, and maintainable tower-defense game.
 
 
 #### KNOWN CODE SMELLS
