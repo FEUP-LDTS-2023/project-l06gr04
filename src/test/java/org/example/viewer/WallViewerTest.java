@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.viewer;
 
 import org.example.gui.Window;
 import org.example.model.game.elements.Wall;
