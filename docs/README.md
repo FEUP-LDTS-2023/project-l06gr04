@@ -78,6 +78,6 @@ Code Coverage image:
 
 In our collaborative effort to develop our tower-defense game, we organized the workload among the team members to ensure efficiency and specialization in different aspects of the project. Each student took responsibility for a specific group of implementations, contributing expertise to their respective areas: (Enemy and Projectiles, Arena and Window, Towers and Position).
 
-- David Carvalho: 33%
-- Diogo Vieira: 33%
-- Tiago Pinto: 33%
+- David Carvalho: 33,3%
+- Diogo Vieira: 33,3%
+- Tiago Pinto: 33,3%
