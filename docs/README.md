@@ -34,6 +34,8 @@ To solve this, we adopted the Factory Abstract pattern. By introducing abstract 
 
 Furthermore, the Factory pattern proved fundamental in simplifying the process of tower and enemy creation. By encapsulating the object instantiation logic, the code became more modular and easier to comprehend. This modularization also facilitated future modifications without affecting the existing codebase. Additionally, to enhance overall code organization, we integrated the Model-View-Controller (MVC) pattern. This architectural design pattern segregated the game logic (Model), user interface (View), and user input (Controller) into distinct components. This separation improved code readability and enabled easier maintenance and scalability. Modifications to one component could be made without significantly impacting the others, what made the code more adaptable.
 
+In the future, we are aiming to implement the Observer pattern that facilitate event handling and the State pattern that manage entity behavior based on states. We also want to use the Composite pattern that streamline hierarchical structures in the game world, and the Builder pattern that allow the step-by-step construction of complex objects. Lastly, the Command pattern that will facilitate command queues, undo/redo, and user input handling, collectively contributing to a robust, modular, and scalable game architecture.
+
 **Implementation**
 
 The following UML class diagram illustrates how these patterns were applied.
