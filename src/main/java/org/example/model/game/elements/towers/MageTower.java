@@ -1,6 +1,5 @@
 package org.example.model.game.elements.towers;
 
-import org.example.model.game.elements.enemys.Enemy;
 
 public class MageTower extends Tower {
     private static final int MT_LIFE = 100;

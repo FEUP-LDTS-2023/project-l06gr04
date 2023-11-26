@@ -1,7 +1,5 @@
 package org.example.model.game.elements.towers;
 
-import org.example.model.game.elements.enemys.Enemy;
-
 public class ArcherTower extends Tower {
     private static final int AT_LIFE = 250;
     private static final int LEVEL = 1;
