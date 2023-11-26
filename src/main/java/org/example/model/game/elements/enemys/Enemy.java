@@ -32,21 +32,6 @@ public abstract class Enemy extends Element {
 
     void die() {
     }
-    public int getX(){
-        return position.getX();
-    }
-    public int getY(){
-        return position.getY();
-    }
-    public void setX(int newx){
-        position = new Position(newx,y);
-    }
-    public void setY(int newy){
-        position = new Position(x, newy);
-    }
-    @Override
-    public Position getPosition() {
-        return this.position;
-    }
+
 
 }
