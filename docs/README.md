@@ -73,7 +73,6 @@ In the process of developing our tower-defense game, several code smells have em
 Code Coverage image:
 
 ![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/Code%20Coverage.png)
-- Link to mutation testing report.
 
 ### SELF-EVALUATION
 
