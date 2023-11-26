@@ -43,7 +43,7 @@ The following UML class diagram illustrates how these patterns were applied.
 These classes can be found in the following files:
 
 - [Tower](link-to-tower-class)
-- [Enemy]([link-to-enemy-class](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/src/main/java/org/example/model/game/elements/enemys/Enemy.java))
+- [Enemy](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/src/main/java/org/example/model/game/elements/enemys/Enemy.java)
 - [MageTower](link-to-magetowerstrategy-class)
 - [ArcherTower](link-to-archertowerstrategy-class)
 - [CanonTower](link-to-canontowerstrategy-class)
