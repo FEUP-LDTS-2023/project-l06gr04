@@ -1,5 +1,6 @@
 package org.example.model.game.arena;
 
+import org.example.model.game.Position;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
@@ -53,5 +54,11 @@ public class Arena{
     }
     public void setTowers(List<Tower> towers){
         this.towers = towers;
+    }
+    public boolean isEmpty(Position position) {
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(position))
+                return false;
+        return true;
     }
 }

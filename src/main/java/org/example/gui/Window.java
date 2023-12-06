@@ -76,6 +76,12 @@ public class Window implements WindowInterface {
 
         return KEY.NONE;
     }
+    @Override
+    public void drawText(Position position, String text, String color){
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), text);
+    }
 
 
     @Override

@@ -8,6 +8,7 @@ public class ArcherTower extends Tower {
     public ArcherTower(int x, int y) {
         super(AT_LIFE, LEVEL, RANGE, COST, x, y);
 
+
     }
 
     @Override
