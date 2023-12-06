@@ -1,7 +1,6 @@
 package org.example.viewer.game;
 
 import org.example.gui.Window;
-import org.example.model.game.Position;
 import org.example.model.game.elements.towers.ArcherTower;
 import org.example.model.game.elements.towers.MageTower;
 import org.example.model.game.elements.towers.Tower;
@@ -30,9 +29,7 @@ public class TowerViewer implements ElementViewer<Tower> {
     }
 
     @Override
-    public void draw(Tower element, Window window) {
-        Position position = tower.getPosition();
-        Character towerSymbol = getTowerSymbol();
-        window.drawTower(position, towerSymbol);
+    public void draw(Tower tower, Window window) {
+        window.drawTower(tower.getPosition(), getTowerSymbol());
     }
 }

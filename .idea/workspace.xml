@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ArenaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ArenaControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/GameController.java" afterDir="false" />
     </list>
     <list id="49e24968-c888-449c-8712-e72b08fbb323" name="Changes by david" comment="" />
+    <list id="e78fcf8d-c940-42ee-9be7-b672e81a696c" name="Changes by dioguerox" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/menu/Menu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,8 +74,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/up202206280/Desktop/tower-defense",
+    "git-widget-placeholder": "CodeWithMe",
+    "last_opened_file_path": "/home/up202206280/Downloads/hero-solid-master",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>

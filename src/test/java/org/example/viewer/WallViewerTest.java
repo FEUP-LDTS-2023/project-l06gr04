@@ -21,8 +21,8 @@ public class WallViewerTest {
 
         Wall wall = new Wall(3, 3);
 
-        WallViewer wallViewer = new WallViewer(wall);
-        wallViewer.drawElements(window);
+        WallViewer wallViewer = new WallViewer();
+        wallViewer.draw(wall,window);
 
         verify(window).drawWall(eq(wall.getPosition()));
     }
