@@ -5,6 +5,7 @@ import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 public abstract class Tower extends Element {
     Position position;
+    char towerSymbol;
     int x,y;
     int life;
     int level;
@@ -27,12 +28,16 @@ public abstract class Tower extends Element {
         return life;
     }
 
+    public char getTowerSymbol() {
+        return towerSymbol;
+    }
     public void attack(Enemy enemy){
         if (isInRange(enemy)) {
             int damage = dealDamage();
             enemy.hurt(damage);
         }
     }
+
     abstract void upgrade();
     abstract int dealDamage();
     public int getLevel(){

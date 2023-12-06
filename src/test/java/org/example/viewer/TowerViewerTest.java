@@ -33,13 +33,13 @@ public class TowerViewerTest {
         towers[2] = canonTower;
 
         for (Tower tower : towers) {
-            TowerViewer towerViewer = new TowerViewer(tower);
+            TowerViewer towerViewer = new TowerViewer();
             towerViewer.draw(tower, window);
         }
 
-        verify(window).drawTower(eq(archerTower.getPosition()), eq('A'));
-        verify(window).drawTower(eq(mageTower.getPosition()), eq('M'));
-        verify(window).drawTower(eq(canonTower.getPosition()), eq('C'));
+        verify(window).drawTower(eq(archerTower.getPosition()),archerTower);
+        verify(window).drawTower(eq(mageTower.getPosition()), mageTower);
+        verify(window).drawTower(eq(canonTower.getPosition()),  canonTower);
     }
 
 }

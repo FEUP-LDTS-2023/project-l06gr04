@@ -8,6 +8,8 @@ public class CanonTower extends Tower{
     private static final int COST = 100;
     public CanonTower(int x, int y) {
         super(CT_LIFE, LEVEL, RANGE, COST, x, y);
+        this.towerSymbol = 'C';
+
     }
 
 

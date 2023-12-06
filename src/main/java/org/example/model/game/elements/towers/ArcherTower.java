@@ -7,6 +7,7 @@ public class ArcherTower extends Tower {
     private static final int COST = 250;
     public ArcherTower(int x, int y) {
         super(AT_LIFE, LEVEL, RANGE, COST, x, y);
+        this.towerSymbol = 'A';
 
 
     }

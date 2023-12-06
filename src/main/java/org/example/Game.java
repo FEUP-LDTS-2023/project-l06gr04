@@ -1,6 +1,8 @@
 package org.example;
 
 import org.example.gui.Window;
+import org.example.model.menu.Menu;
+import org.example.states.MenuState;
 import org.example.states.State;
 
 import java.io.IOException;
@@ -14,6 +16,7 @@ public class Game {
 
     public Game(Window window) {
         this.window = window;
+        this.state = new MenuState(new Menu());
     }
 
     public static void main(String[] args) throws IOException {

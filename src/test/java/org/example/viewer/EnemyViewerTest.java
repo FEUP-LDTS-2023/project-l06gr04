@@ -36,12 +36,12 @@ public class EnemyViewerTest {
         enemies[2] = orc;
 
         for (Enemy enemy : enemies) {
-            EnemyViewer enemyViewer = new EnemyViewer(enemy);
+            EnemyViewer enemyViewer = new EnemyViewer();
             enemyViewer.draw(enemy, window);
         }
 
-        verify(window).drawEnemy(eq(golem.getPosition()), eq('G'));
-        verify(window).drawEnemy(eq(skeleton.getPosition()), eq('S'));
-        verify(window).drawEnemy(eq(orc.getPosition()), eq('O'));
+        verify(window).drawEnemy(eq(golem.getPosition()),golem);
+        verify(window).drawEnemy(eq(skeleton.getPosition()),skeleton);
+        verify(window).drawEnemy(eq(orc.getPosition()),orc);
     }
 }

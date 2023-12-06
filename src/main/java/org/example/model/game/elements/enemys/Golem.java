@@ -6,6 +6,7 @@ public class Golem extends Enemy {
 
     public Golem(int x, int y){
         super(GOLEM_SPEED,GOLEM_TOT_HP,x,y);
+        this.enemySymbol = 'G';
     }
 
 }
