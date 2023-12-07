@@ -1,6 +1,8 @@
 package org.example.model.game.arena;
 
+import org.example.model.game.Level;
 import org.example.model.game.Position;
+import org.example.model.game.Score;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
@@ -17,6 +19,8 @@ public class Arena{
     private List<Tower> towers;
     private List<Enemy> enemies;
     private List<Wall> walls;
+    private Score score;
+    private Level level;
     private Chest chest;
     public Arena(int width, int height) {
         this.width = width;
@@ -64,6 +68,12 @@ public class Arena{
     }
     public void setTowers(List<Tower> towers){
         this.towers = towers;
+    }
+    public Score getScore() {
+        return score;
+    }
+    public Level getLevel(){
+        return level;
     }
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)

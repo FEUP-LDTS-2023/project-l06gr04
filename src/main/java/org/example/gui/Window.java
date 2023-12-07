@@ -85,7 +85,14 @@ public class Window implements WindowInterface {
     public void drawEnemy(Position position, Enemy enemy) {
         drawIntoGameChar(position.getX(), position.getY(), enemy.getEnemySymbol(), "RED");
     }
+    @Override
+    public void drawScore(String score) {
+        drawIntoGameString(0, 0, score, "PURPLE");
+    }
 
+    public void drawLevel(String level) {
+        drawIntoGameString(20, 0, level, "CYAN");
+    }
     @Override
     public void drawWall(Position position) {
         drawIntoGameChar(position.getX(), position.getY(), '#', "WHITE");
@@ -95,6 +102,13 @@ public class Window implements WindowInterface {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y, "" + c);
+    }
+    void drawIntoGameString(int x, int y, String c, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        for (int i = 0; i < c.length(); i++) {
+            tg.putString(x, y, "" + c.charAt(i));
+        }
     }
     @Override
     public void drawIntoGameText(Position position, String text, String color) {
@@ -122,4 +136,6 @@ public class Window implements WindowInterface {
     public void drawPath(Position position) {
         drawIntoGameChar(position.getX(), position.getY(), ' ', "WHITE");
     }
+
+
 }
