@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/level/ChangeLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/level/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/LevelViewer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pontuation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gui/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gui/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/PathViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/PathViewer.java" afterDir="false" />
     </list>
-    <list id="49e24968-c888-449c-8712-e72b08fbb323" name="Changes by david" comment="" />
+    <list id="49e24968-c888-449c-8712-e72b08fbb323" name="Changes by david" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/menu/Menu.java" afterDir="false" />
+    </list>
     <list id="e78fcf8d-c940-42ee-9be7-b672e81a696c" name="Changes by dioguerox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +67,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java">
+      <ranges>
+        <range start1="5" end1="8" start2="5" end2="5" changelist="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" />
+        <range start1="70" end1="71" start2="67" end2="67" changelist="49e24968-c888-449c-8712-e72b08fbb323" />
+        <range start1="75" end1="75" start2="71" end2="76" changelist="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" />
+        <range start1="77" end1="89" start2="78" end2="79" changelist="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" />
+        <range start1="90" end1="93" start2="80" end2="80" changelist="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" />
+        <range start1="98" end1="98" start2="85" end2="105" changelist="49e24968-c888-449c-8712-e72b08fbb323" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -76,7 +95,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "CodeWithMe",
     "last_opened_file_path": "/home/up202206280/Desktop/project-l06gr04",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }

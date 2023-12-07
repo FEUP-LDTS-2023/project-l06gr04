@@ -23,7 +23,7 @@ public class Window implements WindowInterface {
 
     public Window() {
         try {
-            TerminalSize terminalSize = new TerminalSize(120, 40);
+            TerminalSize terminalSize = new TerminalSize(120, 50);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
             Terminal terminal = terminalFactory.createTerminal();
             this.screen = new TerminalScreen(terminal);

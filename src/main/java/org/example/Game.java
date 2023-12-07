@@ -5,7 +5,9 @@ import org.example.model.menu.Menu;
 import org.example.states.MenuState;
 import org.example.states.State;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Game {
     private final Window window;
@@ -14,15 +16,13 @@ public class Game {
         this.state = state;
     }
 
-    public Game(Window window) {
-        this.window = window;
+    public Game() throws FontFormatException, IOException, URISyntaxException {
+        this.window = new Window();
         this.state = new MenuState(new Menu());
     }
 
-    public static void main(String[] args) throws IOException {
-        Window window = new Window();
-        Game game = new Game(window);
-        game.start();
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
+        new Game().start();
     }
 
     private void start() throws IOException {

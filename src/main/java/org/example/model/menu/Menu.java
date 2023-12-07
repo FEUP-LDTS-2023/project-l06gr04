@@ -17,7 +17,7 @@ public class Menu {
                 "   $$ |$$ |  $$ |$$ | $$ | $$ |$$   ____|$$ |            $$ |  $$ |$$   ____|$$ |     $$   ____|$$ |  $$ | \\____$$\\ $$   ____|",
                 "   $$ |\\$$$$$$  |\\$$$$$\\$$$$  |\\$$$$$$$\\ $$ |            $$$$$$$  |\\$$$$$$$\\ $$ |     \\$$$$$$$\\ $$ |  $$ |$$$$$$$  |\\$$$$$$$\\ ",
                 "   \\__| \\______/  \\_____\\____/  \\_______|\\__|            \\_______/  \\_______|\\__|      \\_______|\\__|  \\__|\\_______/  \\_______|");
-        this.entries = Arrays.asList("Level 1", "Level 2", "Level 3", "Exit");
+        this.entries = Arrays.asList("Start", "Leaderboard", "Exit");
     }
     public String getTitle(int i){
         return title.get(i);
@@ -48,10 +48,9 @@ public class Menu {
     public boolean isSelectedExit() {
         return isSelected(entries.size() - 1);
     }
+    public boolean isSelectedStart(){ return isSelected(0);}
 
-    public boolean isSelectedLevel(int level) {
-        return isSelected(level - 1);
-    }
+    public boolean isSelectedLeaderBoard() { return isSelected(1);}
 
     public int getNumberEntries() {
         return this.entries.size();
