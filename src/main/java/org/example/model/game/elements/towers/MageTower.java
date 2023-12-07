@@ -8,6 +8,8 @@ public class MageTower extends Tower {
     private static final int COST = 500;
     public MageTower(int x, int y){
         super(MT_LIFE, LEVEL, RANGE, COST,x,y);
+        this.towerSymbol = 'M';
+
 
     }
 

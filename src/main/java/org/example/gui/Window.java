@@ -10,14 +10,10 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import org.example.model.game.Position;
-import org.example.model.game.arena.Arena;
-import org.example.model.game.arena.LoadArenaBuilder;
-import org.example.viewer.game.EnemyViewer;
-import org.example.viewer.game.TowerViewer;
-import org.example.viewer.game.WallViewer;
+import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.Tower;
 
 import java.io.IOException;
-import java.util.List;
 
 public class Window implements WindowInterface {
     private final Screen screen;
@@ -39,26 +35,22 @@ public class Window implements WindowInterface {
         }
     }
 
-    public void draw() throws IOException {
-        clear();
-        LoadArenaBuilder arenaBuilder = new LoadArenaBuilder();
-        Arena arena = arenaBuilder.createArena();
-        List<WallViewer> wallViews = arenaBuilder.createWallViews(arena);
-        for (WallViewer wallView : wallViews) {
-            drawWall(wallView.getModel().getPosition());
-            refresh();
-        }
-        List<EnemyViewer> enemyViews = arenaBuilder.createEnemyViews(arena);
-        for (EnemyViewer enemyView : enemyViews) {
-            drawEnemy(enemyView.getEnemy().getPosition(), enemyView.getEnemySymbol());
-            refresh();
-        }
-        List<TowerViewer> towerViews = arenaBuilder.createTowerViews(arena);
-        for(TowerViewer towerView : towerViews){
-            drawTower(towerView.getTower().getPosition(),towerView.getTowerSymbol() );
-            refresh();
-        }
-    }
+//    public void draw() throws IOException {
+//        clear();
+//        LoadArenaBuilder arenaBuilder = new LoadArenaBuilder(0);
+//        Arena arena = arenaBuilder.createArena();
+//        List<EnemyViewer> enemyViews = arenaBuilder.createEnemyViews(arena);
+//        for (EnemyViewer enemyView : enemyViews) {
+//            drawEnemy(enemyView.getEnemy().getPosition(), enemyView.getEnemySymbol());
+//            refresh();
+//        }
+//        List<TowerViewer> towerViews = arenaBuilder.createTowerViews(arena);
+//        for(TowerViewer towerView : towerViews){
+//            drawTower(towerView.getTower().getPosition(),towerView.getTowerSymbol() );
+//            refresh();
+//        }
+//        List
+//    }
     @Override
     public KEY processKey() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
@@ -85,13 +77,13 @@ public class Window implements WindowInterface {
 
 
     @Override
-    public void drawTower(Position position, Character towerSymbol) {
-        drawIntoGameChar(position.getX(), position.getY(), towerSymbol, "GREEN");
+    public void drawTower(Position position, Tower tower){
+        drawIntoGameChar(position.getX(), position.getY(), tower.getTowerSymbol(), "GREEN");
     }
 
     @Override
-    public void drawEnemy(Position position, Character enemySymbol) {
-        drawIntoGameChar(position.getX(), position.getY(), enemySymbol, "RED");
+    public void drawEnemy(Position position, Enemy enemy) {
+        drawIntoGameChar(position.getX(), position.getY(), enemy.getEnemySymbol(), "RED");
     }
 
     @Override
@@ -124,5 +116,10 @@ public class Window implements WindowInterface {
     @Override
     public void close() throws IOException {
         screen.close();
+    }
+
+    @Override
+    public void drawPath(Position position) {
+        drawIntoGameChar(position.getX(), position.getY(), ' ', "WHITE");
     }
 }

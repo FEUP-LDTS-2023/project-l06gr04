@@ -4,6 +4,8 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import org.example.model.game.Position;
+import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.Tower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -31,13 +33,15 @@ public class WindowTest {
     }
     @Test
     void testDrawEnemy() throws Exception {
-        window.drawEnemy(new Position(1, 1), 'E');
+        Enemy enemy = Mockito.mock(Enemy.class);
+        window.drawEnemy(new Position(1, 1),enemy);
         verify(tg).setForegroundColor(TextColor.Factory.fromString("RED"));
         verify(tg).putString(1, 1, String.valueOf('E'));
     }
     @Test
     void testDrawTower() throws Exception{
-        window.drawTower(new Position(1, 1), 'T');
+        Tower tower = Mockito.mock(Tower.class);
+        window.drawTower(new Position(1, 1), tower);
         verify(tg, Mockito.times(1)).setForegroundColor(TextColor.Factory.fromString("GREEN"));
         verify(tg, Mockito.times(1)).putString(1, 1, "T");
     }

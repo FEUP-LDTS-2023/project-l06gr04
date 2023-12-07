@@ -6,6 +6,7 @@ import org.example.model.game.elements.Element;
 public abstract class Enemy extends Element {
     int x, y;
     Position position;
+    char enemySymbol;
     double speed;
     int totHP;
     int actHP;
@@ -19,7 +20,9 @@ public abstract class Enemy extends Element {
         actHP = totHP;
         this.position = new Position(x,y);
     }
-
+    public char getEnemySymbol() {
+        return enemySymbol;
+    }
     public int getActHP() {
         return this.actHP;
     }

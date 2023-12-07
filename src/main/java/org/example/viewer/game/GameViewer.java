@@ -1,9 +1,11 @@
 package org.example.viewer.game;
 
 import org.example.gui.Window;
-import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Element;
+import org.example.model.game.elements.Wall;
+import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.Tower;
 import org.example.viewer.Viewer;
 
 import java.util.List;
@@ -15,11 +17,30 @@ public class GameViewer extends Viewer<Arena> {
 
     @Override
     public void drawElements(Window window) {
-        drawElements(window, getModel().getWalls(), new WallViewer());
-        drawElements(window, getModel().getEnemies(), new EnemyViewer());
-        drawElement(window, getModel().getTowers(), new TowerViewer());
+        List<Wall> walls = getModel().getWalls();
+        if (walls != null && !walls.isEmpty()) {
+            WallViewer wallViewer = new WallViewer();
+            for (Wall wall : walls) {
+                drawElement(window, wall, wallViewer);
+            }
+        }
 
-        window.drawText(new Position(0, 0), "LIFE " + getModel().getTowers()/*dar a vida*/, "#FFD700");
+        List<Enemy> enemies = getModel().getEnemies();
+        if (enemies != null && !enemies.isEmpty()) {
+            EnemyViewer enemyViewer = new EnemyViewer();
+            for (Enemy enemy : enemies) {
+                drawElement(window, enemy, enemyViewer);
+            }
+        }
+
+        List<Tower> towers = getModel().getTowers();
+        if (towers != null && !towers.isEmpty()) {
+            TowerViewer towerViewer = new TowerViewer();
+            for (Tower tower : towers) {
+                drawElement(window, tower, towerViewer);
+            }
+        }
+        //window.drawText(new Position(0, 0), "LIFE " + getModel().getTowers()/*dar a vida*/, "#FFD700");
     }
 
     private <T extends Element> void drawElements(Window window, List<T> elements, ElementViewer<T> viewer) {
