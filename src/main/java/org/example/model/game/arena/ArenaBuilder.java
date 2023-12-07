@@ -3,11 +3,7 @@ package org.example.model.game.arena;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
-import org.example.viewer.game.EnemyViewer;
-import org.example.viewer.game.TowerViewer;
-import org.example.viewer.game.WallViewer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ArenaBuilder {
@@ -34,6 +30,8 @@ public abstract class ArenaBuilder {
 
     protected abstract List<Enemy> createEnemys();
    // protected abstract List<Path> createPaths();
+
+    /*
     public List<WallViewer> createWallViews(Arena arena) {
         List<WallViewer> wallViews = new ArrayList<>();
         List<Wall> walls = arena.getWalls();
@@ -64,6 +62,8 @@ public abstract class ArenaBuilder {
         }
         return towerViews;
     }
+    */
+
 //    public List<PathViewer> createPathViews(Arena arena){
 //        List<PathViewer> pathViews = new ArrayList<>();
 //        List<Path> paths = arena.getPaths();

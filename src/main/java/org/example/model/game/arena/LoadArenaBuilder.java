@@ -3,9 +3,6 @@ package org.example.model.game.arena;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.enemys.Golem;
-import org.example.model.game.elements.enemys.Orc;
-import org.example.model.game.elements.enemys.Skeleton;
 import org.example.model.game.elements.towers.ArcherTower;
 import org.example.model.game.elements.towers.CanonTower;
 import org.example.model.game.elements.towers.MageTower;
@@ -68,34 +65,44 @@ public class LoadArenaBuilder extends ArenaBuilder {
                 towers.add(new CanonTower(15, 28));
                 break;
         }
-
         return towers;
     }
 
     @Override
     protected List<Enemy> createEnemys() {
+        return null;
+    }
+
+    /*@Override
+    protected List<Enemy> createEnemys() {
         List<Enemy> enemies = new ArrayList<>();
+        for ()
 
-        switch (arenaNumber) {
-            case 1, 2, 3:
-                enemies.add(new Golem(5, 5));
-                enemies.add(new Golem(10, 10));
-                enemies.add(new Golem(15, 15));
-
-                enemies.add(new Skeleton(20, 20));
-                enemies.add(new Skeleton(35, 35));
-                enemies.add(new Skeleton(40, 40));
-                enemies.add(new Skeleton(45, 45));
-                enemies.add(new Skeleton(50, 50));
-
-                enemies.add(new Orc(20, 40));
-                enemies.add(new Orc(22, 20));
-                break;
 
         }
 
         return enemies;
     }
+    @Override
+    protected List<Enemy> createEnemys() {
+        List<Enemy> enemies = new ArrayList<>();
+
+            switch (arenaNumber) {
+                case 1, 2, 3:
+                    enemies.add(new Golem(5, 5));
+                    enemies.add(new Golem(10, 10));
+                    enemies.add(new Golem(15, 15));
+
+                    enemies.add(new Skeleton(20, 20));
+                    enemies.add(new Skeleton(35, 35));
+                    enemies.add(new Skeleton(40, 40));
+                    enemies.add(new Skeleton(45, 45));
+                    enemies.add(new Skeleton(50, 50));
+
+                    enemies.add(new Orc(20, 40));
+                    enemies.add(new Orc(22, 20));
+                    return enemies;
+    }*/
 //    @Override
 //    protected List<Path> createPaths() {
 //        List<Path> paths = new ArrayList<>();

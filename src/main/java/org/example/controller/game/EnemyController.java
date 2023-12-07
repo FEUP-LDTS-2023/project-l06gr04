@@ -25,10 +25,12 @@ public class EnemyController extends GameController {
         }
     }
 
-    private void moveMonster(Enemy monster, Position position) {
+    private void moveMonster(Enemy enemy, Position position) {
         if (getModel().isEmpty(position)) {
-            monster.setPosition(position);
-            /*verificar se ele morre*/
+            enemy.setPosition(position);
+            if (enemy.getActHP()==0){
+                /*retirar do mapa*/
+            }
         }
     }
 }
