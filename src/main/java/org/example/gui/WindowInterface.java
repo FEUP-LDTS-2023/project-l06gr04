@@ -23,6 +23,8 @@ public interface WindowInterface {
 
     void drawEnemy(Position position, Enemy enemy);
 
+    void drawScore(String score);
+
     void drawWall(Position position);
     void clear();
     void refresh() throws IOException;
