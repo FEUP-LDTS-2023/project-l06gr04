@@ -11,8 +11,12 @@ import java.io.IOException;
 public abstract class State<T> {
 
     private final T model;
+    private final Controller<T> controller;
+    private final Viewer<T> viewer;
 
     public State(T newModel) {
+        this.viewer=getViewer();
+        this.controller = getController();
         this.model = newModel;
     }
 
@@ -26,7 +30,7 @@ public abstract class State<T> {
 
     public void step(Game game, Window window, long time) throws IOException {
         Window.KEY action = window.processKey();
-        getController().step(game, action, time);
-        getViewer().draw(window);
+        controller.step(game, action, time);
+        viewer.draw(window);
     }
 }

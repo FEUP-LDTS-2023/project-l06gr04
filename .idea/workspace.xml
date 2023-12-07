@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/menu/MenuViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/menu/MenuViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoadArenaBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" afterDir="false" />
     </list>
     <list id="49e24968-c888-449c-8712-e72b08fbb323" name="Changes by david" comment="" />
     <list id="e78fcf8d-c940-42ee-9be7-b672e81a696c" name="Changes by dioguerox" comment="" />
@@ -67,16 +71,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/menu&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/up202206280/Downloads/hero-solid-master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/up202206280/Desktop/project-l06gr04",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.model" />
@@ -86,7 +90,7 @@
   </component>
   <component name="RunManager" selected="Application.Game">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH" value="19" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.Game" />
       <module name="TowerDefenceGame.main" />
@@ -146,6 +150,19 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="TowerDefenceGame" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="TowerDefenceGame" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Game" />
       <item itemvalue="Gradle.Tests in 'org.example.model'" />
@@ -198,6 +215,6 @@
     <SUITE FILE_PATH="coverage/TowerDefenceGame$Game.ic" NAME="Game Coverage Results" MODIFIED="1701018286000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.example.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TowerDefenceGame$Tests_in__TowerDefenceGame_test_.ic" NAME="Tests in 'TowerDefenceGame.test' Coverage Results" MODIFIED="1701019173161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TowerDefenceGame$Tests_in__TowerDefenceGame_test_.ic" NAME="Tests in 'TowerDefenceGame.test' Coverage Results" MODIFIED="1701018334233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

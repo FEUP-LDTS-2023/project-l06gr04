@@ -75,7 +75,7 @@ public class LoadArenaBuilder extends ArenaBuilder {
     @Override
     protected List<Enemy> createEnemys() {
         List<Enemy> enemies = new ArrayList<>();
-
+        /* é para mudar a forma de inicializar os monstros*/
         switch (arenaNumber) {
             case 1, 2, 3:
                 enemies.add(new Golem(5, 5));

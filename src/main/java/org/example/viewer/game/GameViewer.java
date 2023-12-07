@@ -3,7 +3,6 @@ package org.example.viewer.game;
 import org.example.gui.Window;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Element;
-import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
 import org.example.viewer.Viewer;
@@ -17,13 +16,7 @@ public class GameViewer extends Viewer<Arena> {
 
     @Override
     public void drawElements(Window window) {
-        List<Wall> walls = getModel().getWalls();
-        if (walls != null && !walls.isEmpty()) {
-            WallViewer wallViewer = new WallViewer();
-            for (Wall wall : walls) {
-                drawElement(window, wall, wallViewer);
-            }
-        }
+        drawElements(window, getModel().getWalls(), new WallViewer());
 
         List<Enemy> enemies = getModel().getEnemies();
         if (enemies != null && !enemies.isEmpty()) {
