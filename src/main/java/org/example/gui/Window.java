@@ -1,6 +1,8 @@
 package org.example.gui;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -95,13 +97,20 @@ public class Window implements WindowInterface {
     }
     @Override
     public void drawWall(Position position) {
-        drawIntoGameChar(position.getX(), position.getY(), '#', "WHITE");
+        int x = position.getX();
+        int y = position.getY();
+
+        TextCharacter wallCharacter = TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.WHITE);
+
+
+        screen.setCharacter(x, y, wallCharacter);
+
     }
 
     void drawIntoGameChar(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y, "" + c);
+        tg.putString(x, y, "" + c, SGR.BOLD);
     }
     void drawIntoGameString(int x, int y, String c, String color) {
         TextGraphics tg = screen.newTextGraphics();
