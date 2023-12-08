@@ -15,15 +15,19 @@ public class Arena{
     private List<Path> paths;
     private final int width;
     private final int height;
+    private int coins;
     private List<Tower> towers;
     private List<Enemy> enemies;
     private List<Wall> walls;
     private Score score;
     private Level level;
-    private List<Chest> chests;
+    private Chest chest;
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        this.level = new Level();
+        this.score = new Score();
+        this.coins = 500;
     }
 
     public int getWidth() {
@@ -33,7 +37,15 @@ public class Arena{
     public int getHeight() {
         return height;
     }
-
+    public List<Path> getPaths() {
+        return paths;
+    }
+    public void setChest(Chest chest){
+        this.chest = chest;
+    }
+    public void setScore(Score score){
+        this.score = score;
+    }
     public List<Enemy> getEnemies() {
         return enemies;
     }
@@ -67,5 +79,21 @@ public class Arena{
             if (wall.getPosition().equals(position))
                 return false;
         return true;
+    }
+
+    public void setPaths(List<Path> paths) {
+        this.paths = paths;
+    }
+
+    public Chest getChest() {
+        return chest;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void setCoins(int i) {
+        this.coins = i;
     }
 }

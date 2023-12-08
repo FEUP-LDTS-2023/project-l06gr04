@@ -5,6 +5,7 @@ import org.example.model.game.elements.Element;
 
 public abstract class Enemy extends Element {
     int x, y;
+    boolean isDead = false;
     Position position;
     char enemySymbol;
     double speed;
@@ -26,7 +27,9 @@ public abstract class Enemy extends Element {
     public int getActHP() {
         return this.actHP;
     }
-
+    public double getSpeed() {
+        return speed;
+    }
     public void hurt(int damage) {
         actHP -= damage;
         if (actHP <= 0)
@@ -34,7 +37,14 @@ public abstract class Enemy extends Element {
     }
 
     void die() {
+        isDead = true;
+        actHP = 0;
+    }
+    public boolean isDead() {
+        return isDead;
     }
 
-
+    public void setDead(boolean b) {
+        isDead = b;
+    }
 }

@@ -8,5 +8,4 @@ public class Golem extends Enemy {
         super(GOLEM_SPEED,GOLEM_TOT_HP,x,y);
         this.enemySymbol = 'G';
     }
-
 }

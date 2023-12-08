@@ -18,6 +18,7 @@ public class LevelController extends GameController {
 
     }
 
+
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
         if (getModel() != null) {
