@@ -10,6 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import org.example.model.game.Position;
+import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
 
@@ -134,6 +135,10 @@ public class Window implements WindowInterface {
 
     @Override
     public void drawPath(Position position) {
-        drawIntoGameChar(position.getX(), position.getY(), ' ', "WHITE");
+        drawIntoGameChar(position.getX(), position.getY(), '.', "WHITE");
+    }
+
+    public void drawChest(Position position, Chest chest) {
+        drawIntoGameChar(position.getX(), position.getY(), chest.getChestSymbol(), "YELLOW");
     }
 }

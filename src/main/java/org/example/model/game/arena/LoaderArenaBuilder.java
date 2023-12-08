@@ -1,6 +1,7 @@
 package org.example.model.game.arena;
 
 import org.example.model.game.elements.Chest;
+import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
@@ -46,17 +47,35 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     @Override
     protected List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
-        List<Chest> chest = new ArrayList<>();
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == '#') walls.add(new Wall(x, y));
-                else if (line.charAt(x) == '.') walls.add(new Wall(x, y));
-                else if (line.charAt(x) == 'C') chest.add(new Chest(x, y));
+                else if(line.charAt(x) == '|') walls.add(new Wall(x, y));
+                else if(line.charAt(x)== '-') walls.add(new Wall(x,y));
         }
         return walls;
     }
-
+    @Override
+    protected List<Path> createPaths() {
+        List<Path> paths = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == '.') paths.add(new Path(x, y));
+        }
+        return paths;
+    }
+    @Override
+    protected Chest createChest() {
+        Chest chest = null;
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == 'C') return new Chest(x,y);
+                }
+        return null;
+    }
     @Override
     protected List<Tower> createTowers() {
         return new ArrayList<>();

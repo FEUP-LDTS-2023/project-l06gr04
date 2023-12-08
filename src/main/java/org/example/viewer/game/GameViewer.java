@@ -2,6 +2,7 @@ package org.example.viewer.game;
 
 import org.example.gui.Window;
 import org.example.model.game.arena.Arena;
+import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
@@ -17,7 +18,9 @@ public class GameViewer extends Viewer<Arena> {
     @Override
     public void drawElements(Window window) {
         drawElements(window, getModel().getWalls(), new WallViewer());
-
+        drawElements(window, getModel().getPaths(), new PathViewer());
+        Chest chest = (Chest) getModel().getChest();
+        drawElement(window, chest, new ChestViewer());
         List<Enemy> enemies = getModel().getEnemies();
         if (enemies != null && !enemies.isEmpty()) {
             EnemyViewer enemyViewer = new EnemyViewer();
