@@ -24,7 +24,7 @@ public class Arena{
         this.walls = new ArrayList<>();
         this.enemies = new ArrayList<>();
         this.towers = new ArrayList<>();
-        //this.paths = new ArrayList<>();
+        this.paths = new ArrayList<>();
         this.chest = new Chest(width/2, height/2);
     }
 
@@ -44,12 +44,12 @@ public class Arena{
         return towers;
     }
 
-//    public List<Path> getPaths() {
-//        return paths;
-//    }
-//    public void setPaths(List<Path> paths){
-//        this.paths = paths;
-//    }
+    public List<Path> getPaths() {
+        return paths;
+    }
+    public void setPaths(List<Path> paths){
+        this.paths = paths;
+    }
 
     public void setEnemies(List<Enemy> enemies) {
         this.enemies = enemies;

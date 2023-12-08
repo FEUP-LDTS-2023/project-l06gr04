@@ -18,7 +18,7 @@ public class Path extends Element {
         this.pathMatrix = pathMatrix;
     }
 
-    private void initializePathMatrix(int width, int height) {
+    public void initializePathMatrix(int width, int height) {
         pathMatrix = new char[width][height];
 
         for (int row = 0; row < height; row++) {

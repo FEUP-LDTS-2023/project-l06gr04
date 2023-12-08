@@ -1,6 +1,5 @@
 package org.example.model.game.arena;
 
-import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.enemys.Golem;
@@ -17,8 +16,6 @@ import java.util.List;
 public class LoadArenaBuilder extends ArenaBuilder {
 
     private final int arenaNumber;
-    private char[][] pathMatrix;
-    private Chest chest;
 
     public LoadArenaBuilder(int arenaNumber) {
         this.arenaNumber = arenaNumber;
@@ -96,64 +93,5 @@ public class LoadArenaBuilder extends ArenaBuilder {
 
         return enemies;
     }
-//    @Override
-//    protected List<Path> createPaths() {
-//        List<Path> paths = new ArrayList<>();
-//        switch (arenaNumber) {
-//            case 1:
-//                createLevelOnePaths(getWidth(), getHeight());
-//                break;
-//            case 2:
-//                createLevelTwoPaths(getWidth(), getHeight());
-//                break;
-//            case 3:
-//                createLevelThreePaths(getWidth(), getHeight());
-//                break;
-//            default:
-//                throw new IllegalArgumentException("Invalid arena number");
-//        }
-//        return paths;
-//    }
-//
-//    private void createLevelOnePaths(int width, int height) {
-//        List<Path> paths = new ArrayList<>();
-//        this.chest = new Chest(60, 20);
-//        createContiguousPaths(width, height, chest.getX(), chest.getY(), 5, 20);
-//        Path path = new Path(width, height);
-//        path.setPathMatrix(pathMatrix);
-//        paths.add(path);
-//    }
-//
-//    private void createLevelTwoPaths(int width, int height) {
-//        this.chest = new Chest(60, 20);
-//        createContiguousPaths(width, height, chest.getX(), chest.getY(), 50, 65);
-//        createContiguousPaths(width, height, chest.getX(), chest.getY(), 80, 35);
-//        Path path = new Path(width, height);
-//        path.setPathMatrix(pathMatrix);
-//    }
-//
-//    private void createLevelThreePaths(int width, int height) {
-//        this.chest = new Chest(60, 20);
-//        createContiguousPaths(width, height, chest.getX(), chest.getY(), 40, 55);
-//        createContiguousPaths(width, height, chest.getX(), chest.getY(), 80, 35);
-//        createContiguousPaths(width, height, chest.getX(), chest.getY(),  60, 75);
-//        Path path = new Path(width, height);
-//        path.setPathMatrix(pathMatrix);
-//    }
-//
-//    private void createContiguousPaths(int width, int height, int startX, int startY, int endX, int endY) {
-//        int currentX = startX;
-//        int currentY = startY;
-//        int targetX = chest.getX();
-//        int targetY = chest.getY();
-//
-//        while (currentX != targetX || currentY != targetY) {
-//            pathMatrix[currentX][currentY] = ' ';
-//            if (Math.random() < 0.5) {
-//                currentX += (currentX < targetX) ? 1 : -1;
-//            } else {
-//                currentY += (currentY < targetY) ? 1 : -1;
-//            }
-//        }
-//    }
+
 }
