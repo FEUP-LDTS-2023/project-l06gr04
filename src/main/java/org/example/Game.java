@@ -52,4 +52,5 @@ public class Game {
         }
         window.close();
     }
+
 }
