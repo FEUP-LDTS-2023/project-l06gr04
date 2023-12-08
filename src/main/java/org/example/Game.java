@@ -14,6 +14,7 @@ import java.net.URISyntaxException;
 public class Game {
     private final Window window;
     private State state;
+    private Menu menu;
     private Score score;
     private Level level;
     public void setState(State state) {
@@ -28,11 +29,12 @@ public class Game {
         this.level = new Level();
     }
 
-    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
+
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException, ClassNotFoundException {
         new Game().start();
     }
 
-    private void start() throws IOException {
+    private void start() throws IOException, URISyntaxException, ClassNotFoundException {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 

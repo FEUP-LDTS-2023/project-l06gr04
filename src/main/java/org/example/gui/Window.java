@@ -136,6 +136,4 @@ public class Window implements WindowInterface {
     public void drawPath(Position position) {
         drawIntoGameChar(position.getX(), position.getY(), ' ', "WHITE");
     }
-
-
 }

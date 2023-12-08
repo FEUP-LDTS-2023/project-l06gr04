@@ -7,16 +7,13 @@ import org.example.gui.Window;
 import org.example.viewer.Viewer;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public abstract class State<T> {
 
     private final T model;
-    private final Controller<T> controller;
-    private final Viewer<T> viewer;
 
     public State(T newModel) {
-        this.viewer=getViewer();
-        this.controller = getController();
         this.model = newModel;
     }
 
@@ -28,9 +25,9 @@ public abstract class State<T> {
         return model;
     }
 
-    public void step(Game game, Window window, long time) throws IOException {
+    public void step(Game game, Window window, long time) throws IOException, URISyntaxException, ClassNotFoundException {
         Window.KEY action = window.processKey();
-        controller.step(game, action, time);
-        viewer.draw(window);
+        getController().step(game, action, time);
+        getViewer().draw(window);
     }
 }
