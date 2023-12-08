@@ -1,31 +1,40 @@
 package org.example;
 
 import org.example.gui.Window;
+import org.example.model.game.Level;
+import org.example.model.game.Score;
 import org.example.model.menu.Menu;
 import org.example.states.MenuState;
 import org.example.states.State;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Game {
     private final Window window;
     private State state;
+    private Menu menu;
+    private Score score;
+    private Level level;
     public void setState(State state) {
         this.state = state;
     }
 
-    public Game(Window window) {
-        this.window = window;
+
+    public Game() throws FontFormatException, IOException, URISyntaxException {
+        this.window = new Window();
         this.state = new MenuState(new Menu());
+        this.score = new Score();
+        this.level = new Level();
     }
 
-    public static void main(String[] args) throws IOException {
-        Window window = new Window();
-        Game game = new Game(window);
-        game.start();
+
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException, ClassNotFoundException {
+        new Game().start();
     }
 
-    private void start() throws IOException {
+    private void start() throws IOException, URISyntaxException, ClassNotFoundException {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
@@ -45,4 +54,5 @@ public class Game {
         }
         window.close();
     }
+
 }

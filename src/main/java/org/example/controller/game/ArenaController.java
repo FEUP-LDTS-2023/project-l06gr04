@@ -18,7 +18,7 @@ public class ArenaController extends GameController {
         this.towerController = new TowerController(arena);
         this.enemyController = new EnemyController(arena);
     }
-
+    @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
         if (action == WindowInterface.KEY.QUIT /*|| getModel().getHero().getEnergy() == 0) por a vida*/)
             game.setState(new MenuState(new Menu()));

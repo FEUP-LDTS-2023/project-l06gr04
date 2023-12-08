@@ -1,13 +1,14 @@
 package org.example.model.game.arena;
 
+import org.example.model.game.Level;
 import org.example.model.game.Position;
+import org.example.model.game.Score;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Arena{
@@ -17,15 +18,12 @@ public class Arena{
     private List<Tower> towers;
     private List<Enemy> enemies;
     private List<Wall> walls;
-    private Chest chest;
+    private Score score;
+    private Level level;
+    private List<Chest> chests;
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
-        this.walls = new ArrayList<>();
-        this.enemies = new ArrayList<>();
-        this.towers = new ArrayList<>();
-        this.paths = new ArrayList<>();
-        this.chest = new Chest(width/2, height/2);
     }
 
     public int getWidth() {
@@ -44,13 +42,6 @@ public class Arena{
         return towers;
     }
 
-    public List<Path> getPaths() {
-        return paths;
-    }
-    public void setPaths(List<Path> paths){
-        this.paths = paths;
-    }
-
     public void setEnemies(List<Enemy> enemies) {
         this.enemies = enemies;
     }
@@ -64,6 +55,12 @@ public class Arena{
     }
     public void setTowers(List<Tower> towers){
         this.towers = towers;
+    }
+    public Score getScore() {
+        return score;
+    }
+    public Level getLevel(){
+        return level;
     }
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)

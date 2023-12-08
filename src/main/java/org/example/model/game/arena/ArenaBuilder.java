@@ -27,5 +27,4 @@ public abstract class ArenaBuilder {
     protected abstract List<Tower> createTowers();
 
     protected abstract List<Enemy> createEnemys();
-
 }
