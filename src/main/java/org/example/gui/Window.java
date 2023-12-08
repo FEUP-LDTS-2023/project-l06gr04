@@ -25,7 +25,7 @@ public class Window implements WindowInterface {
 
     public Window() {
         try {
-            TerminalSize terminalSize = new TerminalSize(120, 50);
+            TerminalSize terminalSize = new TerminalSize(120, 40);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
             Terminal terminal = terminalFactory.createTerminal();
             this.screen = new TerminalScreen(terminal);
@@ -70,13 +70,22 @@ public class Window implements WindowInterface {
 
         return KEY.NONE;
     }
-    @Override
-    public void drawText(Position position, String text, String color){
+    public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
-    }
 
+        // Use SGR.BOLD para aumentar o tamanho da letra
+        tg.putString(position.getX(), position.getY(), text, SGR.BOLD);
+    }
+    public void drawTextWithFontSize( Position position, String text, String color, int fontSize) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+
+        for (int i = 0; i < text.length(); i++) {
+            tg.setCharacter(position.getX() + i * fontSize, position.getY(),
+                    new TextCharacter(text.charAt(i), TextColor.Factory.fromString(color), TextColor.ANSI.DEFAULT));
+        }
+    }
 
     @Override
     public void drawTower(Position position, Tower tower){
