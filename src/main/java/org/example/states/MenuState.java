@@ -20,4 +20,6 @@ public class MenuState extends State<Menu> {
     protected Controller<Menu> getController() {
         return new MenuController(getModel());
     }
+
+
 }
