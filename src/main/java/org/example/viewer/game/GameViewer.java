@@ -1,6 +1,7 @@
 package org.example.viewer.game;
 
 import org.example.gui.Window;
+import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
@@ -14,7 +15,6 @@ public class GameViewer extends Viewer<Arena> {
     public GameViewer(Arena arena) {
         super(arena);
     }
-
     @Override
     public void drawElements(Window window) {
         drawElements(window, getModel().getWalls(), new WallViewer());
@@ -36,8 +36,13 @@ public class GameViewer extends Viewer<Arena> {
                 drawElement(window, tower, towerViewer);
             }
         }
+        window.drawScore(String.valueOf(getModel().getScore().getScore())); //ainda n ta a funcionar
+        window.drawText(new Position(0, 42), "LEVEL :" + getModel().getLevel().getLevel(), "WHITE");
+        window.drawText(new Position(0, 43), "COINS :" + getModel().getCoins(), "WHITE");
+        window.drawText(new Position(0, 44), "CHEST LIFE :" + getModel().getChest().getLife(), "WHITE");
         //window.drawText(new Position(0, 0), "LIFE " + getModel().getTowers()/*dar a vida*/, "#FFD700");
-    }
+        }
+
 
     private <T extends Element> void drawElements(Window window, List<T> elements, ElementViewer<T> viewer) {
         for (T element : elements)
