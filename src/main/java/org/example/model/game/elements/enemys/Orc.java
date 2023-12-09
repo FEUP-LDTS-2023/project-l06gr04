@@ -8,4 +8,5 @@ public class Orc extends Enemy {
         super(ORC_SPEED,ORC_TOT_HP,x,y);
         this.enemySymbol = 'O';
     }
+
 }

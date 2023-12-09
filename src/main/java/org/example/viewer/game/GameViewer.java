@@ -5,8 +5,6 @@ import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
-import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.Tower;
 import org.example.viewer.Viewer;
 
 import java.util.List;
@@ -20,22 +18,8 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(window, getModel().getWalls(), new WallViewer());
         drawElements(window, getModel().getPaths(), new PathViewer());
         Chest chest = (Chest) getModel().getChest();
+        drawElements(window, getModel().getEnemies(), new EnemyViewer());
         drawElement(window, chest, new ChestViewer());
-        List<Enemy> enemies = getModel().getEnemies();
-        if (enemies != null && !enemies.isEmpty()) {
-            EnemyViewer enemyViewer = new EnemyViewer();
-            for (Enemy enemy : enemies) {
-                drawElement(window, enemy, enemyViewer);
-            }
-        }
-
-        List<Tower> towers = getModel().getTowers();
-        if (towers != null && !towers.isEmpty()) {
-            TowerViewer towerViewer = new TowerViewer();
-            for (Tower tower : towers) {
-                drawElement(window, tower, towerViewer);
-            }
-        }
         window.drawScore(String.valueOf(getModel().getScore().getScore())); //ainda n ta a funcionar
         window.drawText(new Position(0, 42), "LEVEL :" + getModel().getLevel().getLevel(), "WHITE");
         window.drawText(new Position(0, 43), "COINS :" + getModel().getCoins(), "WHITE");

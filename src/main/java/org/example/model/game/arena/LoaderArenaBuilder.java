@@ -8,6 +8,8 @@ import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.enemys.Skeleton;
 import org.example.model.game.elements.towers.Tower;
+import org.example.model.game.elements.enemys.Golem;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -19,6 +21,8 @@ import java.util.List;
 
 public class LoaderArenaBuilder extends ArenaBuilder {
     private final List<String> lines;
+    private Arena arena;
+
     public LoaderArenaBuilder() throws IOException {
 
         URL resource = LoaderArenaBuilder.class.getResource( "/map");
@@ -80,16 +84,19 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return null;
     }
     @Override
-    protected List<Tower> createTowers() {
-        return new ArrayList<>();
-    }
 
-    @Override
-    protected List<Enemy> createEnemys() {
-        EnemyController enemyController = new EnemyController(createArena());
+    public List<Enemy> createEnemies(Arena arena) {
+        EnemyController enemyController = new EnemyController(arena);
         List<Enemy> enemies = new ArrayList<>();
-        enemyController.placeSkeleton(new Position(0,8));
-        enemies.add(new Skeleton(0,8));
+
+        Position golemPosition = new Position(0, 7);
+
+        if (enemyController.canPlaceEnemy(golemPosition)) {
+            enemyController.placeGolem(golemPosition);
+            Golem golem = new Golem(golemPosition.getX(), golemPosition.getY());
+            golem.setPosition(enemyController.getActiveEnemies().get(0).getPosition());
+            enemies.add(golem);
+        }
         return enemies;
     }
 }
