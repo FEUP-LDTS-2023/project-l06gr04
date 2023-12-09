@@ -9,6 +9,7 @@ import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Arena{
@@ -28,6 +29,7 @@ public class Arena{
         this.level = new Level();
         this.score = new Score();
         this.coins = 500;
+        this.enemies = new ArrayList<>();
     }
 
     public int getWidth() {

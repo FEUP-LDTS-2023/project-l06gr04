@@ -6,6 +6,7 @@ import org.example.model.game.Score;
 import org.example.model.menu.Menu;
 import org.example.states.MenuState;
 import org.example.states.State;
+import org.example.viewer.game.GameViewer;
 
 import java.awt.*;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.net.URISyntaxException;
 public class Game {
     private final Window window;
     private State state;
+    private GameViewer gameViewer;
     private Menu menu;
     private Score score;
     private Level level;
@@ -55,4 +57,7 @@ public class Game {
         window.close();
     }
 
+    public void updateDisplay() {
+        gameViewer.drawElements(window);
+    }
 }
