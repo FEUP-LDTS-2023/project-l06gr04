@@ -6,6 +6,9 @@ import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static org.example.Clock.Delta;
 
 public abstract class Tower extends Element {
     Position position;
@@ -16,18 +19,67 @@ public abstract class Tower extends Element {
     int range;
     int cost;
     ArrayList<Enemy> enemies;
+    private float angle, timeSinceLastShoot;
+    private Enemy target;
+    private boolean targeted;
+    private ArrayList<Projectile> projectiles;
     public Tower(int life, int level, int range, int cost, int x, int y, ArrayList<Enemy> enemies){
         super(x,y);
         this.life = life;
         this.level = level;
         this.range = range;
         this.cost = cost;
+        this.targeted=false;
         this.position = new Position(x,y);
+        this.timeSinceLastShoot=0f;
+        this.projectiles=new ArrayList<Projectile>();
         this.enemies=enemies;
+        this.target=getTarget();
+        this.angle=calculateAngle();
     }
+    private Enemy getTarget(){
+        return enemies.get(0);
+    }
+    private float calculateAngle(){
+        double angleTemp=Math.atan2(target.getY()-y, target.getX()-x );
+        return (float) Math.toDegrees(angleTemp) -90;
+    }
+    public void update(){
+        if(!targeted || target.getHiddenHealth()<=0) {
+            target = acquireTarget();
+        }
+        else{
+            angle=calculateAngle();
+            if(timeSinceLastShoot>getFiringSpeed()){
+                shoot(target);
+                timeSinceLastShoot=0;
+            }
+        }
+        if(target==null || target.isDead())
+            targeted=false;
+        timeSinceLastShoot+=Delta();
+
+        //for (projectiles p : projectiles){
+        //    p.update();
+        }
+        //draw();
+
+
+    protected abstract void shoot(Enemy target);
+
+    protected abstract int getFiringSpeed();
+
     public boolean isInRange(Enemy enemy) {
-        int distance = (int) Math.sqrt(Math.pow(enemy.getX() - this.x, 2) + Math.pow(enemy.getY() - this.y, 2));
-        return distance <= this.range;
+        float xDistance = Math.abs(enemy.getX()-x);
+        float yDistance= Math.abs(enemy.getY()-y);
+        if(xDistance <range && yDistance< range)
+            return true;
+        return false;
+    }
+    public float findDistance(Enemy enemy) {
+        float xDistance= Math.abs(enemy.getX()-x);
+        float yDistance= Math.abs(enemy.getY()-y);
+        return xDistance+yDistance;
     }
     public int getLife() {
         return life;
@@ -42,13 +94,22 @@ public abstract class Tower extends Element {
             enemy.hurt(damage);
         }
     }
-    private Enemy acquireTarget(){
-        Enemy closest= null;
-        float maxdistance=100000;
-        //for (Enemy e: enemies){
-        //if(
+    private Enemy acquireTarget() {
+        Enemy closest = null;
+        float closestDistance = 100000;
+        for (Enemy e : enemies) {
+            if (isInRange(e) && findDistance(e) < closestDistance && e.getHiddenHealth() > 0) {
+                closestDistance = findDistance(e);
+                closest = e;
+            }
+
+        }
+        if (closest!=null) {
+            targeted=true;
+        }
         return closest;
     }
+
     abstract void upgrade();
     abstract int dealDamage();
     public int getLevel(){
@@ -68,5 +129,9 @@ public abstract class Tower extends Element {
     }
     void setLife(int life){
         this.life = life;
+    }
+
+    public void setEnemyList(ArrayList<Enemy> enemies) {
+        this.enemies=enemies;
     }
 }

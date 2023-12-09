@@ -14,6 +14,7 @@ public class EnemyController extends GameController {
         super(arena);
     }
 
+
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
 
