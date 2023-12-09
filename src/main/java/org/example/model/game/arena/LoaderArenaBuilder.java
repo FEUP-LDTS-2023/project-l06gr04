@@ -6,7 +6,10 @@ import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.enemys.Skeleton;
+import org.example.model.game.elements.towers.Tower;
 import org.example.model.game.elements.enemys.Golem;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -81,6 +84,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return null;
     }
     @Override
+
     public List<Enemy> createEnemies(Arena arena) {
         EnemyController enemyController = new EnemyController(arena);
         List<Enemy> enemies = new ArrayList<>();
@@ -93,7 +97,6 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             golem.setPosition(enemyController.getActiveEnemies().get(0).getPosition());
             enemies.add(golem);
         }
-
         return enemies;
     }
 }
