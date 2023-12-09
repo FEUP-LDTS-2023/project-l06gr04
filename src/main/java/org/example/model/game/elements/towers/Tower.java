@@ -1,8 +1,12 @@
 package org.example.model.game.elements.towers;
 
+import com.googlecode.lanterna.terminal.swing.TerminalScrollController;
 import org.example.model.game.Position;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
+
+import java.util.ArrayList;
+
 public abstract class Tower extends Element {
     Position position;
     char towerSymbol;
@@ -11,14 +15,15 @@ public abstract class Tower extends Element {
     int level;
     int range;
     int cost;
-
-    public Tower(int life, int level, int range, int cost, int x, int y){
+    ArrayList<Enemy> enemies;
+    public Tower(int life, int level, int range, int cost, int x, int y, ArrayList<Enemy> enemies){
         super(x,y);
         this.life = life;
         this.level = level;
         this.range = range;
         this.cost = cost;
         this.position = new Position(x,y);
+        this.enemies=enemies;
     }
     public boolean isInRange(Enemy enemy) {
         int distance = (int) Math.sqrt(Math.pow(enemy.getX() - this.x, 2) + Math.pow(enemy.getY() - this.y, 2));
@@ -37,7 +42,13 @@ public abstract class Tower extends Element {
             enemy.hurt(damage);
         }
     }
-
+    private Enemy acquireTarget(){
+        Enemy closest= null;
+        float maxdistance=100000;
+        //for (Enemy e: enemies){
+        //if(
+        return closest;
+    }
     abstract void upgrade();
     abstract int dealDamage();
     public int getLevel(){

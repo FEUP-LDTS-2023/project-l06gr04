@@ -26,7 +26,7 @@ public class Window implements WindowInterface {
 
     public Window() {
         try {
-            TerminalSize terminalSize = new TerminalSize(120, 40);
+            TerminalSize terminalSize = new TerminalSize(120, 50);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
             Terminal terminal = terminalFactory.createTerminal();
             this.screen = new TerminalScreen(terminal);
@@ -120,7 +120,7 @@ public class Window implements WindowInterface {
     void drawIntoGameChar(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y, "" + c, SGR.BOLD);
+        tg.putString(x, y, "" + c);
     }
     void drawIntoGameString(int x, int y, String c, String color) {
         TextGraphics tg = screen.newTextGraphics();
@@ -153,7 +153,13 @@ public class Window implements WindowInterface {
 
     @Override
     public void drawPath(Position position) {
-        drawIntoGameChar(position.getX(), position.getY(), '.', "WHITE");
+        int x = position.getX();
+        int y = position.getY();
+
+        TextCharacter wallCharacter = TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.WHITE);
+
+
+        screen.setCharacter(x, y, wallCharacter);
     }
 
     public void drawChest(Position position, Chest chest) {

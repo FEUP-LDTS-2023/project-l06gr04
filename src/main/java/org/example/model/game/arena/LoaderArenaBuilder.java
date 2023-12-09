@@ -6,6 +6,7 @@ import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.enemys.Orc;
 import org.example.model.game.elements.enemys.Skeleton;
 import org.example.model.game.elements.towers.Tower;
 import org.example.model.game.elements.enemys.Golem;
@@ -84,18 +85,15 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return null;
     }
     @Override
-
     public List<Enemy> createEnemies(Arena arena) {
-        EnemyController enemyController = new EnemyController(arena);
         List<Enemy> enemies = new ArrayList<>();
-
-        Position golemPosition = new Position(0, 7);
-
-        if (enemyController.canPlaceEnemy(golemPosition)) {
-            enemyController.placeGolem(golemPosition);
-            Golem golem = new Golem(golemPosition.getX(), golemPosition.getY());
-            golem.setPosition(enemyController.getActiveEnemies().get(0).getPosition());
+        for(int i = 0; i<5; i++){
+            Orc orc = new Orc(0+i,5);
+            enemies.add(orc);
+            Golem golem = new Golem(0+i,6);
             enemies.add(golem);
+            Skeleton skeleton = new Skeleton(0+i,7);
+            enemies.add(skeleton);
         }
         return enemies;
     }

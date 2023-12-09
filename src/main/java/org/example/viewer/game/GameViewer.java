@@ -20,7 +20,7 @@ public class GameViewer extends Viewer<Arena> {
         Chest chest = (Chest) getModel().getChest();
         drawElements(window, getModel().getEnemies(), new EnemyViewer());
         drawElement(window, chest, new ChestViewer());
-        window.drawScore(String.valueOf(getModel().getScore().getScore())); //ainda n ta a funcionar
+        window.drawScore(String.valueOf(getModel().getScore())); //ainda n ta a funcionar
         window.drawText(new Position(0, 42), "LEVEL :" + getModel().getLevel().getLevel(), "WHITE");
         window.drawText(new Position(0, 43), "COINS :" + getModel().getCoins(), "WHITE");
         window.drawText(new Position(0, 44), "CHEST LIFE :" + getModel().getChest().getLife(), "WHITE");
