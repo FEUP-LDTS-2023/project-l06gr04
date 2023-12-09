@@ -70,6 +70,9 @@ public class Arena{
     public void setTowers(List<Tower> towers){
         this.towers = towers;
     }
+    public void addTowers(Tower tower){
+        towers.add(tower);
+    }
     public Score getScore() {
         return score;
     }
