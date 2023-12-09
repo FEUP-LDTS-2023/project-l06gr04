@@ -36,7 +36,7 @@ public abstract class Enemy extends Element {
             die();
     }
 
-    void die() {
+    public void die() {
         isDead = true;
         actHP = 0;
     }

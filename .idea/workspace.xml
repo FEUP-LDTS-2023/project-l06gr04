@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e10876c3-7d62-4bab-8fbc-762b6af3d6d0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" afterDir="false" />
     </list>
+    <list id="42b44728-0bc4-461d-a88c-d2739bfc6617" name="Changes by david" comment="" />
+    <list id="caa36088-0f39-4c29-91e9-b5dc43da181b" name="Changes by tiago" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +72,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/path",
+    "git-widget-placeholder": "CodeWithMe",
     "last_opened_file_path": "C:/Users/david/Desktop/ACT/project-l06gr04",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
@@ -178,9 +183,9 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TowerDefenceGame$Tests_in__TowerDefenceGame_test_.ic" NAME="Tests in 'TowerDefenceGame.test' Coverage Results" MODIFIED="1701019173161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TowerDefenceGame$Game.ic" NAME="Game Coverage Results" MODIFIED="1701018286000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.example.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TowerDefenceGame$Tests_in__TowerDefenceGame_test_.ic" NAME="Tests in 'TowerDefenceGame.test' Coverage Results" MODIFIED="1701019173161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

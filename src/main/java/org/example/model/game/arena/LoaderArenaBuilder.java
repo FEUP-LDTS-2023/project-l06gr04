@@ -1,12 +1,11 @@
 package org.example.model.game.arena;
 
+import org.example.controller.game.EnemyController;
 import org.example.model.game.Position;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.enemys.Golem;
-import org.example.model.game.elements.enemys.Orc;
 import org.example.model.game.elements.enemys.Skeleton;
 import org.example.model.game.elements.towers.Tower;
 
@@ -87,27 +86,10 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
     @Override
     protected List<Enemy> createEnemys() {
+        EnemyController enemyController = new EnemyController(createArena());
         List<Enemy> enemies = new ArrayList<>();
-        int o = 5;
-        int s = 6;
-        int g = 7;
-        while (o > 0 || s > 0 || g > 0) {
-            if(arena[0][7]) {
-                enemies.add(new Orc(0, 6));
-                o--;
-            }
-
-            if (s > 0 && placeSkeleton(new Position(0, 8))) {
-                enemies.add(new Skeleton(0, 8));
-                s--;
-            }
-
-            if (g > 0 && placeGolem(new Position(0, 7))) {
-                enemies.add(new Golem(0, 7));
-                g--;
-            }
-        }
-
+        enemyController.placeSkeleton(new Position(0,8));
+        enemies.add(new Skeleton(0,8));
         return enemies;
     }
 }
