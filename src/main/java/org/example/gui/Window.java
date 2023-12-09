@@ -1,6 +1,8 @@
 package org.example.gui;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -24,7 +26,7 @@ public class Window implements WindowInterface {
 
     public Window() {
         try {
-            TerminalSize terminalSize = new TerminalSize(120, 50);
+            TerminalSize terminalSize = new TerminalSize(120, 40);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
             Terminal terminal = terminalFactory.createTerminal();
             this.screen = new TerminalScreen(terminal);
@@ -69,13 +71,22 @@ public class Window implements WindowInterface {
 
         return KEY.NONE;
     }
-    @Override
-    public void drawText(Position position, String text, String color){
+    public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
-    }
 
+        // Use SGR.BOLD para aumentar o tamanho da letra
+        tg.putString(position.getX(), position.getY(), text, SGR.BOLD);
+    }
+    public void drawTextWithFontSize( Position position, String text, String color, int fontSize) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+
+        for (int i = 0; i < text.length(); i++) {
+            tg.setCharacter(position.getX() + i * fontSize, position.getY(),
+                    new TextCharacter(text.charAt(i), TextColor.Factory.fromString(color), TextColor.ANSI.DEFAULT));
+        }
+    }
 
     @Override
     public void drawTower(Position position, Tower tower){
@@ -96,13 +107,20 @@ public class Window implements WindowInterface {
     }
     @Override
     public void drawWall(Position position) {
-        drawIntoGameChar(position.getX(), position.getY(), '#', "WHITE");
+        int x = position.getX();
+        int y = position.getY();
+
+        TextCharacter wallCharacter = TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.WHITE);
+
+
+        screen.setCharacter(x, y, wallCharacter);
+
     }
 
     void drawIntoGameChar(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y, "" + c);
+        tg.putString(x, y, "" + c, SGR.BOLD);
     }
     void drawIntoGameString(int x, int y, String c, String color) {
         TextGraphics tg = screen.newTextGraphics();
