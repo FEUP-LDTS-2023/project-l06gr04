@@ -14,7 +14,6 @@ public class ArenaController extends GameController {
 
     public ArenaController(Arena arena) {
         super(arena);
-
         this.towerController = new TowerController(arena);
         this.enemyController = new EnemyController(arena);
     }

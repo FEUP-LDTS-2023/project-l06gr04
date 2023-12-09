@@ -4,7 +4,6 @@ import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.Tower;
 
 import java.util.List;
 
@@ -17,10 +16,7 @@ public abstract class ArenaBuilder {
         arena.setPaths(paths);
         Chest chest = createChest();
         arena.setChest(chest);
-        List<Enemy> enemies = createEnemys();
-        arena.setEnemies(enemies);
-        List<Tower> towers = createTowers();
-        arena.setTowers(towers);
+        arena.setEnemies(createEnemies(arena));
         return arena;
     }
 
@@ -33,8 +29,6 @@ public abstract class ArenaBuilder {
     protected abstract List<Wall> createWalls();
 
     protected abstract List<Path> createPaths();
+    protected abstract List<Enemy> createEnemies(Arena arena);
 
-    protected abstract List<Tower> createTowers();
-
-    protected abstract List<Enemy> createEnemys();
 }
