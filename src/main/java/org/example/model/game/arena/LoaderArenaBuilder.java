@@ -1,6 +1,7 @@
 package org.example.model.game.arena;
 
 import org.example.controller.game.EnemyController;
+import org.example.controller.game.WaveController;
 import org.example.model.game.Position;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
@@ -85,14 +86,17 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return null;
     }
     @Override
-    public List<Enemy> createEnemies(Arena arena) {
-        List<Enemy> enemies = new ArrayList<>();
-        for(int i = 0; i<5; i++){
-            Orc orc = new Orc(0+i,5);
+    public ArrayList<Enemy> createEnemies(Arena arena) {
+        ArrayList<Enemy> enemies = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            Orc orc = new Orc(i, 5);
             enemies.add(orc);
-            Golem golem = new Golem(0+i,6);
+
+            Golem golem = new Golem(i, 6);
             enemies.add(golem);
-            Skeleton skeleton = new Skeleton(0+i,7);
+
+            Skeleton skeleton = new Skeleton(i, 7);
             enemies.add(skeleton);
         }
         return enemies;

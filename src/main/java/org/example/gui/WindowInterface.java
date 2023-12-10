@@ -17,7 +17,7 @@ public interface WindowInterface {
 
     void drawPath(Position position);
 
-    enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT}
+    enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT,C,M,A}
 
     void drawTower(Position position, Tower tower);
 

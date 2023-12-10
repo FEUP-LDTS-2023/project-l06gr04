@@ -18,7 +18,7 @@ public class Arena{
     private final int height;
     private int coins;
     private List<Tower> towers;
-    private List<Enemy> enemies;
+    private ArrayList<Enemy> enemies;
     private List<Wall> walls;
     private Score score;
     private Level level;
@@ -30,6 +30,7 @@ public class Arena{
         this.score = new Score();
         this.coins = 500;
         this.enemies = new ArrayList<>();
+        this.entries = new ArrayList<>(List.of(new Position(3,19),new Position(14,20),new Position(14,20),new Position(26,24),new Position(34,15),new Position(37,67),new Position(29,85)));
     }
 
     public int getWidth() {
@@ -48,7 +49,7 @@ public class Arena{
     public void setScore(Score score){
         this.score = score;
     }
-    public List<Enemy> getEnemies() {
+    public ArrayList<Enemy> getEnemies() {
         return enemies;
     }
 
@@ -56,7 +57,7 @@ public class Arena{
         return towers;
     }
 
-    public void setEnemies(List<Enemy> enemies) {
+    public void setEnemies(ArrayList<Enemy> enemies) {
         this.enemies = enemies;
     }
 
@@ -100,5 +101,32 @@ public class Arena{
 
     public void setCoins(int i) {
         this.coins = i;
+    }
+    private final List<Position> entries;
+
+    private int currentEntry = 0;
+
+    public void nextEntry() {
+        currentEntry++;
+        if (currentEntry > this.entries.size() - 1)
+            currentEntry = 0;
+    }
+
+    public void previousEntry() {
+        currentEntry--;
+        if (currentEntry < 0)
+            currentEntry = this.entries.size() - 1;
+    }
+
+    public Position getEntry(int i) {
+        return entries.get(i);
+    }
+
+    public boolean isSelected(int i) {
+        return currentEntry == i;
+    }
+
+    public int getNumberEntries() {
+        return this.entries.size();
     }
 }

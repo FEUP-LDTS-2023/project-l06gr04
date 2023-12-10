@@ -12,9 +12,13 @@ import java.net.URISyntaxException;
 public abstract class State<T> {
 
     private final T model;
+    private final Controller<T> controller;
+    private final Viewer<T> viewer;
 
-    public State(T newModel) {
-        this.model = newModel;
+    public State(T model) {
+        this.model = model;
+        this.viewer = getViewer();
+        this.controller = getController();
     }
 
     protected abstract Viewer<T> getViewer();
@@ -27,7 +31,7 @@ public abstract class State<T> {
 
     public void step(Game game, Window window, long time) throws IOException, URISyntaxException, ClassNotFoundException {
         Window.KEY action = window.processKey();
-        getController().step(game, action, time);
-        getViewer().draw(window);
+        controller.step(game, action, time);
+        viewer.draw(window);
     }
 }

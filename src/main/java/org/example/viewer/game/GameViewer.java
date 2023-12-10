@@ -1,18 +1,24 @@
 package org.example.viewer.game;
 
+import org.example.controller.Clock;
 import org.example.gui.Window;
 import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
+import org.example.model.game.elements.TowerPositions;
 import org.example.viewer.Viewer;
 
 import java.util.List;
 
 public class GameViewer extends Viewer<Arena> {
+    private static GameViewer gameViewerInstance;
+    private static final int TARGET_FPS = 60;
+    private static final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
     public GameViewer(Arena arena) {
         super(arena);
     }
+
     @Override
     public void drawElements(Window window) {
         drawElements(window, getModel().getWalls(), new WallViewer());
@@ -20,6 +26,7 @@ public class GameViewer extends Viewer<Arena> {
         Chest chest = (Chest) getModel().getChest();
         drawElements(window, getModel().getEnemies(), new EnemyViewer());
         drawElement(window, chest, new ChestViewer());
+        //drawElement(window, getModel().getEntry(), new TowerPositionsViewer());
         window.drawScore(String.valueOf(getModel().getScore())); //ainda n ta a funcionar
         window.drawText(new Position(0, 42), "LEVEL :" + getModel().getLevel().getLevel(), "WHITE");
         window.drawText(new Position(0, 43), "COINS :" + getModel().getCoins(), "WHITE");

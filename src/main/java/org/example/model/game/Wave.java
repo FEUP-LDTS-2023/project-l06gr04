@@ -3,7 +3,7 @@ import java.util.Random;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.enemys.*;
 
-import static org.example.Clock.*;
+import static org.example.controller.Clock.*;
 import java.util.ArrayList;
 
 public class Wave {
@@ -42,14 +42,15 @@ public class Wave {
         }
     }
     private void spawn() {
-        Random random = new Random();
-        int enemyTypeIndex = random.nextInt(3);
+        //Random random = new Random();
         for (int i=0; i<enemiesPerWave;i++){
-            Enemy newEnemy = createRandomEnemy(enemyTypeIndex);
-            enemyList.add(newEnemy);
+            enemyList.add(new Orc(0+i,6));
+            enemyList.add(new Golem(0+i,7));
+            enemyList.add(new Skeleton(0+i,8));
         }
+        this.waveCompleted=true;
     }
-
+    /*
     private Enemy createRandomEnemy(int enemyTypeIndex) {
         return switch (enemyTypeIndex) {
             case 0 -> new Golem(0, 6);
@@ -58,6 +59,8 @@ public class Wave {
             default -> new Skeleton(1, 7);
         };
     }
+    */
+
     public boolean isCompleted(){
         return waveCompleted;
     }
