@@ -22,8 +22,8 @@ public abstract class ArenaBuilder {
         arena.setTowerPositions(towerPositions);
         List<Path> paths = createPaths();
         arena.setPaths(paths);
-        List<Enemy> enemies = createEnemies(arena);
-        arena.setEnemies(enemies);
+        //List<Enemy> enemies = createEnemies(arena);
+        //arena.setEnemies(enemies);
         Chest chest = createChest();
         arena.setChest(chest);
         return arena;

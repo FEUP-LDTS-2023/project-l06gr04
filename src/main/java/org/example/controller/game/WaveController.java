@@ -13,21 +13,30 @@ public class WaveController {
         this.enemiesPerWave= enemiesPerWave;
         this.timeSinceLastWave=0;
         this.waveNumber=0;
-        this.currentWave= newWave();
+        this.currentWave= null;
+        newWave();
     }
     public void update(){
+
         if(!currentWave.isCompleted()){
             currentWave.update();
         }
+
         else {
             newWave();
         }
     }
-    private Wave newWave() {
+    public void newWave() {
+        currentWave= new Wave(timeBetweenEnemies, enemiesPerWave);
         waveNumber++;
-        System.out.println("Beginning Wave" + waveNumber);
-        return new Wave( timeBetweenEnemies, enemiesPerWave);
+        System.out.println("Beginning Wave " + waveNumber);
+
+
+        if(currentWave.getEnemyList().isEmpty()){
+            System.out.println("Sem inimigos2132");
+        }
     }
+
 
     public Wave getCurrentWave() {
         return currentWave;

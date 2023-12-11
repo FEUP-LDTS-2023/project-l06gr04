@@ -132,15 +132,30 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     public List<Enemy> createEnemies(Arena arena) {
         List<Enemy> enemies = new ArrayList<>();
 
-        for (int i = 0; i < 5; i++) {
-            Orc orc = new Orc(i, 5);
-            enemies.add(orc);
+        if (enemies.isEmpty()) {
+            List<Enemy> newEnemies = new ArrayList<>();
 
-            Golem golem = new Golem(i, 6);
-            enemies.add(golem);
-
-            Skeleton skeleton = new Skeleton(i, 7);
-            enemies.add(skeleton);
+            for (int i = 0; i < 5; i++) {
+                int enemyTypeIndex = 1 + (int) (Math.random() * 3);
+                Enemy enemy;
+                switch (enemyTypeIndex) {
+                    case 1:
+                        enemy = new Orc(i, 6);
+                        break;
+                    case 2:
+                        enemy = new Golem(i, 7);
+                        break;
+                    case 3:
+                        enemy = new Skeleton(i, 8);
+                        break;
+                    default:
+                        enemy = null;
+                        break;
+                }
+                newEnemies.add(enemy);
+            }
+            arena.setEnemies(newEnemies);
+            enemies = newEnemies;
         }
         return enemies;
     }

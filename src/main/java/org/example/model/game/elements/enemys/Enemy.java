@@ -66,7 +66,6 @@ public abstract class Enemy extends Element {
 
 
     public void moveEnemies(Enemy enemy) {
-        System.out.println("Moving enemy with symbol: " + enemy.getEnemySymbol());
         switch (enemy.getEnemySymbol()) {
             case 'S':
                 moveSkeleton(enemy);
@@ -83,25 +82,25 @@ public abstract class Enemy extends Element {
 
     public void moveGolem(Enemy enemy) {
         Position position = enemy.getPosition();
-        Position targetPosition = new Position(95, 6);
+        Position targetPosition = new Position(93, 6);
 
         if (!enemy.isDead() && !position.equals(targetPosition)) {
-                if (position.getX() == 43 ){
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 24) {
-                    position = new Position(position.getX() - 1, position.getY());
-                } else if (position.getX() == 22 ) {
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 33) {
-                    position = new Position(position.getX() + 1, position.getY());
-                } else if (position.getX() == 95) {
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 6 && position.getX()<44) {
-                    position = new Position(position.getX() + 1, position.getY());
-                }
-
-                enemy.setPosition(position);
+            if (position.getX() == 41 && position.getY()<21){
+                position = new Position(position.getX(), position.getY() + 1);
+            } else if (position.getY() == 21 && position.getX()>22 && position.getX()!=93){
+                position = new Position(position.getX() - 1, position.getY());
+            } else if (position.getX() == 22 && position.getY()<32 && position.getY()!=6 ) {
+                position = new Position(position.getX(), position.getY() + 1);
+            } else if (position.getY() == 32 && position.getX()<93) {
+                position = new Position(position.getX() + 1, position.getY());
+            } else if (position.getX() == 93) {
+                position = new Position(position.getX(), position.getY() - 1);
+            } else if (position.getY() == 6 && position.getX()<41) {
+                position = new Position(position.getX() + 1, position.getY());
             }
+
+            enemy.setPosition(position);
+        }
 
     }
 

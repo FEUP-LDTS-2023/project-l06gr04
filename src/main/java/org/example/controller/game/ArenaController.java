@@ -11,12 +11,12 @@ import java.io.IOException;
 public class ArenaController extends GameController {
     private final TowerController towerController;
     private final TowerositionsController towerPositionsController;
-    private final EnemyController enemyController;
+    //private final EnemyController enemyController;
 
     public ArenaController(Arena arena) {
         super(arena);
         this.towerController = new TowerController(arena);
-        this.enemyController = new EnemyController(arena);
+        //this.enemyController = new EnemyController(arena);
         this.towerPositionsController=new TowerositionsController(arena);
     }
     @Override
