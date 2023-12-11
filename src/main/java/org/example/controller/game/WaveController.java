@@ -9,7 +9,7 @@ public class WaveController {
     private Enemy enemytype;
     private Wave currentWave;
     public WaveController( float timeBetweenEnemies, int enemiesPerWave){
-        this.enemytype=enemytype;
+      /*  this.enemytype=enemytype;*/
         this.timeBetweenEnemies= timeBetweenEnemies;
         this.enemiesPerWave= enemiesPerWave;
         this.timeSinceLastWave=0;
