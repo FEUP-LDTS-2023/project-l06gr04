@@ -19,7 +19,7 @@ public class Arena{
     private final int height;
     private int coins;
     private List<Tower> towers;
-    private ArrayList<Enemy> enemies;
+    private List<Enemy> enemies;
     private List<Wall> walls;
     private Score score;
     private Level level;
@@ -50,7 +50,7 @@ public class Arena{
     public void setScore(Score score){
         this.score = score;
     }
-    public ArrayList<Enemy> getEnemies() {
+    public List<Enemy> getEnemies() {
         return enemies;
     }
 
@@ -58,7 +58,7 @@ public class Arena{
         return towers;
     }
 
-    public void setEnemies(ArrayList<Enemy> enemies) {
+    public void setEnemies(List<Enemy> enemies) {
         this.enemies = enemies;
     }
 

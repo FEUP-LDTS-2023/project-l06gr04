@@ -22,7 +22,7 @@ public abstract class ArenaBuilder {
         arena.setTowerPositions(towerPositions);
         List<Path> paths = createPaths();
         arena.setPaths(paths);
-        //ArrayList<Enemy> enemies = createEnemies(arena);
+        //List<Enemy> enemies = createEnemies(arena);
         //arena.setEnemies(enemies);
         Chest chest = createChest();
         arena.setChest(chest);
@@ -39,6 +39,6 @@ public abstract class ArenaBuilder {
     protected abstract List<Wall> createWalls();
 
     protected abstract List<Path> createPaths();
-    protected abstract ArrayList<Enemy> createEnemies(Arena arena);
+    protected abstract List<Enemy> createEnemies(Arena arena);
 
 }

@@ -29,7 +29,7 @@ public abstract class State<T> {
         return model;
     }
 
-    public void step(Game game, Window window, long time) throws IOException, URISyntaxException, ClassNotFoundException {
+    public void step(Game game, Window window, long time) throws Exception {
         Window.KEY action = window.processKey();
         controller.step(game, action, time);
         viewer.draw(window);

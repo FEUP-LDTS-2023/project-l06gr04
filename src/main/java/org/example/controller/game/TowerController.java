@@ -27,7 +27,7 @@ public class TowerController extends GameController{
         availableTowers=new ArrayList<>(List.of(1,2,3));
         availablePositions = new ArrayList<>(List.of(new Position(3,19),new Position(14,20),new Position(14,20),new Position(26,24),new Position(34,15),new Position(37,67),new Position(29,85)));
         currentPositionIndex = 0;
-        WaveController waveController= new WaveController(500, 50);
+        //WaveController waveController= new WaveController(500, 50);
     }
     public void nextPosition() {
         currentPositionIndex++;

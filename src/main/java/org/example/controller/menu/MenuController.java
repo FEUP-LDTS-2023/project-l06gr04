@@ -15,7 +15,7 @@ public class MenuController extends Controller<Menu> {
     }
 
     @Override
-    public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
+    public void step(Game game, WindowInterface.KEY action, long time) throws Exception {
         switch (action) {
             case UP:
                 getModel().previousEntry();
