@@ -5,6 +5,7 @@ import org.example.controller.game.WaveController;
 import org.example.model.game.Position;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
+import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.enemys.Orc;
@@ -62,6 +63,8 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                 if (line.charAt(x) == '#') walls.add(new Wall(x, y));
                 else if(line.charAt(x) == '|') walls.add(new Wall(x, y));
                 else if(line.charAt(x)== '-') walls.add(new Wall(x,y));
+                else if(line.charAt(x)== 'T') walls.add(new Wall(x,y));
+
         }
         return walls;
     }
@@ -84,6 +87,46 @@ public class LoaderArenaBuilder extends ArenaBuilder {
                 if (line.charAt(x) == 'C') return new Chest(x,y);
                 }
         return null;
+    }
+    protected List<TowerPositions> createTowerPositions() {
+        List<TowerPositions> towerPositions = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++) {
+                switch (line.charAt(x)) {
+                    case '1':
+                        towerPositions.add(new TowerPositions(x, y,'1'));
+                        break;
+                    case '2':
+                        towerPositions.add(new TowerPositions(x, y,'2'));
+                        break;
+                    case '3':
+                        towerPositions.add(new TowerPositions(x, y,'3'));
+                        break;
+                    case '4':
+                        towerPositions.add(new TowerPositions(x, y,'4'));
+                        break;
+                    case '5':
+                        towerPositions.add(new TowerPositions(x, y,'5'));
+                        break;
+                    case '6':
+                        towerPositions.add(new TowerPositions(x, y,'6'));
+                        break;
+                    case '7':
+                        towerPositions.add(new TowerPositions(x, y,'7'));
+                        break;
+                    case '8':
+                        towerPositions.add(new TowerPositions(x, y,'8'));
+                        break;
+                    case '9':
+                        towerPositions.add(new TowerPositions(x, y,'9'));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        return towerPositions;
     }
     @Override
     public List<Enemy> createEnemies(Arena arena) {

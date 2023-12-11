@@ -5,6 +5,7 @@ import org.example.model.game.Position;
 import org.example.model.game.Score;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
+import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
@@ -23,6 +24,7 @@ public class Arena{
     private Score score;
     private Level level;
     private Chest chest;
+    private List<TowerPositions> towerPositions;
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
@@ -30,7 +32,6 @@ public class Arena{
         this.score = new Score();
         this.coins = 500;
         this.enemies = new ArrayList<>();
-        this.entries = new ArrayList<>(List.of(new Position(3,19),new Position(14,20),new Position(14,20),new Position(26,24),new Position(34,15),new Position(37,67),new Position(29,85)));
     }
 
     public int getWidth() {
@@ -68,6 +69,9 @@ public class Arena{
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
+    public void setTowerPositions(List<TowerPositions> towerPositions) {
+        this.towerPositions = towerPositions;
+    }
     public void setTowers(List<Tower> towers){
         this.towers = towers;
     }
@@ -76,6 +80,9 @@ public class Arena{
     }
     public Score getScore() {
         return score;
+    }
+    public List<TowerPositions> getTowerPositions() {
+        return towerPositions;
     }
     public Level getLevel(){
         return level;
@@ -101,32 +108,5 @@ public class Arena{
 
     public void setCoins(int i) {
         this.coins = i;
-    }
-    private final List<Position> entries;
-
-    private int currentEntry = 0;
-
-    public void nextEntry() {
-        currentEntry++;
-        if (currentEntry > this.entries.size() - 1)
-            currentEntry = 0;
-    }
-
-    public void previousEntry() {
-        currentEntry--;
-        if (currentEntry < 0)
-            currentEntry = this.entries.size() - 1;
-    }
-
-    public Position getEntry(int i) {
-        return entries.get(i);
-    }
-
-    public boolean isSelected(int i) {
-        return currentEntry == i;
-    }
-
-    public int getNumberEntries() {
-        return this.entries.size();
     }
 }
