@@ -6,24 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="903699ec-ea4a-407b-aaaa-c974eb6794db" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ArenaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ArenaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/menu/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/menu/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/Arena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" afterDir="false" />
+    </list>
+    <list id="83127b17-76b1-42bd-93e3-591ac2ce1d18" name="Changes by david" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerositionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerositionsController.java" afterDir="false" />
+    </list>
+    <list id="2fdbf185-659f-4586-b880-8e860db044a5" name="Changes by dioguerox" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" afterDir="false" />
     </list>
-    <list id="caa36088-0f39-4c29-91e9-b5dc43da181b" name="Changes by tiago" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" afterDir="false" />
-    </list>
+    <list id="caa36088-0f39-4c29-91e9-b5dc43da181b" name="Changes by tiago" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,12 +52,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java">
+    <file path="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java">
       <ranges>
-        <range start1="23" end1="25" start2="23" end2="25" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
-        <range start1="26" end1="29" start2="26" end2="29" changelist="caa36088-0f39-4c29-91e9-b5dc43da181b" />
-        <range start1="34" end1="35" start2="34" end2="34" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
-        <range start1="38" end1="154" start2="37" end2="37" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
+        <range start1="5" end1="5" start2="5" end2="6" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
+        <range start1="13" end1="13" start2="14" end2="15" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
+        <range start1="20" end1="20" start2="22" end2="23" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
+        <range start1="38" end1="42" start2="41" end2="48" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
+        <range start1="43" end1="44" start2="49" end2="50" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
       </ranges>
     </file>
   </component>
@@ -81,20 +77,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "CodeWithMe",
     "last_opened_file_path": "C:/Users/david/Desktop/G/project-l06gr04"
   }
 }]]></component>
-
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/david/Desktop/G/project-l06gr04&quot;
-  }
-}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -107,9 +93,9 @@
     <servers />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TowerDefenceGame$Tests_in__TowerDefenceGame_test_.ic" NAME="Tests in 'TowerDefenceGame.test' Coverage Results" MODIFIED="1701019173161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TowerDefenceGame$Game.ic" NAME="Game Coverage Results" MODIFIED="1701018286000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.example.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TowerDefenceGame$Tests_in__TowerDefenceGame_test_.ic" NAME="Tests in 'TowerDefenceGame.test' Coverage Results" MODIFIED="1701019173161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

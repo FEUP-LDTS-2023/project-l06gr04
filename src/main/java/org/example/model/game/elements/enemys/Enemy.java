@@ -86,17 +86,17 @@ public abstract class Enemy extends Element {
         Position targetPosition = new Position(95, 6);
 
         if (!enemy.isDead() && !position.equals(targetPosition)) {
-                if (position.getX() == 44) {
+                if (position.getX() == 43 ){
                     position = new Position(position.getX(), position.getY() + 1);
                 } else if (position.getY() == 24) {
                     position = new Position(position.getX() - 1, position.getY());
-                } else if (position.getX() == 22) {
+                } else if (position.getX() == 22 ) {
                     position = new Position(position.getX(), position.getY() + 1);
                 } else if (position.getY() == 33) {
                     position = new Position(position.getX() + 1, position.getY());
                 } else if (position.getX() == 95) {
                     position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 6) {
+                } else if (position.getY() == 6 && position.getX()<44) {
                     position = new Position(position.getX() + 1, position.getY());
                 }
 
