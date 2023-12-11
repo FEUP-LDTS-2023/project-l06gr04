@@ -45,9 +45,9 @@ public class Projectile{
             calculateDirection();
             x+=xVelocity*speed*Delta();
             y+=yVelocity*speed*Delta();
-            if(CheckCollision(x,y,target.getX(),target.getY())){
+            /*if(CheckCollision(x,y,target.getX(),target.getY())){
                 damage();
-            }
+            }*/
         }
     }
 

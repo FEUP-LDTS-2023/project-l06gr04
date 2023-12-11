@@ -61,7 +61,9 @@ public class Window implements WindowInterface {
 
         if (keyStroke.getKeyType() == KeyType.EOF) return KEY.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return KEY.QUIT;
-
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'm') return KEY.M;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'c') return KEY.C;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'a') return KEY.A;
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return KEY.UP;
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return KEY.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return KEY.DOWN;
