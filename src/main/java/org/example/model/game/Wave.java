@@ -21,16 +21,19 @@ public class Wave {
     }
     public void update(){
         boolean allEnemiesDead=true;
+        /*
         timeSinceLastSpawn+= Delta();
         if(timeSinceLastSpawn>spawnTime){
             spawn();
             timeSinceLastSpawn=0;
         }
+        */
+
         for (Enemy e: enemyList){
             if(!e.isDead()){
                 allEnemiesDead=false;
                 //e.update();
-                //e.draw();
+
             }
             else {
                 enemyList.remove(e);

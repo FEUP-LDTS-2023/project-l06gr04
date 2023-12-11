@@ -25,7 +25,7 @@ public class WaveController {
     }
     private Wave newWave() {
         waveNumber++;
-        System.out.println("Beginning Wave" + waveNumber);
+        System.out.println("Beginning Wave " + waveNumber);
         return new Wave( timeBetweenEnemies, enemiesPerWave);
     }
 

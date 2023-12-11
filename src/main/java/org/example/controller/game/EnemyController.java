@@ -26,7 +26,8 @@ public class EnemyController extends GameController {
         super(arena);
         this.arena= arena;
         this.waveController = new WaveController(500, 3);
-        this.enemies = new ArrayList<>();
+        System.out.println("sdads");
+        this.enemies = waveController.getCurrentWave().getEnemyList();
         this.lastMovement = 0;
 
     }
@@ -41,11 +42,10 @@ public class EnemyController extends GameController {
             moveEnemies();
 
             if (enemies.isEmpty()) {
-                // Se não houver mais inimigos, iniciar a próxima onda
+                System.out.println("Sem inimigos");
                 waveController.update();
                 enemies.addAll(waveController.getCurrentWave().getEnemyList());
                 arena.setEnemies(enemies);
-                //waveController.getCurrentWave().getEnemyList().clear();
             }
 
             this.lastMovement = time;
