@@ -4,6 +4,7 @@ import org.example.Game;
 import org.example.controller.Controller;
 import org.example.controller.game.ArenaController;
 import org.example.controller.game.EnemyController;
+import org.example.controller.game.TowerController;
 import org.example.gui.Window;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.enemys.Enemy;
@@ -13,6 +14,7 @@ import org.example.viewer.game.GameViewer;
 
 public class GameState extends State<Arena> {
     private EnemyController enemyController;
+    private TowerController towerController;
     private Game game;
     private long TIME_FIXED = 500;
     private long totalTime, pastTime;
@@ -21,6 +23,7 @@ public class GameState extends State<Arena> {
     public GameState(Arena arena) throws Exception {
         super(arena);
         enemyController = new EnemyController(arena);
+        towerController = new TowerController(arena);
         initialize();
     }
 
@@ -41,13 +44,15 @@ public class GameState extends State<Arena> {
     public void update() throws Exception {
         enemyController.step(game, null, System.currentTimeMillis());
         //for(Enemy enemy : getModel().getEnemies()){
-        //    enemy.moveEnemies(enemy);
+
+         //   enemy.moveEnemies(enemy);
         //}
-        /*
+
         if(getModel().getTowers() != null){
-            for(Toweer enemy : getModel().getEnemies()){
-                enemy.moveEnemies(enemy);
-        }*/
+            for(Tower tower : towerController.getTowerList()){
+                tower.setPosition(tower.getPosition());
+            }
+        }
     }
     @Override
     public void step(Game game, Window window, long time) throws Exception {

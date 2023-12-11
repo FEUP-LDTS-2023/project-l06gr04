@@ -27,6 +27,9 @@ public class TowerController extends GameController{
         //WaveController waveController= new WaveController(500, 50);
     }
 
+    public List<Tower> getTowerList(){
+        return towerList;
+    }
 
     public void placeTower(Position position){
 
@@ -35,9 +38,9 @@ public class TowerController extends GameController{
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
         switch (action) {
             case NUM_1:
-                placeTower(new Position(3,22));
+                towerList.add(new ArcherTower(3,23));
             case NUM_2:
-                placeTower(new Position(12,35));
+                towerList.add(new ArcherTower(12,35));
             case NUM_3:
                 placeTower(new Position(26,35));
             case NUM_4:
