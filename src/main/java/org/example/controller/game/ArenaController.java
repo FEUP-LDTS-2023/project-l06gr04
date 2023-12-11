@@ -22,11 +22,7 @@ public class ArenaController extends GameController {
     }
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
-        if (action == WindowInterface.KEY.QUIT || getModel().getChest().getLife() == 0)
-            game.setState(new MenuState(new Menu()));
-        else {
-            towerController.step(game, action, time);
-            enemyController.step(game, action, time);
-        }
+
+
     }
 }

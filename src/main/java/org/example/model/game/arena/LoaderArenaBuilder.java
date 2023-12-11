@@ -86,8 +86,8 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         return null;
     }
     @Override
-    public ArrayList<Enemy> createEnemies(Arena arena) {
-        ArrayList<Enemy> enemies = new ArrayList<>();
+    public List<Enemy> createEnemies(Arena arena) {
+        List<Enemy> enemies = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
             Orc orc = new Orc(i, 5);

@@ -33,11 +33,11 @@ public class Game {
     }
 
 
-    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException, ClassNotFoundException {
+    public static void main(String[] args) throws Exception {
         new Game().start();
     }
 
-    private void start() throws IOException, URISyntaxException, ClassNotFoundException {
+    private void start() throws Exception {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
@@ -56,5 +56,4 @@ public class Game {
         }
         window.close();
     }
-
 }
