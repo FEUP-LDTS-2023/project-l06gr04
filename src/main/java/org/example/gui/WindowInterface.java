@@ -17,7 +17,32 @@ public interface WindowInterface {
 
     void drawPath(Position position);
 
-    enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT,A,C,M}
+    enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT,A,C,M,
+        NUM_1, NUM_2, NUM_3, NUM_4, NUM_5, NUM_6, NUM_7, NUM_8, NUM_9;
+        public static KEY fromNumericValue(int numericValue) {
+        switch (numericValue) {
+            case 1:
+                return NUM_1;
+            case 2:
+                return NUM_2;
+            case 3:
+                return NUM_3;
+            case 4:
+                return NUM_4;
+            case 5:
+                return NUM_5;
+            case 6:
+                return NUM_6;
+            case 7:
+                return NUM_7;
+            case 8:
+                return NUM_8;
+            case 9:
+                return NUM_9;
+            default:
+                return NONE;
+        }
+    }}
 
 
     void drawTower(Position position, Tower tower);

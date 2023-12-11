@@ -13,6 +13,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import org.example.model.game.Position;
 import org.example.model.game.elements.Chest;
+import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Tower;
 
@@ -68,7 +69,11 @@ public class Window implements WindowInterface {
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return KEY.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return KEY.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return KEY.LEFT;
-
+        char numericChar = keyStroke.getCharacter();
+        if (Character.isDigit(numericChar) && numericChar >= '1' && numericChar <= '9') {
+            int numericValue = Character.getNumericValue(numericChar);
+            return KEY.fromNumericValue(numericValue);
+        }
         if (keyStroke.getKeyType() == KeyType.Enter) return KEY.SELECT;
 
         return KEY.NONE;
@@ -166,5 +171,8 @@ public class Window implements WindowInterface {
 
     public void drawChest(Position position, Chest chest) {
         drawIntoGameChar(position.getX(), position.getY(), chest.getChestSymbol(), "YELLOW");
+    }
+    public void drawTowerPositions(Position position, TowerPositions towerPositions) {
+        drawIntoGameChar(position.getX(), position.getY(), towerPositions.getSymbol(), "GREEN");
     }
 }
