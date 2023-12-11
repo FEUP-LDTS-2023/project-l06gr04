@@ -5,8 +5,6 @@ import org.example.model.game.elements.enemys.Enemy;
 
 import java.util.ArrayList;
 
-import static org.example.Clock.Delta;
-
 public class CanonTower extends Tower{
     private static final int CT_LIFE = 300;
     private static final int LEVEL = 1;

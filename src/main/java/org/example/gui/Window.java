@@ -101,7 +101,7 @@ public class Window implements WindowInterface {
     }
     @Override
     public void drawScore(String score) {
-        drawIntoGameString(41, 0, score, "WHITE");
+        drawIntoGameString(21, 0, score, "WHITE");
     }
 
     public void drawLevel(String level) {

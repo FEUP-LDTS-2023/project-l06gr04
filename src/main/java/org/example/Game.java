@@ -1,11 +1,14 @@
 package org.example;
 
+import org.example.controller.game.EnemyController;
 import org.example.gui.Window;
 import org.example.model.game.Level;
 import org.example.model.game.Score;
+import org.example.model.game.elements.TowerPositions;
 import org.example.model.menu.Menu;
 import org.example.states.MenuState;
 import org.example.states.State;
+//import org.example.states.TowerPositionsState;
 import org.example.viewer.game.GameViewer;
 
 import java.awt.*;
@@ -15,8 +18,6 @@ import java.net.URISyntaxException;
 public class Game {
     private final Window window;
     private State state;
-    private GameViewer gameViewer;
-    private Menu menu;
     private Score score;
     private Level level;
     public void setState(State state) {
@@ -44,7 +45,6 @@ public class Game {
             long startTime = System.currentTimeMillis();
 
             state.step(this, window, startTime);
-
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
 
@@ -57,7 +57,4 @@ public class Game {
         window.close();
     }
 
-    public void updateDisplay() {
-        gameViewer.drawElements(window);
-    }
 }

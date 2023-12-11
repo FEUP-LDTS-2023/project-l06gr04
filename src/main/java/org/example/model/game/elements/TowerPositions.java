@@ -1,4 +1,5 @@
 package org.example.model.game.elements;
+
 import java.util.List;
 import java.util.Arrays;
 import org.example.model.game.Position;
@@ -16,3 +17,4 @@ public class TowerPositions extends Element {
         return this.actPosition;
     }
 }
+

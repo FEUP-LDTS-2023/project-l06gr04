@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controller;
 
 public class Clock {
     private static boolean paused=false;
@@ -27,6 +27,9 @@ public class Clock {
     public static void update(){
         d=getDelta();
         totalTime+=d;
+    }
+    public static boolean isPaused(){
+        return paused;
     }
     public static void changeMultiplier(int change){
         if(multiplier + change <-1 && multiplier+change>7){

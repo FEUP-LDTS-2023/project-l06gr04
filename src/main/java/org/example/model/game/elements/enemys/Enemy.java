@@ -43,6 +43,7 @@ public abstract class Enemy extends Element {
         actHP = 0;
     }
     public int getHiddenHealth(){
+
         return hiddenHP;
     }
     public void reduceHiddenHealth(int damage){

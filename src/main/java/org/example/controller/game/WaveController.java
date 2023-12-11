@@ -9,13 +9,11 @@ public class WaveController {
     private Enemy enemytype;
     private Wave currentWave;
     public WaveController( float timeBetweenEnemies, int enemiesPerWave){
-      /*  this.enemytype=enemytype;*/
         this.timeBetweenEnemies= timeBetweenEnemies;
         this.enemiesPerWave= enemiesPerWave;
         this.timeSinceLastWave=0;
         this.waveNumber=0;
-        this.currentWave=null;
-        newWave();
+        this.currentWave= newWave();
     }
     public void update(){
         if(!currentWave.isCompleted()){
@@ -25,10 +23,10 @@ public class WaveController {
             newWave();
         }
     }
-    private void newWave() {
-        currentWave= new Wave( timeBetweenEnemies, enemiesPerWave);
+    private Wave newWave() {
         waveNumber++;
         System.out.println("Beginning Wave" + waveNumber);
+        return new Wave( timeBetweenEnemies, enemiesPerWave);
     }
 
     public Wave getCurrentWave() {

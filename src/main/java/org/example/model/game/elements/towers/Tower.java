@@ -1,14 +1,12 @@
 package org.example.model.game.elements.towers;
 
-import com.googlecode.lanterna.terminal.swing.TerminalScrollController;
 import org.example.model.game.Position;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import static org.example.Clock.Delta;
+import static org.example.controller.Clock.Delta;
 
 public abstract class Tower extends Element {
     Position position;

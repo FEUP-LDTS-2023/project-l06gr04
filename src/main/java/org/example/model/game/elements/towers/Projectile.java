@@ -1,12 +1,8 @@
 package org.example.model.game.elements.towers;
 
-import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 
-import javax.swing.text.Position;
-import java.util.ArrayList;
-
-import static org.example.Clock.Delta;
+import static org.example.controller.Clock.Delta;
 
 public class Projectile{
     private int damage,width,height;
@@ -16,11 +12,9 @@ public class Projectile{
     private Enemy target;
     private boolean alive;
 
-    public Projectile(float x,float y,Enemy target,int  width,int height, float speed, int damage) {
+    public Projectile(float x,float y,Enemy target, float speed, int damage) {
         this.x=x;
         this.y=y;
-        this.width=width;
-        this.height=height;
         this.speed = speed;
         this.damage = damage;
         this.target= target;
@@ -50,7 +44,12 @@ public class Projectile{
             }*/
         }
     }
-
+    private boolean CheckCollision(float x1, float y1, float x2, float y2){
+        if(x1>x2 && x1<x2+1 && y1>y2 && y1<y2+1){
+            return true;
+        }
+        return false;
+    }
     public void damage(){
         target.damage(damage);
         alive=false;
