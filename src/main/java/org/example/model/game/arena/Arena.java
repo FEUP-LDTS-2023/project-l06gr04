@@ -32,6 +32,7 @@ public class Arena{
         this.score = new Score();
         this.coins = 500;
         this.enemies = new ArrayList<>();
+        this.towers = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -57,6 +58,7 @@ public class Arena{
     public List<Tower> getTowers() {
         return towers;
     }
+
 
     public void setEnemies(List<Enemy> enemies) {
         this.enemies = enemies;
