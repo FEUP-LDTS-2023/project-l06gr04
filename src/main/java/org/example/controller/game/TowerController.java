@@ -5,15 +5,7 @@ import org.example.Game;
 import org.example.gui.WindowInterface;
 import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
-import org.example.model.game.elements.Path;
-import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.ArcherTower;
-import org.example.model.game.elements.towers.CanonTower;
-import org.example.model.game.elements.towers.MageTower;
-import org.example.model.game.elements.towers.Tower;
-import org.example.model.menu.Menu;
-import org.example.states.MenuState;
-import org.example.model.game.arena.Arena;
+import org.example.model.game.elements.towers.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -88,34 +80,59 @@ public class TowerController extends GameController{
                 selected=true;
                 break;
             case C:
-                if(selected) {
-                    if(coins>=100) {
-                        coins = coins - 100;
+                if (selected) {
+                    if (arena.getCoins() >= 100) {
+                        int newCoins = arena.getCoins() - 100;
+                        arena.setCoins(newCoins);
                         CanonTower = new CanonTower(position.getX(), position.getY());
                         arena.addTowers(CanonTower);
                     }
                 }
                 break;
             case A:
-                if(selected) {
-                    if(coins>=250) {
-                        coins = coins - 250;
+                if (selected) {
+                    if (arena.getCoins() >= 250) {
+                        int newCoins = arena.getCoins() - 250;
+                        arena.setCoins(newCoins);
                         ArcherTower = new ArcherTower(position.getX(), position.getY());
                         arena.addTowers(ArcherTower);
                     }
                 }
                 break;
             case M:
-                if(selected) {
-                    if(coins>=500) {
-                        coins = coins - 500;
+                if (selected) {
+                    if (arena.getCoins() >= 500) {
+                        int newCoins = arena.getCoins() - 500;
+                        arena.setCoins(newCoins);
                         MageTower = new MageTower(position.getX(), position.getY());
                         arena.addTowers(MageTower);
+                    }
+                }
+                break;
+            case U:
+                if(selected){
+                    if(arena.getCoins() >=300){
+                        int newCoins = arena.getCoins() -300;
+                        arena.setCoins(newCoins);
+                        for(Tower tower: arena.getTowers()){
+                            if(tower.getPosition().equals(position)){
+                                tower.upgrade();
+                            }
+                        }
                     }
                 }
                 break;
             default:
                 break;
         }
+        for (Tower tower : arena.getTowers()) {
+            tower.setEnemies(getModel().getEnemies());
+            if(tower.getTowerSymbol() == 'A'){
+                tower.update();
+                }
+
+
+        }
     }
+
 }

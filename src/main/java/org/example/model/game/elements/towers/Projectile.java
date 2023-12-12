@@ -39,9 +39,9 @@ public class Projectile{
             calculateDirection();
             x+=xVelocity*speed*Delta();
             y+=yVelocity*speed*Delta();
-            /*if(CheckCollision(x,y,target.getX(),target.getY())){
+            if (CheckCollision(x, y, target.getX(), target.getY())) {
                 damage();
-            }*/
+            }
         }
     }
     private boolean CheckCollision(float x1, float y1, float x2, float y2){
@@ -50,10 +50,12 @@ public class Projectile{
         }
         return false;
     }
-    public void damage(){
+    public void damage() {
+        System.out.println("Projectile hit! Damage: " + damage);
         target.damage(damage);
-        alive=false;
+        alive = false;
     }
+
 
     public boolean isActive() {
         return ativo;

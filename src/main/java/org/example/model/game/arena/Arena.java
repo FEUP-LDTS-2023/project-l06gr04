@@ -30,7 +30,7 @@ public class Arena{
         this.height = height;
         this.level = new Level();
         this.score = new Score();
-        this.coins = 500;
+        this.coins = 1000;
         this.enemies = new ArrayList<>();
         this.towers = new ArrayList<>();
     }
