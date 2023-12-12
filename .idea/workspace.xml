@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903699ec-ea4a-407b-aaaa-c974eb6794db" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" afterDir="false" />
-    </list>
+    <list default="true" id="903699ec-ea4a-407b-aaaa-c974eb6794db" name="Changes" comment="" />
     <list id="f063df3c-9f33-49d7-873c-7e5a926b2f98" name="Changes by david" comment="" />
-    <list id="2fdbf185-659f-4586-b880-8e860db044a5" name="Changes by dioguerox" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" afterDir="false" />
-    </list>
-    <list id="caa36088-0f39-4c29-91e9-b5dc43da181b" name="Changes by tiago" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/towers/Tower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" afterDir="false" />
-    </list>
+    <list id="2fdbf185-659f-4586-b880-8e860db044a5" name="Changes by dioguerox" comment="" />
+    <list id="caa36088-0f39-4c29-91e9-b5dc43da181b" name="Changes by tiago" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/david/Desktop/TDGAME/project-l06gr04"
+    "last_opened_file_path": "C:/Users/david/Desktop/TDD/project-l06gr04"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

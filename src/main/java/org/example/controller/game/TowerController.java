@@ -8,6 +8,8 @@ import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.ArcherTower;
+import org.example.model.game.elements.towers.CanonTower;
+import org.example.model.game.elements.towers.MageTower;
 import org.example.model.game.elements.towers.Tower;
 import org.example.model.menu.Menu;
 import org.example.states.MenuState;
@@ -20,13 +22,16 @@ import java.util.List;
 public class TowerController extends GameController{
     private List<Tower> towerList;
     private Arena arena;
+    private boolean selected;
     private long lastMovement;
+    private Position position;
 
     //temos de adicionar as torres à lista assim que as criamos para que elas possam ser dadas ao draw
     public TowerController(Arena arena) {
         super(arena);
         this.arena=arena;
         this.towerList =new ArrayList<>();
+        this.selected=false;
 
     }
 
@@ -40,48 +45,66 @@ public class TowerController extends GameController{
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
 
-            ArcherTower ArcherTower;
-            System.out.println(action);
-            switch (action) {
-                case NUM_1:
-                    System.out.println("111111111111111111");
-                    ArcherTower = new ArcherTower(21, 2);
-
+        ArcherTower ArcherTower;
+        CanonTower CanonTower;
+        MageTower MageTower;
+        switch (action) {
+            case NUM_1:
+                position=new Position(21, 2);
+                selected=true;
+                break;
+            case NUM_2:
+                position=new Position(34,11);
+                selected=true;
+                break;
+            case NUM_3:
+                position=new Position(34,25);
+                selected=true;
+                break;
+            case NUM_4:
+                position=new Position(14,32);
+                selected=true;
+                break;
+            case NUM_5:
+                position=new Position(61,36);
+                selected=true;
+                break;
+            case NUM_6:
+                position=new Position(83,28);
+                selected=true;
+                break;
+            case NUM_7:
+                position=new Position(101,18);
+                selected=true;
+                break;
+            case NUM_8:
+                position=new Position(84,6);
+                selected=true;
+                break;
+            case NUM_9:
+                position=new Position(100,6);
+                selected=true;
+                break;
+            case C:
+                if(selected) {
+                    CanonTower = new CanonTower(position.getX(), position.getY());
+                    arena.addTowers(CanonTower);
+                }
+                break;
+            case A:
+                if(selected) {
+                    ArcherTower = new ArcherTower(position.getX(), position.getY());
                     arena.addTowers(ArcherTower);
-                    break;
-                case NUM_2:
-                    ArcherTower = new ArcherTower(34,11);
-                    arena.addTowers(ArcherTower);
-                    break;
-                case NUM_3:
-                    placeTower(new Position(26,35));
-                    break;
-                case NUM_4:
-                    placeTower(new Position(33,15));
-                    break;
-                case NUM_5:
-                    placeTower(new Position(37,62));
-                    break;
-                case NUM_6:
-                    placeTower(new Position(29,84));
-                    break;
-                case NUM_7:
-                    placeTower(new Position(19,102));
-                    break;
-                case NUM_8:
-                    placeTower(new Position(7,85));
-                    break;
-                case NUM_9:
-                    placeTower(new Position(7,101));
-                    break;
-                case C:
-                    break;
-                case A:
-                    break;
-                case M:
-                    break;
-                default:
-                    break;
-            }
+                }
+                break;
+            case M:
+                if(selected) {
+                    MageTower = new MageTower(position.getX(), position.getY());
+                    arena.addTowers(MageTower);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }
