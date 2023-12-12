@@ -2,6 +2,7 @@ package org.example.controller.menu;
 
 import org.example.Game;
 import org.example.controller.Controller;
+import org.example.gui.Window;
 import org.example.gui.WindowInterface;
 import org.example.model.game.arena.LoaderArenaBuilder;
 import org.example.model.menu.Menu;
@@ -25,7 +26,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder().createArena()));
+                if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder().createArena(), game.getWindow()));
         }
     }
 }

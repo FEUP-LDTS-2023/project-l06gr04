@@ -21,5 +21,5 @@ public abstract class Viewer<T> {
         window.refresh();
     }
 
-    protected abstract void drawElements(Window window);
+    public abstract void drawElements(Window window);
 }
