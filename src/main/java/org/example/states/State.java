@@ -14,8 +14,10 @@ public abstract class State<T> {
     private final T model;
     private final Controller<T> controller;
     private final Viewer<T> viewer;
+    private final Window window;
 
-    public State(T model) {
+    public State(T model,Window window) {
+        this.window = window;
         this.model = model;
         this.viewer = getViewer();
         this.controller = getController();
@@ -28,7 +30,9 @@ public abstract class State<T> {
     public T getModel() {
         return model;
     }
-
+    public void draw(Window window) throws IOException, URISyntaxException {
+        viewer.draw(window);
+    }
     public void step(Game game, Window window, long time) throws Exception {
         Window.KEY action = window.processKey();
         controller.step(game, action, time);

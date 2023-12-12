@@ -27,11 +27,13 @@ public class Game {
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.window = new Window();
-        this.state = new MenuState(new Menu());
+        this.state = new MenuState(new Menu(), window);
         this.score = new Score();
         this.level = new Level();
     }
-
+    public Window getWindow() {
+        return window;
+    }
 
     public static void main(String[] args) throws Exception {
         new Game().start();

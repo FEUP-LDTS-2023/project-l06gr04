@@ -6,16 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="903699ec-ea4a-407b-aaaa-c974eb6794db" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ArenaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ArenaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/WaveController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/Wave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/Wave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ScoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ScoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/menu/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/menu/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Golem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Golem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/MenuState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/Viewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/Viewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/viewer/game/GameViewer.java" afterDir="false" />
     </list>
     <list id="f063df3c-9f33-49d7-873c-7e5a926b2f98" name="Changes by david" comment="" />
+    <list id="2fdbf185-659f-4586-b880-8e860db044a5" name="Changes by dioguerox" comment="" />
+
     <list id="caa36088-0f39-4c29-91e9-b5dc43da181b" name="Changes by tiago" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +70,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+
     "git-widget-placeholder": "feature/Controllers",
+
+    "git-widget-placeholder": "feature-towerp",
+
     "last_opened_file_path": "C:/Users/david/Desktop/G/project-l06gr04"
   }
 }]]></component>
