@@ -82,18 +82,18 @@ public abstract class Enemy extends Element {
 
     public void moveGolem(Enemy enemy) {
         Position position = enemy.getPosition();
-        Position targetPosition = new Position(93, 6);
+        Position targetPosition = new Position(92, 5);
 
         if (!enemy.isDead() && !position.equals(targetPosition)) {
             if (position.getX() == 41 && position.getY()<21){
                 position = new Position(position.getX(), position.getY() + 1);
-            } else if (position.getY() == 21 && position.getX()>22 && position.getX()!=93){
+            } else if (position.getY() == 21 && position.getX()>22 && position.getX()!=92){
                 position = new Position(position.getX() - 1, position.getY());
             } else if (position.getX() == 22 && position.getY()<32 && position.getY()!=6 ) {
                 position = new Position(position.getX(), position.getY() + 1);
-            } else if (position.getY() == 32 && position.getX()<93) {
+            } else if (position.getY() == 32 && position.getX()<92) {
                 position = new Position(position.getX() + 1, position.getY());
-            } else if (position.getX() == 93) {
+            } else if (position.getX() == 92) {
                 position = new Position(position.getX(), position.getY() - 1);
             } else if (position.getY() == 6 && position.getX()<41) {
                 position = new Position(position.getX() + 1, position.getY());
@@ -106,49 +106,47 @@ public abstract class Enemy extends Element {
 
     public void moveSkeleton(Enemy enemy) {
         Position position = enemy.getPosition();
-        Position targetPosition = new Position(96, 6);
+        Position targetPosition = new Position(93, 5);
 
         if (!enemy.isDead() && !position.equals(targetPosition)) {
-                if (position.getX() == 43) {
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 25) {
-                    position = new Position(position.getX() - 1, position.getY());
-                } else if (position.getX() == 23) {
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 34) {
-                    position = new Position(position.getX() + 1, position.getY());
-                } else if (position.getX() == 96) {
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 7) {
-                    position = new Position(position.getX() + 1, position.getY());
-                }
+            if (position.getX() == 40 && position.getY()<20){
+                position = new Position(position.getX(), position.getY() + 1);
+            } else if (position.getY() == 20 && position.getX()>21 && position.getX()!=93){
+                position = new Position(position.getX() - 1, position.getY());
+            } else if (position.getX() == 21 && position.getY()<33 && position.getY()!=7 ) {
+                position = new Position(position.getX(), position.getY() + 1);
+            } else if (position.getY() == 33 && position.getX()<93) {
+                position = new Position(position.getX() + 1, position.getY());
+            } else if (position.getX() == 93) {
+                position = new Position(position.getX(), position.getY() - 1);
+            } else if (position.getY() == 7 && position.getX()<40) {
+                position = new Position(position.getX() + 1, position.getY());
+            }
 
-                enemy.setPosition(position);
-
+            enemy.setPosition(position);
         }
     }
 
     public void moveOrc(Enemy enemy) {
         Position position = enemy.getPosition();
-        Position targetPosition = new Position(94, 6);
+        Position targetPosition = new Position(91, 5);
 
-        if(!enemy.isDead() && !position.equals(targetPosition)) {
-                if (position.getX() == 45) {
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 23) {
-                    position = new Position(position.getX() - 1, position.getY());
-                } else if (position.getX() == 21) {
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 32) {
-                    position = new Position(position.getX() + 1, position.getY());
-                } else if (position.getX() == 94) {
-                    position = new Position(position.getX(), position.getY() + 1);
-                } else if (position.getY() == 5) {
-                    position = new Position(position.getX() + 1, position.getY());
-                }
-
-                enemy.setPosition(position);
+        if (!enemy.isDead() && !position.equals(targetPosition)) {
+            if (position.getX() == 42 && position.getY() < 22) {
+                position = new Position(position.getX(), position.getY() + 1);
+            } else if (position.getY() == 22 && position.getX()> 23 && position.getX() != 91) {
+                position = new Position(position.getX() - 1, position.getY());
+            } else if (position.getX() == 23 && position.getY() < 31 && position.getY() != 5) {
+                position = new Position(position.getX(), position.getY() + 1);
+            } else if (position.getY() == 31 && position.getX() < 91) {
+                position = new Position(position.getX() + 1, position.getY());
+            } else if (position.getX() == 91) {
+                position = new Position(position.getX(), position.getY() - 1);
+            } else if (position.getY() == 5 && position.getX() < 42) {
+                position = new Position(position.getX() + 1, position.getY());
             }
-        }
 
+            enemy.setPosition(position);
+        }
+    }
 }

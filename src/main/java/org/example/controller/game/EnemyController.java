@@ -62,13 +62,13 @@ public class EnemyController extends GameController {
     }
 
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
-        if (time - lastMovement > 500) {
+        if (time - lastMovement > 50) {
             moveEnemies();
 
             if (enemies.isEmpty()) {
                 List<Enemy> newEnemies = new ArrayList<>();
 
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 10; i++) {
                     int enemyTypeIndex = 1 + (int) (Math.random() * 3);
                     Enemy enemy;
                     switch (enemyTypeIndex) {
