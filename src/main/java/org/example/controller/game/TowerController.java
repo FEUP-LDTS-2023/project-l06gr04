@@ -25,7 +25,7 @@ public class TowerController extends GameController{
     //temos de adicionar as torres à lista assim que as criamos para que elas possam ser dadas ao draw
     public TowerController(Arena arena) {
         super(arena);
-
+        this.arena=arena;
         this.towerList =new ArrayList<>();
 
     }
@@ -45,11 +45,13 @@ public class TowerController extends GameController{
             switch (action) {
                 case NUM_1:
                     System.out.println("111111111111111111");
-                    ArcherTower = new ArcherTower(3, 23);
+                    ArcherTower = new ArcherTower(21, 2);
+
                     arena.addTowers(ArcherTower);
                     break;
                 case NUM_2:
-                    towerList.add(new ArcherTower(12,35));
+                    ArcherTower = new ArcherTower(34,11);
+                    arena.addTowers(ArcherTower);
                     break;
                 case NUM_3:
                     placeTower(new Position(26,35));

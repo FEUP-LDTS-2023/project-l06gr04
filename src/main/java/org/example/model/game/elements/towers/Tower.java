@@ -32,35 +32,16 @@ public abstract class Tower extends Element {
         this.timeSinceLastShoot=0f;
         this.projectiles=new ArrayList<Projectile>();
         this.enemies=enemies;
-        this.target=getTarget();
-        this.angle=calculateAngle();
+        /*if (targeted) {
+            this.target=getTarget();
+            this.angle = calculateAngle();
+        }*/
     }
-    private Enemy getTarget(){
-        return enemies.get(0);
-    }
-    private float calculateAngle(){
+
+   /* private float calculateAngle(){
         double angleTemp=Math.atan2(target.getY()-y, target.getX()-x );
         return (float) Math.toDegrees(angleTemp) -90;
-    }
-    public void update(){
-        if(!targeted || target.getHiddenHealth()<=0) {
-            target = acquireTarget();
-        }
-        else{
-            angle=calculateAngle();
-            if(timeSinceLastShoot>getFiringSpeed()){
-                shoot(target);
-                timeSinceLastShoot=0;
-            }
-        }
-        if(target==null || target.isDead())
-            targeted=false;
-        timeSinceLastShoot+=Delta();
-
-        //for (projectiles p : projectiles){
-        //    p.update();
-        }
-        //draw();
+    }*/
 
 
     protected abstract void shoot(Enemy target);
