@@ -9,6 +9,8 @@ import org.example.model.game.elements.Path;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.ArcherTower;
 import org.example.model.game.elements.towers.Tower;
+import org.example.model.menu.Menu;
+import org.example.states.MenuState;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ public class TowerController extends GameController{
     private List<Position> availablePositions;
     private List<Integer> availableTowers;
     private List<Tower> towerList;
-    WaveController waveController;
+
     //temos de adicionar as torres à lista assim que as criamos para que elas possam ser dadas ao draw
     public TowerController(Arena arena) {
         super(arena);
