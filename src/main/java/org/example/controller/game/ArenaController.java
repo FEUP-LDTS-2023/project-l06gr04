@@ -22,6 +22,5 @@ public class ArenaController extends GameController {
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
 
-
     }
 }

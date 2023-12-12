@@ -1,8 +1,5 @@
 package org.example.model.game.arena;
 
-import org.example.controller.game.EnemyController;
-import org.example.controller.game.WaveController;
-import org.example.model.game.Position;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.TowerPositions;
@@ -10,7 +7,6 @@ import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.enemys.Orc;
 import org.example.model.game.elements.enemys.Skeleton;
-import org.example.model.game.elements.towers.Tower;
 import org.example.model.game.elements.enemys.Golem;
 
 

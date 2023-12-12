@@ -1,15 +1,11 @@
 package org.example.model.game.arena;
 
-import org.example.Game;
-import org.example.controller.game.WaveController;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.viewer.game.GameViewer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ArenaBuilder {

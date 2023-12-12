@@ -6,20 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="903699ec-ea4a-407b-aaaa-c974eb6794db" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ArenaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/ArenaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/EnemyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/WaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/WaveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/WaveController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/Wave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/Wave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/ArenaBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" afterDir="false" />
     </list>
     <list id="f063df3c-9f33-49d7-873c-7e5a926b2f98" name="Changes by david" comment="" />
-    <list id="2fdbf185-659f-4586-b880-8e860db044a5" name="Changes by dioguerox" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/game/TowerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/arena/LoaderArenaBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java" afterDir="false" />
-    </list>
     <list id="caa36088-0f39-4c29-91e9-b5dc43da181b" name="Changes by tiago" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,27 +49,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/example/states/GameState.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="7" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
-        <range start1="15" end1="15" start2="16" end2="17" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
-        <range start1="16" end1="17" start2="18" end2="19" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
-        <range start1="23" end1="23" start2="25" end2="26" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
-        <range start1="43" end1="44" start2="46" end2="48" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
-        <range start1="45" end1="46" start2="49" end2="50" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
-        <range start1="47" end1="50" start2="51" end2="55" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/example/model/game/elements/enemys/Enemy.java">
-      <ranges>
-        <range start1="68" end1="69" start2="68" end2="68" changelist="903699ec-ea4a-407b-aaaa-c974eb6794db" />
-        <range start1="85" end1="86" start2="84" end2="85" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
-        <range start1="88" end1="101" start2="87" end2="100" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
-        <range start1="102" end1="104" start2="101" end2="103" changelist="2fdbf185-659f-4586-b880-8e860db044a5" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -90,7 +65,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "CodeWithMe",
+    "git-widget-placeholder": "feature/Controllers",
     "last_opened_file_path": "C:/Users/david/Desktop/G/project-l06gr04"
   }
 }]]></component>
