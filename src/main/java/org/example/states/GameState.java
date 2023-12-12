@@ -23,7 +23,7 @@ public class GameState extends State<Arena> {
     private TowerController towerController;
 
     private ArenaController arenaController;
-    private long TIME_FIXED = 500;
+    private long TIME_FIXED = 100;
     private ScoreController scoreController;
     private Game game;
 
@@ -71,7 +71,6 @@ public class GameState extends State<Arena> {
             game.setState(new MenuState(new Menu(),window));
             return;
         }
-        System.out.println(key);
 
         totalTime += getTimePassed();
         while(totalTime >=TIME_FIXED){
