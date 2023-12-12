@@ -74,6 +74,8 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return paths;
     }
+
+
     @Override
     protected Chest createChest() {
         Chest chest = null;
@@ -123,36 +125,5 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             }
         }
         return towerPositions;
-    }
-    @Override
-    public List<Enemy> createEnemies(Arena arena) {
-        List<Enemy> enemies = new ArrayList<>();
-
-        if (enemies.isEmpty()) {
-            List<Enemy> newEnemies = new ArrayList<>();
-
-            for (int i = 0; i < 5; i++) {
-                int enemyTypeIndex = 1 + (int) (Math.random() * 3);
-                Enemy enemy;
-                switch (enemyTypeIndex) {
-                    case 1:
-                        enemy = new Orc(i, 6);
-                        break;
-                    case 2:
-                        enemy = new Golem(i, 7);
-                        break;
-                    case 3:
-                        enemy = new Skeleton(i, 8);
-                        break;
-                    default:
-                        enemy = null;
-                        break;
-                }
-                newEnemies.add(enemy);
-            }
-            arena.setEnemies(newEnemies);
-            enemies = newEnemies;
-        }
-        return enemies;
     }
 }

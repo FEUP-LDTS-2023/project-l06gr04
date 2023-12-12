@@ -8,4 +8,5 @@ public abstract class GameController extends Controller<Arena> {
         super(arena);
     }
 
+
 }

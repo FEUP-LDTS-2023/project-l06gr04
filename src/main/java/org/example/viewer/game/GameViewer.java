@@ -8,6 +8,7 @@ import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.Tower;
 import org.example.viewer.Viewer;
 
 import java.util.List;
@@ -27,12 +28,13 @@ public class GameViewer extends Viewer<Arena> {
     @Override
     public void drawElements(Window window) {
         drawElements(window, getModel().getWalls(), new WallViewer());
+        drawElements(window, getModel().getTowers(), new TowerViewer());
         drawElements(window, getModel().getPaths(), new PathViewer());
         drawElements(window, getModel().getTowerPositions(), new TowerPositionsViewer());
         Chest chest = (Chest) getModel().getChest();
         drawElements(window, getModel().getEnemies(), new EnemyViewer());
         drawElement(window, chest, new ChestViewer());
-        //drawElement(window, getModel().getEntry(), new TowerPositionsViewer());
+
         window.drawText(new Position(0, 41), "SCORE :" + getModel().getScore().getScore(), "WHITE");
         window.drawText(new Position(0, 42), "LEVEL :" + getModel().getLevel().getLevel(), "WHITE");
         window.drawText(new Position(0, 43), "COINS :" + getModel().getCoins(), "WHITE");
