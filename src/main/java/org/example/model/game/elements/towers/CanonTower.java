@@ -20,6 +20,7 @@ public class CanonTower extends Tower{
         this.damage=60;
         this.projectiles = new ArrayList<Projectile>();
         this.timeSinceLastShoot=0;
+        setCost(COST);
     }
 
     @Override
@@ -43,5 +44,9 @@ public class CanonTower extends Tower{
         setLevel(getLevel()+1);
         setRange(getRange()+1);
         setLife(getLife() +100);
+    }
+
+    public int getPrice() {
+        return 0;
     }
 }

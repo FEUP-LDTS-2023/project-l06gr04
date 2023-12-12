@@ -3,7 +3,7 @@ package org.example.model.game.elements;
 public class Chest extends Element {
     private int life;
     private char chestSymbol;
-    static public final int INITIAL_LIFE = 2000;
+    static public final int INITIAL_LIFE = 2000000;
     public Chest(int x, int y) {
         super(x, y);
         this.life = INITIAL_LIFE;
@@ -16,11 +16,9 @@ public class Chest extends Element {
         return life;
     }
 
-    public void decreaseLife(int damage) {
-        life -= damage;
-        if (life < 0) {
-            life = 0;
-        }
+    public void decreaseLife() {
+        life-=100;
+
     }
 
     public boolean isAlive() {

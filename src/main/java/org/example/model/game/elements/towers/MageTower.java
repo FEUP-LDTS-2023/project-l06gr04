@@ -19,6 +19,7 @@ public class MageTower extends Tower {
         this.damage=50;
         this.firingSpeed = 4;
         this.timeSinceLastShoot=0;
+        setCost(COST);
     }
     @Override
     public void shoot(Enemy target){

@@ -2,6 +2,7 @@ package org.example.model.game.elements.enemys;
 
 import org.example.controller.Clock;
 import org.example.model.game.Position;
+import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
 
 public abstract class Enemy extends Element {
@@ -15,6 +16,7 @@ public abstract class Enemy extends Element {
     int hiddenHP;
     double angle;
     Double[] path;
+    private Position deathPosition;
 
     public Enemy(double speed, int totHP, int x, int y){
         super(x,y);
@@ -22,6 +24,7 @@ public abstract class Enemy extends Element {
         this.totHP = totHP;
         actHP = totHP;
         this.hiddenHP=actHP;
+        this.deathPosition = new Position(0,0);
         this.position = new Position(x,y);
     }
     public char getEnemySymbol() {
@@ -38,10 +41,14 @@ public abstract class Enemy extends Element {
         if (actHP <= 0)
             die();
     }
+    public Position deathPosition() {
+        return this.deathPosition;
+    }
 
     public void die() {
         isDead = true;
         actHP = 0;
+        deathPosition = position;
     }
     public int getHiddenHealth(){
 
@@ -63,7 +70,6 @@ public abstract class Enemy extends Element {
     public void setDead(boolean b) {
         isDead = b;
     }
-
 
     public void moveEnemies(Enemy enemy) {
         switch (enemy.getEnemySymbol()) {
@@ -103,7 +109,12 @@ public abstract class Enemy extends Element {
         }
         if (position.equals(targetPosition)) {
             enemy.die();
+            enemy.setDeathPosition(position);
         }
+    }
+
+    private void setDeathPosition(Position position) {
+        this.deathPosition = position;
     }
 
     public void moveSkeleton(Enemy enemy) {
@@ -129,6 +140,8 @@ public abstract class Enemy extends Element {
         }
         if (position.equals(targetPosition)) {
             enemy.die();
+            enemy.setDeathPosition(position);
+
         }
     }
 
@@ -155,6 +168,7 @@ public abstract class Enemy extends Element {
         }
         if (position.equals(targetPosition)) {
             enemy.die();
+            enemy.setDeathPosition(position);
         }
     }
 }

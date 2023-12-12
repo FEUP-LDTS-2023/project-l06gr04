@@ -40,7 +40,8 @@ public class GameViewer extends Viewer<Arena> {
         window.drawText(new Position(0, 42), "LEVEL :" + getModel().getLevel().getLevel(), "WHITE");
         window.drawText(new Position(0, 43), "COINS :" + getModel().getCoins(), "WHITE");
         window.drawText(new Position(0, 44), "CHEST LIFE :" + getModel().getChest().getLife(), "WHITE");
-        //window.drawText(new Position(0, 0), "LIFE " + getModel().getTowers()/*dar a vida*/, "#FFD700");
+        window.drawText(new Position(60, 41), "[1-9] keyboard keys select the tower position", "WHITE");
+        window.drawText(new Position(60, 42), "A - ArcherTower, C - CanonTower, M - MageTower", "WHITE");
         }
 
 

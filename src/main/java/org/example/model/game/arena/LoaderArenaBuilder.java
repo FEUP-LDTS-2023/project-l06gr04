@@ -84,7 +84,10 @@ public class LoaderArenaBuilder extends ArenaBuilder {
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == 'C') return new Chest(x,y);
                 }
-        return null;
+        if (chest != null) {
+            arena.setChest(chest);
+        }
+        return chest;
     }
     protected List<TowerPositions> createTowerPositions() {
         List<TowerPositions> towerPositions = new ArrayList<>();

@@ -101,7 +101,7 @@ public class Arena{
     }
 
     public Chest getChest() {
-        return chest;
+        return this.chest;
     }
 
     public int getCoins() {
