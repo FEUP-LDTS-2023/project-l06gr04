@@ -60,16 +60,17 @@ public class GameState extends State<Arena> {
         scoreController.step(game, null, System.currentTimeMillis());
         towerController.step(game, action, System.currentTimeMillis());
 
-
-
-
     }
     @Override
     public void step(Game game, Window window, long time) throws Exception {
+
         WindowInterface.KEY key = window.processKey();
         if (key==WindowInterface.KEY.QUIT) {
             game.setState(new MenuState(new Menu(),window));
             return;
+        }
+        if(getModel().getChest().getLife()==0){
+            game.setState(new MenuState(new Menu(),window));
         }
 
         totalTime += getTimePassed();
@@ -79,6 +80,7 @@ public class GameState extends State<Arena> {
         }
         getViewer().draw(window);
     }
+
     public long getTimePassed() {
         long currentTime = System.currentTimeMillis();
         long timePassed = currentTime - pastTime;

@@ -19,12 +19,14 @@ public class ScoreController extends GameController {
     public ScoreController(Arena arena, Score scoreModel) {
         super(arena);
         this.scoreModel = scoreModel;
+        this.level = new Level();
         this.lastMovement = 0;
     }
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
         if (time - lastMovement > 50) {
             updateScore();
+            level.updateLevel(scoreModel);
             this.lastMovement = time;
         }
     }
@@ -37,7 +39,6 @@ public class ScoreController extends GameController {
                 switch (enemy.getEnemySymbol()) {
                     case 'S':
                         scoreModel.incrementScore(10 + level.getLevel() * 2);
-                        getModel().setCoins(getModel().getCoins() + 25);
                         break;
                     case 'O':
                         scoreModel.incrementScore(20 + level.getLevel() * 2);
@@ -50,5 +51,6 @@ public class ScoreController extends GameController {
                 }
             }
         }
+
     }
 }

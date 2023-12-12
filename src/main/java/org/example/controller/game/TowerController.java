@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TowerController extends GameController{
+    private int coins;
     private List<Tower> towerList;
     private Arena arena;
     private boolean selected;
@@ -48,6 +49,7 @@ public class TowerController extends GameController{
         ArcherTower ArcherTower;
         CanonTower CanonTower;
         MageTower MageTower;
+        coins = getModel().getCoins();
         switch (action) {
             case NUM_1:
                 position=new Position(21, 2);
@@ -87,20 +89,29 @@ public class TowerController extends GameController{
                 break;
             case C:
                 if(selected) {
-                    CanonTower = new CanonTower(position.getX(), position.getY());
-                    arena.addTowers(CanonTower);
+                    if(coins>=100) {
+                        coins = coins - 100;
+                        CanonTower = new CanonTower(position.getX(), position.getY());
+                        arena.addTowers(CanonTower);
+                    }
                 }
                 break;
             case A:
                 if(selected) {
-                    ArcherTower = new ArcherTower(position.getX(), position.getY());
-                    arena.addTowers(ArcherTower);
+                    if(coins>=250) {
+                        coins = coins - 250;
+                        ArcherTower = new ArcherTower(position.getX(), position.getY());
+                        arena.addTowers(ArcherTower);
+                    }
                 }
                 break;
             case M:
                 if(selected) {
-                    MageTower = new MageTower(position.getX(), position.getY());
-                    arena.addTowers(MageTower);
+                    if(coins>=500) {
+                        coins = coins - 500;
+                        MageTower = new MageTower(position.getX(), position.getY());
+                        arena.addTowers(MageTower);
+                    }
                 }
                 break;
             default:

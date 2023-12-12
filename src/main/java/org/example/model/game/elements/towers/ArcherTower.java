@@ -19,6 +19,7 @@ public class ArcherTower extends Tower {
         this.firingSpeed=3;
         this.damage=60;
         this.projectiles = new ArrayList<Projectile>();
+        setCost(COST);
 
 
     }

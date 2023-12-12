@@ -109,6 +109,28 @@ public abstract class Tower extends Element {
     void setLife(int life){
         this.life = life;
     }
+    void setCost(int cost){
+        this.cost = cost;
+    }
+    public int getCost(){
+        return cost;
+    }
+    public void update(){
+        if (!targeted) {
+            target = acquireTarget();
+        }
+        if (target == null || target.isDead()) {
+            targeted = false;
+        }
+        timeSinceLastShoot += Delta();
+        if (timeSinceLastShoot > getFiringSpeed() && targeted) {
+            shoot(target);
+            timeSinceLastShoot = 0;
+        }
+        for (Projectile p : projectiles) {
+            p.update();
+        }
+    }
 
     public void setEnemyList(ArrayList<Enemy> enemies) {
         this.enemies=enemies;
