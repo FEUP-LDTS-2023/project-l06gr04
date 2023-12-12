@@ -24,12 +24,17 @@ public class MageTower extends Tower {
     @Override
     public void shoot(Enemy target){
         timeSinceLastShoot=0;
-        //projectiles.add(new Projectile(x+32,y+32,firingSpeed,damage));
+        projectiles.add(new Projectile(x+32,y+32,target, firingSpeed,damage));
     }
 
     @Override
     public int getFiringSpeed() {
         return firingSpeed;
+    }
+
+    @Override
+    public ArrayList<Projectile> getProjectiles() {
+        return projectiles;
     }
 
     @Override

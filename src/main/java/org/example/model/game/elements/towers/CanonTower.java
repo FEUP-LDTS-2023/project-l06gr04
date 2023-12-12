@@ -10,6 +10,7 @@ public class CanonTower extends Tower{
     private static final int LEVEL = 1;
     private static final int RANGE= 2;
     private static final int COST = 100;
+    private static final int UP_COST = 300;
     private int firingSpeed, damage;
     private float timeSinceLastShoot;
     private ArrayList<Projectile> projectiles;
@@ -26,12 +27,18 @@ public class CanonTower extends Tower{
     @Override
     public void shoot(Enemy target){
         timeSinceLastShoot=0;
-        //projectiles.add(new Projectile(x+32,y+32,firingSpeed,damage));
+        System.out.println("Canon");
+        projectiles.add(new Projectile(x+32,y+32,target,firingSpeed,damage));
     }
 
     @Override
     public int getFiringSpeed() {
         return firingSpeed;
+    }
+
+    @Override
+    public ArrayList<Projectile> getProjectiles() {
+        return projectiles;
     }
 
     @Override
@@ -46,7 +53,4 @@ public class CanonTower extends Tower{
         setLife(getLife() +100);
     }
 
-    public int getPrice() {
-        return 0;
-    }
 }

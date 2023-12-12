@@ -37,7 +37,7 @@ public class EnemyController extends GameController {
         this.level = getModel().getLevel();
     }
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
-        if (time - lastMovement > 10) {
+        if (time - lastMovement > 500) {
             moveEnemies();
 
             if (enemies.isEmpty()) {
