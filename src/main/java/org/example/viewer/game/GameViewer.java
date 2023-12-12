@@ -7,14 +7,19 @@ import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.TowerPositions;
+import org.example.model.game.elements.enemys.Enemy;
 import org.example.viewer.Viewer;
 
 import java.util.List;
 
 public class GameViewer extends Viewer<Arena> {
-    private static GameViewer gameViewerInstance;
+    private ElementViewer<Chest> chestViewer;
+    private ElementViewer<Enemy> enemyViewer;
     private static final int TARGET_FPS = 60;
-    private static final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+    private TowerPositionsViewer towerViewer;
+    private PathViewer pathViewer;
+    private WallViewer wallViewer;
+
     public GameViewer(Arena arena) {
         super(arena);
     }

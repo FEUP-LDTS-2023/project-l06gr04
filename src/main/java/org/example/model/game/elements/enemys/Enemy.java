@@ -101,7 +101,9 @@ public abstract class Enemy extends Element {
 
             enemy.setPosition(position);
         }
-
+        if (position.equals(targetPosition)) {
+            enemy.die();
+        }
     }
 
     public void moveSkeleton(Enemy enemy) {
@@ -125,6 +127,9 @@ public abstract class Enemy extends Element {
 
             enemy.setPosition(position);
         }
+        if (position.equals(targetPosition)) {
+            enemy.die();
+        }
     }
 
     public void moveOrc(Enemy enemy) {
@@ -147,6 +152,9 @@ public abstract class Enemy extends Element {
             }
 
             enemy.setPosition(position);
+        }
+        if (position.equals(targetPosition)) {
+            enemy.die();
         }
     }
 }

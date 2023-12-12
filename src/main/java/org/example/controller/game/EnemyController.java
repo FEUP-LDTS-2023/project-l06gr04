@@ -62,7 +62,7 @@ public class EnemyController extends GameController {
     }
 
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
-        if (time - lastMovement > 50) {
+        if (time - lastMovement > 10) {
             moveEnemies();
 
             if (enemies.isEmpty()) {
