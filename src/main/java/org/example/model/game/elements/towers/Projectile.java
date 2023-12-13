@@ -1,29 +1,32 @@
 package org.example.model.game.elements.towers;
 
+import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 
 import static org.example.controller.Clock.Delta;
 
-public class Projectile{
+public class Projectile extends Element {
     private int damage,width,height;
     private float speed,xVelocity, yVelocity;
-    private int x,y;
     private boolean ativo = true;
     //private ArrayList<Projectile> projectiles;
     private Enemy target;
     private boolean alive;
     private int totalTime;
     private long pastTime;
+    private int MAX_LIFETIME = 500;
+    private int x;
+    private int y;
 
-    public Projectile(int x,int y,Enemy target, float speed, int damage) {
-        this.x=x;
-        this.y=y;
+    public Projectile(int x, int y , Enemy target, float speed, int damage) {
+        super(x,y);
         this.speed = speed;
         this.damage = damage;
         this.target= target;
         this.alive=true;
         this.xVelocity=1;
         this.yVelocity=1;
+        initialize();
         if (target != null) {
             target.reduceHiddenHealth(damage);
             if (target.getHiddenHealth()<=0) {
@@ -34,18 +37,21 @@ public class Projectile{
     }
     private void calculateDirection() {
         if (target.getX() < x) {
-            xVelocity *= -1;
+            xVelocity = -1;
+        } else if (target.getX() > x) {
+            xVelocity = 1;
+        } else {
+            xVelocity = 0;
         }
 
         if (target.getY() < y) {
-            yVelocity *= -1;
+            yVelocity = -1;
+        } else if (target.getY() > y) {
+            yVelocity = 1;
+        } else {
+            yVelocity = 0;
         }
-        if(target.getY() ==y){
-            yVelocity=0;
-        }
-        if(target.getX() ==x){
-            xVelocity=0;
-        }
+
 //        float totalAllowedMovement= 1.0f;
 //        float xDistanceFromTarget =Math.abs(target.getX()-x-1/4+1/2);
 //        float yDistanceFromTarget =Math.abs(target.getY()-y-1/4+1/2);
@@ -59,39 +65,41 @@ public class Projectile{
     public void update() {
         if (alive) {
             calculateDirection();
-//            x+=xVelocity;
-//            y+=yVelocity;
-
-            if(xVelocity == -1) {
+            x+=xVelocity;
+            y+=yVelocity;
+            /*
+            if (xVelocity == -1) {
                 x -= 1;
-            }else if(xVelocity==1){
-                x+= 1;
-            }
-            else if(yVelocity == -1) {
-                y -=1;
-            }else if(yVelocity==1){
-                y+=1;
-            }else if(yVelocity==0){
-                x+=xVelocity;
-            }else if(xVelocity==0){
-                y+=yVelocity;
-            }
+            } else if (xVelocity == 1) {
+                x += 1;
+            } else if (yVelocity == -1) {
+                y -= 1;
+            } else if (yVelocity == 1) {
+                y += 1;
+            } else if (yVelocity == 0) {
+                x += xVelocity;
+            } else if (xVelocity == 0) {
+                y += yVelocity;
+            }*/
             if (checkCollision(x, y, target.getX(), target.getY())) {
                 damage();
-                alive=false;
-                if (target.isDead()){
-                    target.die();
+                //if (target.isDead()) {
+                 //   target.die();
                     //tirar do jogo
-                }
-
+                //}
+            }
+            totalTime += getTimePassed();
+            if (totalTime >= MAX_LIFETIME) {
+                alive = false;
             }
         }
     }
+
     boolean isAlive() {
         return alive;
     }
-    private boolean checkCollision(int x1, int y1, int x2, int y2) {
-        return (x1 == x2 && (y1 == y2));
+    private boolean checkCollision(int x, int y, int x2, int y2) {
+        return (x == x2 && (y == y2));
     }
 
     public void damage() {
@@ -100,7 +108,13 @@ public class Projectile{
         alive = false;
     }
 
-
+    public long getTimePassed(){
+        return System.currentTimeMillis() - pastTime;
+    }
+    public void initialize(){
+        totalTime = 0;
+        pastTime = System.currentTimeMillis();
+    }
     public boolean isActive() {
         return ativo;
     }

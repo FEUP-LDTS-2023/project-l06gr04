@@ -63,6 +63,10 @@ public class GameState extends State<Arena> {
         enemyController.step(game, null, System.currentTimeMillis());
         scoreController.step(game, null, System.currentTimeMillis());
         towerController.step(game, action, System.currentTimeMillis());
+        for (Tower tower : arena.getTowers()) {
+            tower.setEnemies(arena.getEnemies());
+            tower.update();
+            System.out.println("lololo");}
         //updateProjectiles();
 
     }
@@ -85,10 +89,13 @@ public class GameState extends State<Arena> {
             totalTime -= TIME_FIXED;
         }
         getViewer().draw(window);
-    }/*
-    public void updateProjectiles() {
+    }
+    public void updateProjectiles() throws Exception {
         for (Tower tower : arena.getTowers()) {
-            tower.updateProjectiles();
+            tower.setEnemies(arena.getEnemies());
+            tower.update();
+            System.out.println("lololo");
+            //tower.updateProjectiles();
         }
         for (Iterator<Enemy> it = arena.getEnemies().iterator(); it.hasNext(); ) {
             Enemy enemy = it.next();
@@ -96,7 +103,7 @@ public class GameState extends State<Arena> {
                 it.remove();
             }
         }
-    }*/
+    }
     public long getTimePassed() {
         long currentTime = System.currentTimeMillis();
         long timePassed = currentTime - pastTime;

@@ -91,6 +91,7 @@ public abstract class Tower extends Element {
             System.out.println("Is in range: " + isInRange(e));
             System.out.println("Distance: " + findDistance(e));
             System.out.println("Hidden health: " + e.getHiddenHealth());
+            System.out.println("act hp: " + e.getActHP());
 
             if (isInRange(e) && findDistance(e) < closestDistance && e.getHiddenHealth() > 0) {
                 closestDistance = findDistance(e);
@@ -148,11 +149,13 @@ public abstract class Tower extends Element {
 
         totalTime += getTimePassed();
         if (targeted && findDistance(target) < range && totalTime > getFiringSpeed()) {
+            Projectile novo = new Projectile(x,y,target,getFiringSpeed(),dealDamage());
+            projectiles.add(novo);
             shoot(target);
-
+            projectiles.remove(novo);
             totalTime -= getFiringSpeed();
         }
-        updateProjectiles();
+        //updateProjectiles();
     }
     private long getTimePassed() {
         long currentTime = System.currentTimeMillis();

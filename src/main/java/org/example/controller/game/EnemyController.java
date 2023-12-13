@@ -26,47 +26,31 @@ public class EnemyController extends GameController {
     public ArrayList<Enemy> enimigos;
     private long lastMovement;
     private Arena arena;
+    private LevelController levelController;
+    private Wave wave;
     private Score scoreModel;
 
     public EnemyController(Arena arena) {
         super(arena);
-        this.arena = arena;
+        this.arena= arena;
         this.enemies = new ArrayList<>();
         this.lastMovement = 0;
+        this.level= new Level();
         this.scoreModel = arena.getScore();
-        this.level = getModel().getLevel();
+        this.levelController= new LevelController(arena,level);
+        this.wave= new Wave();
+        wave.spawn(level.getLevel());
     }
+    @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
         if (time - lastMovement > 500) {
             moveEnemies();
 
             if (enemies.isEmpty()) {
                 List<Enemy> newEnemies = new ArrayList<>();
-
-                for (int i = 0; i < 10; i++) {
-                    int enemyTypeIndex = 1 + (int) (Math.random() * 3);
-                    Enemy enemy;
-                    switch (enemyTypeIndex) {
-                        case 1:
-                            enemy = new Orc(i, 5);
-                            break;
-                        case 2:
-                            enemy = new Golem(i, 6);
-                            break;
-                        case 3:
-                            enemy = new Skeleton(i, 7);
-                            break;
-                        default:
-                            enemy = null;
-                            break;
-                    }
-                    newEnemies.add(enemy);
-                }
-
-                // Coloca os inimigos na arena
+                wave.spawn(level.getLevel());
+                newEnemies=wave.getEnemyList();
                 arena.setEnemies(newEnemies);
-
-                // Atualiza a lista de inimigos
                 enemies = newEnemies;
             }
 

@@ -17,7 +17,7 @@ public class CanonTower extends Tower{
     public CanonTower(int x, int y) {
         super(CT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>());
         this.towerSymbol = 'C';
-        this.firingSpeed=3;
+        this.firingSpeed=200;
         this.damage=60;
         this.projectiles = new ArrayList<Projectile>();
         this.timeSinceLastShoot=0;

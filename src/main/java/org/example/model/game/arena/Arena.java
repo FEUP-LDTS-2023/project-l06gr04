@@ -8,6 +8,7 @@ import org.example.model.game.elements.Path;
 import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.Wall;
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.Projectile;
 import org.example.model.game.elements.towers.Tower;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class Arena{
     private Score score;
     private Level level;
     private Chest chest;
+    private List<Projectile> projectiles;
     private List<TowerPositions> towerPositions;
     public Arena(int width, int height) {
         this.width = width;
@@ -33,6 +35,7 @@ public class Arena{
         this.coins = 1000;
         this.enemies = new ArrayList<>();
         this.towers = new ArrayList<>();
+        this.projectiles = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -66,6 +69,13 @@ public class Arena{
 
     public List<Wall> getWalls() {
         return walls;
+    }
+
+    public void setProjectiles(List<Projectile> projectiles) {
+        this.projectiles = projectiles;
+    }
+    public List<Projectile> getProjectiles() {
+        return projectiles;
     }
 
     public void setWalls(List<Wall> walls) {
