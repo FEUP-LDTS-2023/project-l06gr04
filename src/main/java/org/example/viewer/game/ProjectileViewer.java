@@ -7,5 +7,6 @@ public class ProjectileViewer implements ElementViewer<Projectile> {
     @Override
     public void draw(Projectile projectile, Window window) {
         window.drawProjectiles(projectile.getPosition(), window);
+
     }
 }

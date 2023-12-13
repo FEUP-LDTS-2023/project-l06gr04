@@ -36,6 +36,7 @@ public class Projectile extends Element {
 
     }
     private void calculateDirection() {
+        /*
         if (target.getX() < x) {
             xVelocity = -1;
         } else if (target.getX() > x) {
@@ -50,23 +51,23 @@ public class Projectile extends Element {
             yVelocity = 1;
         } else {
             yVelocity = 0;
-        }
+        }*/
 
-//        float totalAllowedMovement= 1.0f;
-//        float xDistanceFromTarget =Math.abs(target.getX()-x-1/4+1/2);
-//        float yDistanceFromTarget =Math.abs(target.getY()-y-1/4+1/2);
-//        float totalDistanceFromTarget= xDistanceFromTarget+yDistanceFromTarget;
-//        float xPercentOfMovement= xDistanceFromTarget/totalDistanceFromTarget;
-//        xVelocity=xPercentOfMovement;
-//        yVelocity=totalAllowedMovement-xPercentOfMovement;
-//        if(target.getX()<x) xVelocity *=-1;
-//        if(target.getY() < y) yVelocity *=-1;
+        float totalAllowedMovement= 1.0f;
+        float xDistanceFromTarget =Math.abs(target.getX()-x-1/4+1/2);
+        float yDistanceFromTarget =Math.abs(target.getY()-y-1/4+1/2);
+        float totalDistanceFromTarget= xDistanceFromTarget+yDistanceFromTarget;
+        float xPercentOfMovement= xDistanceFromTarget/totalDistanceFromTarget;
+        xVelocity=xPercentOfMovement;
+        yVelocity=totalAllowedMovement-xPercentOfMovement;
+        if(target.getX()<x) xVelocity *=-1;
+        if(target.getY() < y) yVelocity *=-1;
     }
     public void update() {
         if (alive) {
             calculateDirection();
-            x+=xVelocity;
-            y+=yVelocity;
+            x+=xVelocity*speed;
+            y+=yVelocity*speed;
             /*
             if (xVelocity == -1) {
                 x -= 1;
@@ -88,14 +89,11 @@ public class Projectile extends Element {
                     //tirar do jogo
                 //}
             }
-            totalTime += getTimePassed();
-            if (totalTime >= MAX_LIFETIME) {
-                alive = false;
-            }
+
         }
     }
 
-    boolean isAlive() {
+    public boolean isAlive() {
         return alive;
     }
     private boolean checkCollision(int x, int y, int x2, int y2) {
