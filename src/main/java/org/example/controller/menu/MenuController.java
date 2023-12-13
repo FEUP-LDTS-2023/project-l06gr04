@@ -6,9 +6,11 @@ import org.example.gui.Window;
 import org.example.gui.WindowInterface;
 import org.example.model.game.arena.LoaderArenaBuilder;
 import org.example.model.menu.Controls;
+import org.example.model.menu.Leaderboard;
 import org.example.model.menu.Menu;
 import org.example.states.ControlsState;
 import org.example.states.GameState;
+import org.example.states.LeaderboardState;
 
 import java.io.IOException;
 
@@ -28,6 +30,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
+                if (getModel().isSelectedLeaderboard()) game.setState(new LeaderboardState(new Leaderboard(),game.getWindow()));
                 if (getModel().isSelectedControls()) game.setState(new ControlsState(new Controls(),game.getWindow()));
                 if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder().createArena(), game.getWindow()));
         }
