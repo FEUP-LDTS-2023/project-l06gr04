@@ -19,7 +19,9 @@ import org.example.model.menu.Menu;
 import org.example.viewer.Viewer;
 import org.example.viewer.game.GameViewer;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class GameState extends State<Arena> {
     private EnemyController enemyController;
@@ -63,11 +65,8 @@ public class GameState extends State<Arena> {
         enemyController.step(game, null, System.currentTimeMillis());
         scoreController.step(game, null, System.currentTimeMillis());
         towerController.step(game, action, System.currentTimeMillis());
-        for (Tower tower : arena.getTowers()) {
-            tower.setEnemies(arena.getEnemies());
-            tower.update();
-            System.out.println("lololo");}
-        //updateProjectiles();
+
+        updateProjectiles();
 
     }
 
@@ -91,12 +90,16 @@ public class GameState extends State<Arena> {
         getViewer().draw(window);
     }
     public void updateProjectiles() throws Exception {
+        List<Projectile> allProjectiles = new ArrayList<>();
         for (Tower tower : arena.getTowers()) {
             tower.setEnemies(arena.getEnemies());
             tower.update();
-            System.out.println("lololo");
+            allProjectiles.addAll(tower.getProjectiles());
             //tower.updateProjectiles();
         }
+        System.out.println(allProjectiles.size());
+
+        arena.setProjectiles(allProjectiles);
         for (Iterator<Enemy> it = arena.getEnemies().iterator(); it.hasNext(); ) {
             Enemy enemy = it.next();
             if (enemy.getHiddenHealth()<=0) {

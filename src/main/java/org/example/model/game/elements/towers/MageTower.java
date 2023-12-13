@@ -32,20 +32,13 @@ public class MageTower extends Tower {
         return firingSpeed;
     }
 
-    @Override
-    public ArrayList<Projectile> getProjectiles() {
-        return projectiles;
-    }
+
 
     @Override
     public int dealDamage() {
         return 20 + getLevel() * 5;
     }
 
-    @Override
-    public void updateProjectiles() {
-
-    }
 
     @Override
     public void upgrade() {

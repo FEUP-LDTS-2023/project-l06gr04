@@ -1,6 +1,7 @@
-package org.example.controller;
+package org.example.controller.menu;
 
 import org.example.Game;
+import org.example.controller.Controller;
 import org.example.gui.WindowInterface;
 import org.example.model.menu.Controls;
 import org.example.model.menu.Menu;

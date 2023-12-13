@@ -22,12 +22,12 @@ public abstract class Tower extends Element {
     int cost;
     private Arena arena;
     List<Enemy> enemies;
-    private float angle, timeSinceLastShoot;
     private Enemy target;
     private boolean targeted;
-    private ArrayList<Projectile> projectiles;
+
     private long totalTime;
     private long pastTime;
+    private List<Projectile> projectiles;
 
     public Tower(int life, int level, int range, int cost, int x, int y, List<Enemy> enemies){
         super(x,y);
@@ -37,8 +37,7 @@ public abstract class Tower extends Element {
         this.cost = cost;
         this.targeted=false;
         this.position = new Position(x,y);
-        this.timeSinceLastShoot=0f;
-        this.projectiles=new ArrayList<Projectile>();
+        this.projectiles=new ArrayList<>();
         this.enemies= enemies;
         initialize();
 
@@ -112,7 +111,7 @@ public abstract class Tower extends Element {
     public void setEnemies(List<Enemy> enemies) {
         this.enemies = enemies;
     }
-    public abstract ArrayList<Projectile> getProjectiles();
+
 
     public abstract void upgrade();
     abstract int dealDamage();
@@ -168,5 +167,21 @@ public abstract class Tower extends Element {
     public void setEnemyList(ArrayList<Enemy> enemies) {
         this.enemies=enemies;
     }
-    public abstract void updateProjectiles();
+    public void updateProjectiles() {
+        List<Projectile> deadProjectiles = new ArrayList<>();
+
+        for (Projectile projectile : projectiles) {
+            projectile.update();
+
+            if (!projectile.isAlive()) {
+                deadProjectiles.add(projectile);
+            }
+        }
+
+        projectiles.removeAll(deadProjectiles);
+    }
+
+    public List<Projectile> getProjectiles() {
+        return projectiles;
+    }
 }
