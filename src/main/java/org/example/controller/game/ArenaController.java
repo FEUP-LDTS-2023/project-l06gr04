@@ -19,7 +19,7 @@ public class ArenaController extends GameController {
 
     }
     @Override
-    public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
+    public void step(Game game, WindowInterface.KEY action, long time) throws Exception {
         if (getModel() != null) {
             towerController.step(game, action, time);
             //enemyController.step(game, action, time);

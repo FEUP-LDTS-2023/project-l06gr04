@@ -17,7 +17,7 @@ public class ArcherTower extends Tower {
     public ArcherTower(int x, int y) {
         super(AT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>());
         this.towerSymbol = 'A';
-        this.firingSpeed=10;
+        this.firingSpeed=600;
         this.damage=60;
         this.projectiles = new ArrayList<Projectile>();
         setCost(COST);
@@ -32,11 +32,22 @@ public class ArcherTower extends Tower {
 
     @Override
     public void shoot(Enemy target) {
-        timeSinceLastShoot=0;
         System.out.println("Archer");
-        projectiles.add(new Projectile(x+32,y+32,target,firingSpeed,damage));
-        for (Projectile projectile : projectiles) {
+        Projectile tiro = new Projectile(x,y,target,firingSpeed,damage);
+        System.out.println(target.getHiddenHealth());
+        projectiles.add(tiro);
+
+
+    }
+    @Override
+    public void updateProjectiles() {
+        Iterator<Projectile> iterator = projectiles.iterator();
+        while (iterator.hasNext()) {
+            Projectile projectile = iterator.next();
             projectile.update();
+            if (!projectile.isActive()) {
+                iterator.remove();
+            }
         }
     }
 
@@ -54,18 +65,5 @@ public class ArcherTower extends Tower {
     @Override
     public ArrayList<Projectile> getProjectiles() {
         return projectiles;
-    }
-    @Override
-    public void update() {
-        super.update(); // Call the base class update method
-
-        Iterator<Projectile> iterator = projectiles.iterator();
-        while (iterator.hasNext()) {
-            Projectile projectile = iterator.next();
-            projectile.update();
-            if (!projectile.isActive()) {
-                iterator.remove();  // Remove inactive projectiles
-            }
-        }
     }
 }

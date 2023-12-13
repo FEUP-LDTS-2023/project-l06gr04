@@ -22,7 +22,7 @@ public class MageTower extends Tower {
         setCost(COST);
     }
     @Override
-    public void shoot(Enemy target){
+    public void shoot(Enemy target) throws Exception {
         timeSinceLastShoot=0;
         projectiles.add(new Projectile(x+32,y+32,target, firingSpeed,damage));
     }
@@ -40,6 +40,11 @@ public class MageTower extends Tower {
     @Override
     public int dealDamage() {
         return 20 + getLevel() * 5;
+    }
+
+    @Override
+    public void updateProjectiles() {
+
     }
 
     @Override

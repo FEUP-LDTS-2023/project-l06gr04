@@ -74,13 +74,19 @@ public abstract class Enemy extends Element {
     public void moveEnemies(Enemy enemy) {
         switch (enemy.getEnemySymbol()) {
             case 'S':
-                moveSkeleton(enemy);
+                for(int i=0;i<enemy.getSpeed();i++){
+                    moveSkeleton(enemy);
+                }
                 break;
             case 'G':
-                moveGolem(enemy);
+                for(int i=0;i<enemy.getSpeed();i++){
+                    moveGolem(enemy);
+                }
                 break;
             case 'O':
-                moveOrc(enemy);
+                for(int i=0;i<enemy.getSpeed();i++){
+                    moveOrc(enemy);
+                }
                 break;
 
         }
