@@ -14,8 +14,6 @@ public abstract class Enemy extends Element {
     int totHP;
     int actHP;
     int hiddenHP;
-    double angle;
-    Double[] path;
     private Position deathPosition;
 
     public Enemy(double speed, int totHP, int x, int y){

@@ -17,7 +17,7 @@ public class ArcherTower extends Tower {
     public ArcherTower(int x, int y) {
         super(AT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>());
         this.towerSymbol = 'A';
-        this.firingSpeed=600;
+        this.firingSpeed=50;
         this.damage=60;
         this.projectiles = new ArrayList<Projectile>();
         setCost(COST);
@@ -35,12 +35,14 @@ public class ArcherTower extends Tower {
         System.out.println("Archer");
         Projectile tiro = new Projectile(x,y,target,firingSpeed,damage);
         System.out.println(target.getHiddenHealth());
+        System.out.println(target.getActHP());
         projectiles.add(tiro);
 
 
     }
     @Override
     public void updateProjectiles() {
+        /*
         Iterator<Projectile> iterator = projectiles.iterator();
         while (iterator.hasNext()) {
             Projectile projectile = iterator.next();
@@ -48,7 +50,7 @@ public class ArcherTower extends Tower {
             if (!projectile.isActive()) {
                 iterator.remove();
             }
-        }
+        }*/
     }
 
     @Override

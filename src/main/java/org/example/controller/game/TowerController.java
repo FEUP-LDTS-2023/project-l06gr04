@@ -125,13 +125,6 @@ public class TowerController extends GameController{
             default:
                 break;
         }
-
-        for (Tower tower : arena.getTowers()) {
-            tower.setEnemies(getModel().getEnemies());
-            if (tower.getTowerSymbol() == 'A') {
-                tower.update();
-            }
-        }
     }
 
 }

@@ -15,6 +15,7 @@ import org.example.model.game.Position;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.towers.Projectile;
 import org.example.model.game.elements.towers.Tower;
 
 import java.io.IOException;
@@ -176,5 +177,8 @@ public class Window implements WindowInterface {
     }
     public void drawTowerPositions(Position position, TowerPositions towerPositions) {
         drawIntoGameChar(position.getX(), position.getY(), towerPositions.getSymbol(), "GREEN");
+    }
+    public void drawProjectiles(Position position, Window window){
+        drawIntoGameChar(position.getX(), position.getY(), '.', "RED");
     }
 }

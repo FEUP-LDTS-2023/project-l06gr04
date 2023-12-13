@@ -52,6 +52,7 @@ public interface WindowInterface {
     void drawScore(String score);
 
     void drawWall(Position position);
+    void drawProjectiles(Position position, Window window);
     void clear();
     void refresh() throws IOException;
     void close() throws IOException;
