@@ -37,21 +37,11 @@ public class ArcherTower extends Tower {
         System.out.println(target.getHiddenHealth());
         System.out.println(target.getActHP());
         projectiles.add(tiro);
+        getProjectiles().add(tiro);
 
 
     }
-    @Override
-    public void updateProjectiles() {
-        /*
-        Iterator<Projectile> iterator = projectiles.iterator();
-        while (iterator.hasNext()) {
-            Projectile projectile = iterator.next();
-            projectile.update();
-            if (!projectile.isActive()) {
-                iterator.remove();
-            }
-        }*/
-    }
+
 
     @Override
     protected int getFiringSpeed() {
@@ -64,8 +54,5 @@ public class ArcherTower extends Tower {
         setRange(getRange() + 2);
         setLife(getLife() + 50);
     }
-    @Override
-    public ArrayList<Projectile> getProjectiles() {
-        return projectiles;
-    }
+
 }

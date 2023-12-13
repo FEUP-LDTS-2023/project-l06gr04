@@ -1,7 +1,8 @@
 package org.example.states;
 
 import org.example.controller.Controller;
-import org.example.controller.ControlsController;
+
+import org.example.controller.menu.ControlsController;
 import org.example.gui.Window;
 import org.example.model.menu.Controls;
 import org.example.viewer.ControlsViewer;
