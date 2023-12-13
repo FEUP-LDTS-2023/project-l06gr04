@@ -5,6 +5,7 @@ import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,9 @@ public abstract class Tower extends Element {
     private Enemy target;
     private boolean targeted;
     private ArrayList<Projectile> projectiles;
+    private long totalTime;
+    private long pastTime;
+
     public Tower(int life, int level, int range, int cost, int x, int y, List<Enemy> enemies){
         super(x,y);
         this.life = life;
@@ -36,20 +40,12 @@ public abstract class Tower extends Element {
         this.timeSinceLastShoot=0f;
         this.projectiles=new ArrayList<Projectile>();
         this.enemies= enemies;
-        this.lastUpdateTime = System.currentTimeMillis();
-        /*if (targeted) {
-            this.target=getTarget();
-            this.angle = calculateAngle();
-        }*/
+        initialize();
+
     }
 
-   /* private float calculateAngle(){
-        double angleTemp=Math.atan2(target.getY()-y, target.getX()-x );
-        return (float) Math.toDegrees(angleTemp) -90;
-    }*/
 
-
-    protected abstract void shoot(Enemy target);
+    protected abstract void shoot(Enemy target) throws Exception;
 
     protected abstract int getFiringSpeed();
 
@@ -61,6 +57,10 @@ public abstract class Tower extends Element {
             return true;
         }
         return false;
+    }
+    public void initialize(){
+        totalTime = 0;
+        pastTime = System.currentTimeMillis();
     }
     public float findDistance(Enemy enemy) {
         float xDistance= Math.abs(enemy.getX()-x);
@@ -139,28 +139,31 @@ public abstract class Tower extends Element {
     public int getCost(){
         return cost;
     }
-    public void update(){
-        long currentTime = System.currentTimeMillis();
-        float deltaTime = (currentTime - lastUpdateTime) / 1000.0f;
-        if (!targeted) {
-            target = acquireTarget();
-            System.out.println("Acquired target: " + target);
-        }
-
-        if (target == null || target.isDead()) {
+    public void update() throws Exception {
+        if (target == null || target.isDead() || !isInRange(target)) {
             targeted = false;
-            System.out.println("Target is null or dead");
+            target = acquireTarget();
+            System.out.println("Acquired new target: " + target);
         }
-        timeSinceLastShoot += deltaTime;
-        if(targeted && findDistance(target) < range && timeSinceLastShoot > getFiringSpeed()){
-            shoot(target);
-            timeSinceLastShoot = 0;
-        }
-        lastUpdateTime = currentTime;
 
+        totalTime += getTimePassed();
+        if (targeted && findDistance(target) < range && totalTime > getFiringSpeed()) {
+            shoot(target);
+
+            totalTime -= getFiringSpeed();
+        }
+        updateProjectiles();
     }
+    private long getTimePassed() {
+        long currentTime = System.currentTimeMillis();
+        long timePassed = currentTime - pastTime;
+        pastTime = currentTime;
+        return timePassed;
+    }
+
 
     public void setEnemyList(ArrayList<Enemy> enemies) {
         this.enemies=enemies;
     }
+    public abstract void updateProjectiles();
 }

@@ -28,7 +28,7 @@ public class CanonTower extends Tower{
     public void shoot(Enemy target){
         timeSinceLastShoot=0;
         System.out.println("Canon");
-        projectiles.add(new Projectile(x+32,y+32,target,firingSpeed,damage));
+        projectiles.add(new Projectile(x,y,target,firingSpeed,damage));
     }
 
     @Override
@@ -44,6 +44,11 @@ public class CanonTower extends Tower{
     @Override
     public int dealDamage() {
         return 1 + getLevel() * 5;
+    }
+
+    @Override
+    public void updateProjectiles() {
+
     }
 
     @Override

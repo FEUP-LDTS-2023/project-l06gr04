@@ -36,7 +36,7 @@ public class TowerController extends GameController{
 
     }
     @Override
-    public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
+    public void step(Game game, WindowInterface.KEY action, long time) throws Exception {
 
         ArcherTower ArcherTower;
         CanonTower CanonTower;
@@ -125,13 +125,12 @@ public class TowerController extends GameController{
             default:
                 break;
         }
+
         for (Tower tower : arena.getTowers()) {
             tower.setEnemies(getModel().getEnemies());
-            if(tower.getTowerSymbol() == 'A'){
+            if (tower.getTowerSymbol() == 'A') {
                 tower.update();
-                }
-
-
+            }
         }
     }
 

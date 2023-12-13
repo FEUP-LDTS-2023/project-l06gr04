@@ -13,10 +13,13 @@ import org.example.model.game.Score;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.ArcherTower;
+import org.example.model.game.elements.towers.Projectile;
 import org.example.model.game.elements.towers.Tower;
 import org.example.model.menu.Menu;
 import org.example.viewer.Viewer;
 import org.example.viewer.game.GameViewer;
+
+import java.util.Iterator;
 
 public class GameState extends State<Arena> {
     private EnemyController enemyController;
@@ -26,13 +29,14 @@ public class GameState extends State<Arena> {
     private long TIME_FIXED = 100;
     private ScoreController scoreController;
     private Game game;
-
+    private Arena arena;
     private long totalTime, pastTime;
     Window window;
 
 
     public GameState(Arena arena, Window window) throws Exception {
         super(arena, window);
+        this.arena=arena;
         this.window = window;
         enemyController = new EnemyController(arena);
         towerController = new TowerController(arena);
@@ -59,8 +63,10 @@ public class GameState extends State<Arena> {
         enemyController.step(game, null, System.currentTimeMillis());
         scoreController.step(game, null, System.currentTimeMillis());
         towerController.step(game, action, System.currentTimeMillis());
+        //updateProjectiles();
 
     }
+
     @Override
     public void step(Game game, Window window, long time) throws Exception {
 
@@ -79,8 +85,18 @@ public class GameState extends State<Arena> {
             totalTime -= TIME_FIXED;
         }
         getViewer().draw(window);
-    }
-
+    }/*
+    public void updateProjectiles() {
+        for (Tower tower : arena.getTowers()) {
+            tower.updateProjectiles();
+        }
+        for (Iterator<Enemy> it = arena.getEnemies().iterator(); it.hasNext(); ) {
+            Enemy enemy = it.next();
+            if (enemy.getHiddenHealth()<=0) {
+                it.remove();
+            }
+        }
+    }*/
     public long getTimePassed() {
         long currentTime = System.currentTimeMillis();
         long timePassed = currentTime - pastTime;
