@@ -36,20 +36,14 @@ public class CanonTower extends Tower{
         return firingSpeed;
     }
 
-    @Override
-    public ArrayList<Projectile> getProjectiles() {
-        return projectiles;
-    }
+
 
     @Override
     public int dealDamage() {
         return 1 + getLevel() * 5;
     }
 
-    @Override
-    public void updateProjectiles() {
 
-    }
 
     @Override
     public void upgrade() {
