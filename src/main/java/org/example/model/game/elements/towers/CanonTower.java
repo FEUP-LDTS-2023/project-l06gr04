@@ -18,7 +18,7 @@ public class CanonTower extends Tower{
     public CanonTower(int x, int y) {
         super(CT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>());
         this.towerSymbol = 'C';
-        this.firingSpeed=200;
+        this.firingSpeed=5;
         this.damage=60;
         this.projectiles = new ArrayList<Projectile>();
         this.timeSinceLastShoot=0;
@@ -27,9 +27,11 @@ public class CanonTower extends Tower{
 
     @Override
     public void shoot(Enemy target){
-        Projectile tiro = new Projectile(x,y,target,firingSpeed,damage);
-        projectiles.add(tiro);
-        getProjectiles().add(tiro);
+        target.reduceHiddenHealth(damage);
+
+        if (target.getHiddenHealth()<=0) {
+            target.die();
+        }
     }
 
     @Override

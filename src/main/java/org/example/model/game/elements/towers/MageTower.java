@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MageTower extends Tower {
+
     private static final int MT_LIFE = 100;
     private static final int LEVEL = 1;
     private static final int RANGE= 10;
@@ -25,9 +26,10 @@ public class MageTower extends Tower {
     }
     @Override
     public void shoot(Enemy target) throws Exception {
-        Projectile tiro = new Projectile(x,y,target,firingSpeed,damage);
-        projectiles.add(tiro);
-        getProjectiles().add(tiro);
+        target.reduceHiddenHealth(damage);
+        if (target.getHiddenHealth()<=0) {
+            target.die();
+        }
     }
 
     @Override
@@ -41,7 +43,6 @@ public class MageTower extends Tower {
     public int dealDamage() {
         return 20 + getLevel() * 5;
     }
-
 
     @Override
     public void upgrade() {
