@@ -44,9 +44,10 @@ public abstract class Enemy extends Element {
     }
 
     public void die() {
-        isDead = true;
+        setDead(true);
+        hiddenHP = 0;
         actHP = 0;
-        deathPosition = position;
+        deathPosition = getPosition();
     }
     public int getHiddenHealth(){
 
@@ -56,9 +57,9 @@ public abstract class Enemy extends Element {
         hiddenHP-=damage;
     }
     public void damage(int amount) {
-        actHP-=amount;
-        if (actHP<0){
-            //die;
+        hiddenHP-=amount;
+        if (hiddenHP<0){
+            die();
         }
     }
     public boolean isDead() {
@@ -72,17 +73,17 @@ public abstract class Enemy extends Element {
     public void moveEnemies(Enemy enemy) {
         switch (enemy.getEnemySymbol()) {
             case 'S':
-                for(int i=0;i<enemy.getSpeed();i++){
+                for(int i=0;i<enemy.getSpeed()*4;i++){
                     moveSkeleton(enemy);
                 }
                 break;
             case 'G':
-                for(int i=0;i<enemy.getSpeed();i++){
+                for(int i=0;i<enemy.getSpeed()*4;i++){
                     moveGolem(enemy);
                 }
                 break;
             case 'O':
-                for(int i=0;i<enemy.getSpeed();i++){
+                for(int i=0;i<enemy.getSpeed()*4;i++){
                     moveOrc(enemy);
                 }
                 break;

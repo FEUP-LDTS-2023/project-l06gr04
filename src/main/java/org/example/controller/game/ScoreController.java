@@ -39,16 +39,22 @@ public class ScoreController extends GameController {
                 switch (enemy.getEnemySymbol()) {
                     case 'S':
                         scoreModel.incrementScore(10 + level.getLevel() * 2);
+                        getModel().setCoins(getModel().getCoins() + 25);
+
                         break;
                     case 'O':
                         scoreModel.incrementScore(20 + level.getLevel() * 2);
                         getModel().setCoins(getModel().getCoins() + 50);
+
                         break;
                     case 'G':
                         scoreModel.incrementScore(50 + level.getLevel() * 3);
                         getModel().setCoins(getModel().getCoins() + 100);
+
                         break;
                 }
+
+
             }
         }
 

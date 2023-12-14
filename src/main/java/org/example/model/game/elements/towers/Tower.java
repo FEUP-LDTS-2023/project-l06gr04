@@ -141,7 +141,7 @@ Tower extends Element {
             Projectile novo = new Projectile(x+1,y+1,target,getFiringSpeed(),dealDamage());
             projectiles.add(novo);
             shoot(target);
-            projectiles.remove(novo);
+
             totalTime -= getFiringSpeed();
         }
         List<Projectile> deadProjectiles = new ArrayList<>();

@@ -18,6 +18,12 @@ public class Element {
     public int getY(){
         return position.getY();
     }
+    public void setX(int x){
+        position.setX(x);
+    }
+    public void setY(int y){
+        position.setY(y);
+    }
 
     public void setPosition(Position position) {
         this.position = position;

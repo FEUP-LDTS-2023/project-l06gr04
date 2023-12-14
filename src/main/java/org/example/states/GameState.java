@@ -93,17 +93,17 @@ public class GameState extends State<Arena> {
         List<Projectile> allProjectiles = new ArrayList<>();
         for (Tower tower : arena.getTowers()) {
             tower.setEnemies(arena.getEnemies());
-            tower.update();
             allProjectiles.addAll(tower.getProjectiles());
             //tower.updateProjectiles();
         }
         arena.setProjectiles(allProjectiles);
-        for(Iterator<Enemy> it = arena.getEnemies().iterator(); it.hasNext();){
-            Enemy enemy = it.next();
-            if(enemy.getHiddenHealth()<=0){
-                it.remove();
-            }
-        }
+//        for(Iterator<Enemy> it = arena.getEnemies().iterator(); it.hasNext();){
+//            Enemy enemy = it.next();
+//            if(enemy.getHiddenHealth()<=0){
+//                enemy.die();
+//                it.remove();
+//            }
+//        }
 
         for (Projectile projectile : allProjectiles) {
             projectile.update();

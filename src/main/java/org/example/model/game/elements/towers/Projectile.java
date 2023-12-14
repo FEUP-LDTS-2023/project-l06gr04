@@ -28,12 +28,12 @@ public class Projectile extends Element {
         this.xVelocity=1;
         this.yVelocity=1;
         initialize();
-        if (target != null ) {
-            target.reduceHiddenHealth(damage);
-            if (target.getHiddenHealth()<=0) {
-                target.die();
-            }
-        }
+//        if (target != null ) {
+//            target.reduceHiddenHealth(damage);
+//            if (target.getHiddenHealth()<=0) {
+//                target.die();
+//            }
+//        }
 
     }
     private void calculateDirection() {
@@ -76,7 +76,6 @@ public class Projectile extends Element {
     public void update() {
         if (alive) {
             calculateDirection();
-
             x+=xVelocity*speed;
             y+=yVelocity*speed;
 
@@ -93,13 +92,13 @@ public class Projectile extends Element {
 //            } else if (xVelocity == 0) {
 //                y += yVelocity;
 //            }
-            if (checkCollision(x, y, target.getX(), target.getY())) {
+            if (checkCollision(getX(), getY(), target.getX(), target.getY())) {
                 damage();
                 alive = false;
-                if (target.isDead()) {
-                    target.die();
+                //if (target.getActHP()<0) {
+                //    target.die();
 //                    tirar do jogo
-                }
+                //}
             }
 
         }
