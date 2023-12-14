@@ -23,7 +23,6 @@ public class EnemyController extends GameController {
     public List<Enemy> enemies ;
     private Level level;
     private ScoreController scoreController;
-    public ArrayList<Enemy> enimigos;
     private long lastMovement;
     private Arena arena;
     private LevelController levelController;
@@ -36,7 +35,7 @@ public class EnemyController extends GameController {
         this.arena= arena;
         this.enemies = new ArrayList<>();
         this.lastMovement = 0;
-        this.level= new Level();
+        this.level= arena.getLevel();
         this.scoreModel = arena.getScore();
         this.levelController= new LevelController(arena,level);
         this.wave= new Wave();
@@ -44,11 +43,13 @@ public class EnemyController extends GameController {
     }
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
+        levelController.step(game,action,time);
         if (time - lastMovement > 500) {
             moveEnemies();
-
+//            System.out.println("LEVEL");
+//            System.out.println(level.getLevel());
+            level.updateLevel(scoreModel);
             if (enemies.isEmpty()) {
-                level.updateLevel(scoreModel);
                 List<Enemy> newEnemies = new ArrayList<>();
                 wave.spawn(level.getLevel());
                 newEnemies=wave.getEnemyList();
@@ -64,13 +65,17 @@ public class EnemyController extends GameController {
 
         for (Enemy enemy : enemies) {
             enemy.moveEnemies(enemy);
-            level.updateLevel(scoreModel);
+
             if (enemy.isDead()) {
                 deadEnemies.add(enemy);
-                updateScore(enemy);
-            }   
+            }
         }
+        System.out.println("deads: ");
+        System.out.println(deadEnemies.size());
         enemies.removeAll(deadEnemies);
+        for(Enemy enemy: deadEnemies){
+            updateScore(enemy);
+        }
 
     }
     private void updateScore(Enemy enemy) {

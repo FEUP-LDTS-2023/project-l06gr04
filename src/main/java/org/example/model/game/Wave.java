@@ -23,13 +23,13 @@ public class Wave {
             Enemy enemy;
             switch (enemyTypeIndex) {
                 case 1:
-                    enemy = new Orc(i, 5);
+                    enemy = new Orc(0-i, 5);
                     break;
                 case 2:
-                    enemy = new Golem(i, 6);
+                    enemy = new Golem(0-i, 6);
                     break;
                 case 3:
-                    enemy = new Skeleton(i, 7);
+                    enemy = new Skeleton(0-i, 7);
                     break;
                 default:
                     enemy = null;

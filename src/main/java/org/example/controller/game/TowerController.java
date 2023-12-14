@@ -5,6 +5,7 @@ import org.example.Game;
 import org.example.gui.WindowInterface;
 import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
+import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.*;
 
 import java.io.IOException;
@@ -28,16 +29,11 @@ public class TowerController extends GameController{
 
     }
 
-    public List<Tower> getTowerList(){
-        return towerList;
-    }
-
-    public void placeTower(Position position){
-
-    }
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws Exception {
-
+        for(Tower tower: arena.getTowers()){
+            tower.update();
+        }
         ArcherTower ArcherTower;
         CanonTower CanonTower;
         MageTower MageTower;

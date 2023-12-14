@@ -32,11 +32,12 @@ public class ArcherTower extends Tower {
 
     @Override
     public void shoot(Enemy target) {
-        Projectile tiro = new Projectile(x,y,target,firingSpeed,damage);
         System.out.println(target.getHiddenHealth());
         System.out.println(target.getActHP());
-        projectiles.add(tiro);
-        getProjectiles().add(tiro);
+        target.reduceHiddenHealth(damage);
+        if (target.getHiddenHealth()<=0) {
+            target.die();
+        }
 
 
     }
