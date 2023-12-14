@@ -138,23 +138,15 @@ Tower extends Element {
 
         totalTime += getTimePassed();
         if (targeted && findDistance(target) < range && totalTime > getFiringSpeed()) {
-            Projectile novo = new Projectile(x+1,y+1,target,getFiringSpeed(),dealDamage());
+            Projectile novo = new Projectile(10,10,target,getFiringSpeed(),dealDamage());
+            novo.setX(getX()+1);
+            novo.setY(getY()+1);
             projectiles.add(novo);
             shoot(target);
 
             totalTime -= getFiringSpeed();
         }
         List<Projectile> deadProjectiles = new ArrayList<>();
-
-//        for (Projectile projectile : projectiles) {
-//            projectile.update();
-//
-//            if (!projectile.isAlive()) {
-//                deadProjectiles.add(projectile);
-//            }
-//        }
-//
-//        projectiles.removeAll(deadProjectiles);
     }
     private long getTimePassed() {
         long currentTime = System.currentTimeMillis();
