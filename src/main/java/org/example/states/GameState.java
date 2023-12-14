@@ -97,7 +97,14 @@ public class GameState extends State<Arena> {
             allProjectiles.addAll(tower.getProjectiles());
             //tower.updateProjectiles();
         }
-        System.out.println(allProjectiles.size());
+        arena.setProjectiles(allProjectiles);
+        for(Iterator<Enemy> it = arena.getEnemies().iterator(); it.hasNext();){
+            Enemy enemy = it.next();
+            if(enemy.getHiddenHealth()<=0){
+                it.remove();
+            }
+        }
+
         for (Projectile projectile : allProjectiles) {
             projectile.update();
         }
@@ -108,8 +115,7 @@ public class GameState extends State<Arena> {
                 projectileIterator.remove();
             }
         }
-        System.out.println(allProjectiles.size());
-        arena.setProjectiles(allProjectiles);
+
     }
     public long getTimePassed() {
         long currentTime = System.currentTimeMillis();

@@ -28,7 +28,7 @@ public class Projectile extends Element {
         this.xVelocity=1;
         this.yVelocity=1;
         initialize();
-        if (target != null) {
+        if (target != null ) {
             target.reduceHiddenHealth(damage);
             if (target.getHiddenHealth()<=0) {
                 target.die();
@@ -63,32 +63,43 @@ public class Projectile extends Element {
         yVelocity=totalAllowedMovement-xPercentOfMovement;
         if(target.getX()<x) xVelocity *=-1;
         if(target.getY() < y) yVelocity *=-1;
+//        float xDistanceFromTarget = target.getX();
+//        float yDistanceFromTarget = target.getY();
+//        if(Math.abs(xDistanceFromTarget) > Math.abs(yDistanceFromTarget)){
+//            xVelocity = Math.signum(xDistanceFromTarget);
+//            yVelocity = 0;
+//        }else{
+//            xVelocity = 0;
+//            yVelocity = Math.signum(yDistanceFromTarget);
+//        }
     }
     public void update() {
         if (alive) {
             calculateDirection();
+
             x+=xVelocity*speed;
             y+=yVelocity*speed;
-            /*
-            if (xVelocity == -1) {
-                x -= 1;
-            } else if (xVelocity == 1) {
-                x += 1;
-            } else if (yVelocity == -1) {
-                y -= 1;
-            } else if (yVelocity == 1) {
-                y += 1;
-            } else if (yVelocity == 0) {
-                x += xVelocity;
-            } else if (xVelocity == 0) {
-                y += yVelocity;
-            }*/
+
+//            if (xVelocity == -1) {
+//                x -= 1;
+//            } else if (xVelocity == 1) {
+//                x += 1;
+//            } else if (yVelocity == -1) {
+//                y -= 1;
+//            } else if (yVelocity == 1) {
+//                y += 1;
+//            } else if (yVelocity == 0) {
+//                x += xVelocity;
+//            } else if (xVelocity == 0) {
+//                y += yVelocity;
+//            }
             if (checkCollision(x, y, target.getX(), target.getY())) {
                 damage();
-                //if (target.isDead()) {
-                 //   target.die();
-                    //tirar do jogo
-                //}
+                alive = false;
+                if (target.isDead()) {
+                    target.die();
+//                    tirar do jogo
+                }
             }
 
         }

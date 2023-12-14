@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class ArcherTower extends Tower {
     private static final int AT_LIFE = 250;
     private static final int LEVEL = 1;
-    private static final int RANGE= 30;
+    private static final int RANGE= 15;
     private static final int COST = 250;
     private final int firingSpeed,damage;
     private float timeSinceLastShoot;
@@ -17,8 +17,8 @@ public class ArcherTower extends Tower {
     public ArcherTower(int x, int y) {
         super(AT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>());
         this.towerSymbol = 'A';
-        this.firingSpeed=50;
-        this.damage=60;
+        this.firingSpeed=200;
+        this.damage=20;
         this.projectiles = new ArrayList<Projectile>();
         setCost(COST);
 
@@ -32,7 +32,6 @@ public class ArcherTower extends Tower {
 
     @Override
     public void shoot(Enemy target) {
-        System.out.println("Archer");
         Projectile tiro = new Projectile(x,y,target,firingSpeed,damage);
         System.out.println(target.getHiddenHealth());
         System.out.println(target.getActHP());

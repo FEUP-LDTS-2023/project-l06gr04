@@ -30,6 +30,7 @@ public class EnemyController extends GameController {
     private Wave wave;
     private Score scoreModel;
 
+
     public EnemyController(Arena arena) {
         super(arena);
         this.arena= arena;
@@ -47,6 +48,7 @@ public class EnemyController extends GameController {
             moveEnemies();
 
             if (enemies.isEmpty()) {
+                level.updateLevel(scoreModel);
                 List<Enemy> newEnemies = new ArrayList<>();
                 wave.spawn(level.getLevel());
                 newEnemies=wave.getEnemyList();
@@ -65,17 +67,16 @@ public class EnemyController extends GameController {
             level.updateLevel(scoreModel);
             if (enemy.isDead()) {
                 deadEnemies.add(enemy);
-            }
+                updateScore(enemy);
+            }   
         }
-
         enemies.removeAll(deadEnemies);
-        for (Enemy enemy : deadEnemies) {
-            updateScore(enemy);
-        }
+
     }
     private void updateScore(Enemy enemy) {
         switch (enemy.getEnemySymbol()) {
             case 'S':
+                System.out.println("Scoring for Skeleton...");
                 scoreModel.incrementScore(10 + level.getLevel() * 2);
                 getModel().setScore(scoreModel);
                 getModel().setCoins(getModel().getCoins() + 25);
@@ -85,6 +86,7 @@ public class EnemyController extends GameController {
                 }
                 break;
             case 'O':
+                System.out.println("Scoring for ORC...");
                 scoreModel.incrementScore(20 + level.getLevel() * 2);
                 getModel().setScore(scoreModel);
                 getModel().setCoins(getModel().getCoins() + 50);
@@ -94,6 +96,7 @@ public class EnemyController extends GameController {
                 }
                 break;
             case 'G':
+                System.out.println("Scoring for golem...");
                 scoreModel.incrementScore(50 + level.getLevel() * 3);
                 getModel().setScore(scoreModel);
                 getModel().setCoins(getModel().getCoins() + 100);
