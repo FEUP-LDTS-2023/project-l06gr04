@@ -1,5 +1,6 @@
 package org.example.model.game.elements.towers;
 
+import org.example.model.game.Position;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 
@@ -129,5 +130,8 @@ public class Projectile extends Element {
     }
     public void setAlive(boolean status){
         alive=status;
+    }
+    public Position getPosition() {
+        return new Position(x, y);
     }
 }

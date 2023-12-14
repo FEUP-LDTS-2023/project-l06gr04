@@ -148,7 +148,7 @@ public abstract class Tower extends Element {
 
         totalTime += getTimePassed();
         if (targeted && findDistance(target) < range && totalTime > getFiringSpeed()) {
-            Projectile novo = new Projectile(x,y,target,getFiringSpeed(),dealDamage());
+            Projectile novo = new Projectile(x+1,y+1,target,getFiringSpeed(),dealDamage());
             projectiles.add(novo);
             shoot(target);
             projectiles.remove(novo);
