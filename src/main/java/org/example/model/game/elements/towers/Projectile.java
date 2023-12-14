@@ -16,8 +16,7 @@ public class Projectile extends Element {
     private int totalTime;
     private long pastTime;
     private int MAX_LIFETIME = 500;
-    private int x;
-    private int y;
+    int x,y;
 
     public Projectile(int x, int y , Enemy target, float speed, int damage) {
         super(x,y);
@@ -27,6 +26,8 @@ public class Projectile extends Element {
         this.alive=true;
         this.xVelocity=1;
         this.yVelocity=1;
+        this.x=x;
+        this.y=y;
         initialize();
 
     }

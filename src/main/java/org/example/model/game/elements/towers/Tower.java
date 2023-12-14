@@ -14,9 +14,8 @@ import static org.example.controller.Clock.Delta;
 public abstract class
 Tower extends Element {
     private long lastUpdateTime;
-    Position position;
+
     char towerSymbol;
-    int x,y;
     int life;
     int level;
     int range;
@@ -37,7 +36,6 @@ Tower extends Element {
         this.range = range;
         this.cost = cost;
         this.targeted=false;
-        this.position = new Position(x,y);
         this.projectiles=new ArrayList<>();
         this.enemies= enemies;
         initialize();
@@ -50,8 +48,8 @@ Tower extends Element {
     protected abstract int getFiringSpeed();
 
     public boolean isInRange(Enemy enemy) {
-        float xDistance = Math.abs(enemy.getPosition().getX() - position.getX());
-        float yDistance = Math.abs(enemy.getPosition().getY() - position.getY());
+        float xDistance = Math.abs(enemy.getPosition().getX() - getX());
+        float yDistance = Math.abs(enemy.getPosition().getY() - getY());
 
         if (xDistance < range && yDistance < range) {
             return true;
@@ -138,9 +136,12 @@ Tower extends Element {
 
         totalTime += getTimePassed();
         if (targeted && findDistance(target) < range && totalTime > getFiringSpeed()) {
-            Projectile novo = new Projectile(10,10,target,getFiringSpeed(),dealDamage());
-            novo.setX(getX()+1);
-            novo.setY(getY()+1);
+            Projectile novo = new Projectile(getX(),getY(),target,getFiringSpeed(),dealDamage());
+            System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"+getX());
+            System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+getY());
+
+            //novo.setX(getX()+1);
+            //novo.setY(getY()+1);
             projectiles.add(novo);
             shoot(target);
 
