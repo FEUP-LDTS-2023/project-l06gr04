@@ -11,7 +11,8 @@ import java.util.List;
 
 import static org.example.controller.Clock.Delta;
 
-public abstract class Tower extends Element {
+public abstract class
+Tower extends Element {
     private long lastUpdateTime;
     Position position;
     char towerSymbol;
@@ -29,7 +30,7 @@ public abstract class Tower extends Element {
     private long pastTime;
     private List<Projectile> projectiles;
 
-    public Tower(int life, int level, int range, int cost, int x, int y, List<Enemy> enemies){
+    public Tower(int life, int level, int range, int cost, int x, int y, List<Enemy> enemies ){
         super(x,y);
         this.life = life;
         this.level = level;
@@ -62,8 +63,8 @@ public abstract class Tower extends Element {
         pastTime = System.currentTimeMillis();
     }
     public float findDistance(Enemy enemy) {
-        float xDistance= Math.abs(enemy.getX()-x);
-        float yDistance= Math.abs(enemy.getY()-y);
+        float xDistance= Math.abs(enemy.getX()-getX());
+        float yDistance= Math.abs(enemy.getY()-getY());
         return xDistance+yDistance;
     }
     public int getLife() {
@@ -83,14 +84,7 @@ public abstract class Tower extends Element {
         Enemy closest = null;
         float closestDistance = 100000;
 
-        System.out.println("Number of enemies: " + enemies.size());
-
         for (Enemy e : enemies) {
-            System.out.println("Checking enemy at position: " + e.getPosition());
-            System.out.println("Is in range: " + isInRange(e));
-            System.out.println("Distance: " + findDistance(e));
-            System.out.println("Hidden health: " + e.getHiddenHealth());
-            System.out.println("act hp: " + e.getActHP());
 
             if (isInRange(e) && findDistance(e) < closestDistance && e.getHiddenHealth() > 0) {
                 closestDistance = findDistance(e);
@@ -100,9 +94,6 @@ public abstract class Tower extends Element {
 
         if (closest != null) {
             targeted = true;
-            System.out.println("Target acquired: " + closest.getPosition());
-        } else {
-            System.out.println("No target acquired.");
         }
 
         return closest;
@@ -143,7 +134,6 @@ public abstract class Tower extends Element {
         if (target == null || target.isDead() || !isInRange(target)) {
             targeted = false;
             target = acquireTarget();
-            System.out.println("Acquired new target: " + target);
         }
 
         totalTime += getTimePassed();
@@ -154,7 +144,17 @@ public abstract class Tower extends Element {
             projectiles.remove(novo);
             totalTime -= getFiringSpeed();
         }
-        //updateProjectiles();
+        List<Projectile> deadProjectiles = new ArrayList<>();
+
+//        for (Projectile projectile : projectiles) {
+//            projectile.update();
+//
+//            if (!projectile.isAlive()) {
+//                deadProjectiles.add(projectile);
+//            }
+//        }
+//
+//        projectiles.removeAll(deadProjectiles);
     }
     private long getTimePassed() {
         long currentTime = System.currentTimeMillis();

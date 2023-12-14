@@ -179,6 +179,6 @@ public class Window implements WindowInterface {
         drawIntoGameChar(position.getX(), position.getY(), towerPositions.getSymbol(), "GREEN");
     }
     public void drawProjectiles(Position position, Window window){
-        drawIntoGameChar(position.getX(), position.getY(), '.', "RED");
+        drawIntoGameChar(position.getX(), position.getY(), 'o', "RED");
     }
 }
