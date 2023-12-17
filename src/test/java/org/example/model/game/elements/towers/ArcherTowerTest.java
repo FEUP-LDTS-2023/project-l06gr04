@@ -1,7 +1,8 @@
-package org.example.model;
+package org.example.model.game.elements.towers;
 
 import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
+import org.example.model.game.elements.enemys.Orc;
 import org.example.model.game.elements.towers.ArcherTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,13 +12,14 @@ import static org.mockito.Mockito.verify;
 
 public class ArcherTowerTest {
     @Test
-    public void testAttack() {
+    void testAttack() {
         Enemy enemy = Mockito.mock(Enemy.class);
-        ArcherTower archerTower = new ArcherTower(1,1);
-        if(archerTower.isInRange(enemy)) {
+        Mockito.when(enemy.getPosition()).thenReturn(new Position(2, 3));
+        ArcherTower archerTower = new ArcherTower(1, 1);
+        if (archerTower.isInRange(enemy)) {
             archerTower.attack(enemy);
         }
-        verify(enemy).hurt(archerTower.dealDamage());
+        Mockito.verify(enemy).hurt(archerTower.dealDamage());
     }
 
 
@@ -33,7 +35,7 @@ public class ArcherTowerTest {
         ArcherTower archerTower = new ArcherTower(1,1);
         archerTower.upgrade();
         assertEquals(2, archerTower.getLevel());
-        assertEquals(5, archerTower.getRange());
+        assertEquals(17, archerTower.getRange());
         assertEquals(300, archerTower.getLife());
     }
 
@@ -44,7 +46,7 @@ public class ArcherTowerTest {
         archerTower.upgrade();
         archerTower.upgrade();
         assertEquals(4, archerTower.getLevel());
-        assertEquals(9, archerTower.getRange());
+        assertEquals(21, archerTower.getRange());
         assertEquals(400, archerTower.getLife());
     }
     @Test

@@ -3,9 +3,7 @@ package org.example.states;
 import org.example.controller.Controller;
 import org.example.controller.menu.LeaderboardController;
 import org.example.gui.Window;
-import org.example.model.menu.Controls;
 import org.example.model.menu.Leaderboard;
-import org.example.viewer.ControlsViewer;
 import org.example.viewer.Viewer;
 import org.example.viewer.menu.LeaderboardViewer;
 
@@ -23,6 +21,5 @@ public class LeaderboardState extends State<Leaderboard> {
     protected Controller<Leaderboard> getController() {
         return new LeaderboardController(getModel());
     }
-
-
 }
+

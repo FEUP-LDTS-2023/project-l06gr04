@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.game.elements.towers;
 
 import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
@@ -14,6 +14,7 @@ public class CanonTowerTest {
     @Test
     public void testAttack() {
         Enemy enemy = Mockito.mock(Enemy.class);
+        Mockito.when(enemy.getPosition()).thenReturn(new Position(2, 3));
         CanonTower canonTower = new CanonTower(1,1);
         if(canonTower.isInRange(enemy)) {
             canonTower.attack(enemy);
@@ -34,7 +35,7 @@ public class CanonTowerTest {
 
         canonTower.upgrade();
         assertEquals(2, canonTower.getLevel());
-        assertEquals(3, canonTower.getRange());
+        assertEquals(21, canonTower.getRange());
         assertEquals(400, canonTower.getLife());
     }
 
@@ -45,7 +46,7 @@ public class CanonTowerTest {
         canonTower.upgrade();
         canonTower.upgrade();
         assertEquals(4, canonTower.getLevel());
-        assertEquals(5, canonTower.getRange());
+        assertEquals(23, canonTower.getRange());
         assertEquals(600, canonTower.getLife());
     }
     @Test

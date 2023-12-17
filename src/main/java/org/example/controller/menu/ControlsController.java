@@ -7,8 +7,6 @@ import org.example.model.menu.Controls;
 import org.example.model.menu.Menu;
 import org.example.states.MenuState;
 
-import java.io.IOException;
-
 import static org.example.gui.WindowInterface.KEY.QUIT;
 
 public class ControlsController extends Controller<Controls> {

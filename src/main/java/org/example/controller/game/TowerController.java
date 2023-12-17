@@ -1,26 +1,21 @@
 package org.example.controller.game;
 
-import com.googlecode.lanterna.input.KeyType;
 import org.example.Game;
 import org.example.gui.WindowInterface;
 import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
-import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TowerController extends GameController{
-    private int coins;
-    private List<Tower> towerList;
-    private Arena arena;
+public class TowerController extends GameController {
+    int coins;
+    private final List<Tower> towerList;
+    private final Arena arena;
     private boolean selected;
     private long lastMovement;
     private Position position;
-
-    //temos de adicionar as torres à lista assim que as criamos para que elas possam ser dadas ao draw
     public TowerController(Arena arena) {
         super(arena);
         this.arena=arena;
@@ -123,4 +118,7 @@ public class TowerController extends GameController{
         }
     }
 
+    public List<Tower> getTowerList() {
+        return towerList;
+    }
 }

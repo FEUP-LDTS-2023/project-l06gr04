@@ -4,10 +4,6 @@ import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.Wall;
-import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.enemys.Orc;
-import org.example.model.game.elements.enemys.Skeleton;
-import org.example.model.game.elements.enemys.Golem;
 
 
 import java.io.BufferedReader;

@@ -1,8 +1,9 @@
-package org.example.viewer;
+package org.example.viewer.menu;
 
 import org.example.gui.Window;
 import org.example.model.game.Position;
 import org.example.model.menu.Controls;
+import org.example.viewer.Viewer;
 
 
 public class ControlsViewer extends Viewer<Controls> {

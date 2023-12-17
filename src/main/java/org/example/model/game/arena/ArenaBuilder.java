@@ -4,7 +4,6 @@ import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Path;
 import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.Wall;
-import org.example.model.game.elements.enemys.Enemy;
 
 import java.util.List;
 

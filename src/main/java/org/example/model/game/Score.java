@@ -18,5 +18,4 @@ public class Score{
     }
 
 
-    // Outros métodos relacionados ao modelo de score, se necessário
 }

@@ -1,4 +1,4 @@
-package org.example.viewer;
+package org.example.viewer.game;
 
 import org.example.gui.Window;
 import org.example.model.game.elements.towers.ArcherTower;

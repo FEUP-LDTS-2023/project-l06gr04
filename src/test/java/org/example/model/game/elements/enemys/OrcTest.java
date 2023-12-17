@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.game.elements.enemys;
 
 import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Orc;
