@@ -1,7 +1,7 @@
 package org.example.controller.game;
 
 import org.example.Game;
-import org.example.gui.Window;
+import org.example.controller.Controller;
 import org.example.gui.WindowInterface;
 import org.example.model.game.Level;
 import org.example.model.game.Position;
@@ -9,11 +9,6 @@ import org.example.model.game.Score;
 import org.example.model.game.Wave;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.controller.Clock;
-import org.example.model.game.elements.enemys.Golem;
-import org.example.model.game.elements.enemys.Orc;
-import org.example.model.game.elements.enemys.Skeleton;
-import org.example.viewer.game.GameViewer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,13 +16,13 @@ import java.util.List;
 
 public class EnemyController extends GameController {
     public List<Enemy> enemies ;
-    private Level level;
+    private final Level level;
     private ScoreController scoreController;
     private long lastMovement;
-    private Arena arena;
-    private LevelController levelController;
-    private Wave wave;
-    private Score scoreModel;
+    private final Arena arena;
+    private final LevelController levelController;
+    private final Wave wave;
+    private final Score scoreModel;
 
 
     public EnemyController(Arena arena) {
@@ -46,8 +41,6 @@ public class EnemyController extends GameController {
         levelController.step(game,action,time);
         if (time - lastMovement > 500) {
             moveEnemies();
-//            System.out.println("LEVEL");
-//            System.out.println(level.getLevel());
             level.updateLevel(scoreModel);
             if (enemies.isEmpty()) {
                 List<Enemy> newEnemies = new ArrayList<>();
@@ -70,8 +63,6 @@ public class EnemyController extends GameController {
                 deadEnemies.add(enemy);
             }
         }
-        System.out.println("deads: ");
-        System.out.println(deadEnemies.size());
         enemies.removeAll(deadEnemies);
         for(Enemy enemy: deadEnemies){
             updateScore(enemy);
@@ -81,7 +72,6 @@ public class EnemyController extends GameController {
     private void updateScore(Enemy enemy) {
         switch (enemy.getEnemySymbol()) {
             case 'S':
-                System.out.println("Scoring for Skeleton...");
                 scoreModel.incrementScore(10 + level.getLevel() * 2);
                 getModel().setScore(scoreModel);
                 getModel().setCoins(getModel().getCoins() + 25);
@@ -91,7 +81,6 @@ public class EnemyController extends GameController {
                 }
                 break;
             case 'O':
-                System.out.println("Scoring for ORC...");
                 scoreModel.incrementScore(20 + level.getLevel() * 2);
                 getModel().setScore(scoreModel);
                 getModel().setCoins(getModel().getCoins() + 50);
@@ -101,7 +90,6 @@ public class EnemyController extends GameController {
                 }
                 break;
             case 'G':
-                System.out.println("Scoring for golem...");
                 scoreModel.incrementScore(50 + level.getLevel() * 3);
                 getModel().setScore(scoreModel);
                 getModel().setCoins(getModel().getCoins() + 100);

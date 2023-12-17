@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.game.elements.towers;
 import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.MageTower;
@@ -13,6 +13,7 @@ public class MageTowerTest {
     @Test
     public void testAttack() {
         Enemy enemy = Mockito.mock(Enemy.class);
+        Mockito.when(enemy.getPosition()).thenReturn(new Position(2, 3));
         MageTower mageTower = new MageTower(1,1);
         if(mageTower.isInRange(enemy)){
             mageTower.attack(enemy);
@@ -33,7 +34,7 @@ public class MageTowerTest {
 
         mageTower.upgrade();
         assertEquals(2, mageTower.getLevel());
-        assertEquals(9, mageTower.getRange());
+        assertEquals(14, mageTower.getRange());
         assertEquals(125, mageTower.getLife());
     }
 
@@ -44,7 +45,7 @@ public class MageTowerTest {
         mageTower.upgrade();
         mageTower.upgrade();
         assertEquals(4, mageTower.getLevel());
-        assertEquals(17, mageTower.getRange());
+        assertEquals(22, mageTower.getRange());
         assertEquals(175, mageTower.getLife());
     }
     @Test

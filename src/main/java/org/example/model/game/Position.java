@@ -2,23 +2,8 @@ package org.example.model.game;
 
 import java.util.Objects;
 public class Position {
-    int x;
-    int y;
-    public Position getLeft() {
-        return new Position(x - 1, y);
-    }
-
-    public Position getRight() {
-        return new Position(x + 1, y);
-    }
-
-    public Position getUp() {
-        return new Position(x, y - 1);
-    }
-
-    public Position getDown() {
-        return new Position(x, y + 1);
-    }
+    private int x;
+    private int y;
     public Position(int x, int y) {
         this.x = x;
         this.y = y;
@@ -41,8 +26,7 @@ public class Position {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Position)) return false;
-        Position position = (Position) o;
+        if (!(o instanceof Position position)) return false;
         return x == position.x && y == position.y;
     }
 

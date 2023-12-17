@@ -1,7 +1,6 @@
 package org.example.viewer.game;
 
 import org.example.gui.Window;
-import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.TowerPositions;
 
 public class TowerPositionsViewer implements ElementViewer<TowerPositions> {

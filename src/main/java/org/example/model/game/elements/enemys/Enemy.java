@@ -1,12 +1,9 @@
 package org.example.model.game.elements.enemys;
 
-import org.example.controller.Clock;
 import org.example.model.game.Position;
-import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
 
 public abstract class Enemy extends Element {
-    int x, y;
     boolean isDead = false;
     Position position;
     char enemySymbol;

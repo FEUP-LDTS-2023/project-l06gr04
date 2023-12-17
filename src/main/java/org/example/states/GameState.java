@@ -15,6 +15,7 @@ import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.ArcherTower;
 import org.example.model.game.elements.towers.Projectile;
 import org.example.model.game.elements.towers.Tower;
+import org.example.model.menu.Leaderboard;
 import org.example.model.menu.Menu;
 import org.example.viewer.Viewer;
 import org.example.viewer.game.GameViewer;
@@ -24,14 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 
 public class GameState extends State<Arena> {
-    private EnemyController enemyController;
-    private TowerController towerController;
+    private final EnemyController enemyController;
+    private final TowerController towerController;
 
-    private ArenaController arenaController;
-    private long TIME_FIXED = 100;
-    private ScoreController scoreController;
+    private final ArenaController arenaController;
+    private final long TIME_FIXED = 100;
+    private final ScoreController scoreController;
     private Game game;
-    private Arena arena;
+    private final Arena arena;
     private long totalTime, pastTime;
     Window window;
 
@@ -65,7 +66,6 @@ public class GameState extends State<Arena> {
         enemyController.step(game, null, System.currentTimeMillis());
         scoreController.step(game, null, System.currentTimeMillis());
         towerController.step(game, action, System.currentTimeMillis());
-
         updateProjectiles();
 
     }
@@ -78,7 +78,7 @@ public class GameState extends State<Arena> {
             game.setState(new MenuState(new Menu(),window));
             return;
         }
-        if(getModel().getChest().getLife()==0){
+        if(getModel().getChest().getLife()<=0){
             game.setState(new MenuState(new Menu(),window));
         }
 
@@ -94,16 +94,8 @@ public class GameState extends State<Arena> {
         for (Tower tower : arena.getTowers()) {
             tower.setEnemies(arena.getEnemies());
             allProjectiles.addAll(tower.getProjectiles());
-            //tower.updateProjectiles();
         }
         arena.setProjectiles(allProjectiles);
-//        for(Iterator<Enemy> it = arena.getEnemies().iterator(); it.hasNext();){
-//            Enemy enemy = it.next();
-//            if(enemy.getHiddenHealth()<=0){
-//                enemy.die();
-//                it.remove();
-//            }
-//        }
 
         for (Projectile projectile : allProjectiles) {
             projectile.update();

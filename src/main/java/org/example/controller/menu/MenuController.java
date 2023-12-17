@@ -2,7 +2,6 @@ package org.example.controller.menu;
 
 import org.example.Game;
 import org.example.controller.Controller;
-import org.example.gui.Window;
 import org.example.gui.WindowInterface;
 import org.example.model.game.arena.LoaderArenaBuilder;
 import org.example.model.menu.Controls;
@@ -11,8 +10,6 @@ import org.example.model.menu.Menu;
 import org.example.states.ControlsState;
 import org.example.states.GameState;
 import org.example.states.LeaderboardState;
-
-import java.io.IOException;
 
 public class MenuController extends Controller<Menu> {
     public MenuController(Menu menu) {

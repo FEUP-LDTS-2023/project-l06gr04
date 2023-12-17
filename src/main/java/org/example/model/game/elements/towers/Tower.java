@@ -1,27 +1,21 @@
 package org.example.model.game.elements.towers;
 
-import org.example.model.game.Position;
-import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.controller.Clock.Delta;
 
 public abstract class
 Tower extends Element {
-    private long lastUpdateTime;
 
-    char towerSymbol;
-    int life;
-    int level;
-    int range;
-    int cost;
-    private Arena arena;
-    List<Enemy> enemies;
+    public char towerSymbol;
+    private int life;
+    private int level;
+    private int range;
+    private int cost;
+    private List<Enemy> enemies;
     private Enemy target;
     private boolean targeted;
 
@@ -137,17 +131,11 @@ Tower extends Element {
         totalTime += getTimePassed();
         if (targeted && findDistance(target) < range && totalTime > getFiringSpeed()) {
             Projectile novo = new Projectile(getX(),getY(),target,getFiringSpeed(),dealDamage());
-            System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"+getX());
-            System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+getY());
-
-            //novo.setX(getX()+1);
-            //novo.setY(getY()+1);
             projectiles.add(novo);
             shoot(target);
 
             totalTime -= getFiringSpeed();
         }
-        List<Projectile> deadProjectiles = new ArrayList<>();
     }
     private long getTimePassed() {
         long currentTime = System.currentTimeMillis();
@@ -155,25 +143,6 @@ Tower extends Element {
         pastTime = currentTime;
         return timePassed;
     }
-
-
-    public void setEnemyList(ArrayList<Enemy> enemies) {
-        this.enemies=enemies;
-    }
-    public void updateProjectiles() {
-        List<Projectile> deadProjectiles = new ArrayList<>();
-
-        for (Projectile projectile : projectiles) {
-            projectile.update();
-
-            if (!projectile.isAlive()) {
-                deadProjectiles.add(projectile);
-            }
-        }
-
-        projectiles.removeAll(deadProjectiles);
-    }
-
     public List<Projectile> getProjectiles() {
         return projectiles;
     }

@@ -1,14 +1,11 @@
 package org.example.viewer.game;
 
-import org.example.controller.Clock;
 import org.example.gui.Window;
 import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
-import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.Tower;
 import org.example.viewer.Viewer;
 
 import java.util.List;

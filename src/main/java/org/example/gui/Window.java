@@ -15,7 +15,6 @@ import org.example.model.game.Position;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.Projectile;
 import org.example.model.game.elements.towers.Tower;
 
 import java.io.IOException;
@@ -40,22 +39,6 @@ public class Window implements WindowInterface {
         }
     }
 
-//    public void draw() throws IOException {
-//        clear();
-//        LoadArenaBuilder arenaBuilder = new LoadArenaBuilder(0);
-//        Arena arena = arenaBuilder.createArena();
-//        List<EnemyViewer> enemyViews = arenaBuilder.createEnemyViews(arena);
-//        for (EnemyViewer enemyView : enemyViews) {
-//            drawEnemy(enemyView.getEnemy().getPosition(), enemyView.getEnemySymbol());
-//            refresh();
-//        }
-//        List<TowerViewer> towerViews = arenaBuilder.createTowerViews(arena);
-//        for(TowerViewer towerView : towerViews){
-//            drawTower(towerView.getTower().getPosition(),towerView.getTowerSymbol() );
-//            refresh();
-//        }
-//        List
-//    }
     @Override
     public KEY processKey() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
@@ -68,7 +51,6 @@ public class Window implements WindowInterface {
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'a') return KEY.A;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'u') return KEY.U;
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return KEY.UP;
-        //if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == '1') return KEY.NUM_1;
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return KEY.RIGHT;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return KEY.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowLeft) return KEY.LEFT;
@@ -84,8 +66,6 @@ public class Window implements WindowInterface {
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-
-        // Use SGR.BOLD para aumentar o tamanho da letra
         tg.putString(position.getX(), position.getY(), text, SGR.BOLD);
     }
     public void drawTextWithFontSize( Position position, String text, String color, int fontSize) {
