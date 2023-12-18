@@ -13,8 +13,7 @@ import java.net.URISyntaxException;
 
 public class Game {
     private final Window window;
-    private final Score score;
-    private final Level level;
+
     private State state;
     public void setState(State state) {
         this.state = state;
@@ -24,8 +23,6 @@ public class Game {
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.window = new Window();
         this.state = new MenuState(new Menu(), window);
-        this.score = new Score();
-        this.level = new Level();
     }
     public Window getWindow() {
         return window;

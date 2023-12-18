@@ -4,7 +4,6 @@ import org.example.viewer.game.GameViewer;
 
 public class Score{
     private int score;
-    private GameViewer gameViewer;
     public Score() {
         this.score = 0;
     }

@@ -17,7 +17,6 @@ import java.util.List;
 public class EnemyController extends GameController {
     public List<Enemy> enemies ;
     private final Level level;
-    private ScoreController scoreController;
     private long lastMovement;
     private final Arena arena;
     private final LevelController levelController;
@@ -43,9 +42,9 @@ public class EnemyController extends GameController {
             moveEnemies();
             level.updateLevel(scoreModel);
             if (enemies.isEmpty()) {
-                List<Enemy> newEnemies = new ArrayList<>();
+
                 wave.spawn(level.getLevel());
-                newEnemies=wave.getEnemyList();
+                List<Enemy> newEnemies=wave.getEnemyList();
                 arena.setEnemies(newEnemies);
                 enemies = newEnemies;
             }

@@ -32,7 +32,6 @@ public class ScoreController extends GameController {
     }
     private void updateScore() {
         List<Enemy> enemies = getModel().getEnemies();
-        List<Enemy> enemiesToRemove = new ArrayList<>();
 
         for (Enemy enemy : enemies) {
             if (enemy.isDead()) {

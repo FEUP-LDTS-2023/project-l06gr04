@@ -28,27 +28,41 @@ public class Projectile extends Element {
     }
 
     private void calculateDirection() {
+        float totalAllowedMovement = 1.0f;
 
+        float xDistanceFromTarget = target.getX() - getX();
+        float yDistanceFromTarget = target.getY() - getY();
 
+        // Calcula o ângulo entre o tiro e o alvo
+        double angle = Math.atan2(yDistanceFromTarget, xDistanceFromTarget);
+
+        // Calcula as componentes x e y da velocidade com base no ângulo
+        xVelocity = (float) (totalAllowedMovement * Math.cos(angle));
+        yVelocity = (float) (totalAllowedMovement * Math.sin(angle));
+        /*
         float totalAllowedMovement= 1.0f;
         float xDistanceFromTarget =Math.abs(target.getX()-getX()-(1/4+1/2));
         float yDistanceFromTarget =Math.abs(target.getY()-getY()-(1/4+1/2));
+        //float xDistanceFromTarget =Math.abs(target.getX() - getX());
+        //float yDistanceFromTarget =Math.abs(target.getY() - getY());
         float totalDistanceFromTarget= xDistanceFromTarget+yDistanceFromTarget;
         float xPercentOfMovement= xDistanceFromTarget/totalDistanceFromTarget;
         xVelocity=xPercentOfMovement;
         yVelocity=totalAllowedMovement-xPercentOfMovement;
         if(target.getX()<getX()) xVelocity*=-1;
         if(target.getY() < getY()) yVelocity*=-1;
+         */
     }
     public void update() {
         if (alive) {
             calculateDirection();
-            setX((int) (xVelocity*speed + getX()));
-            setY((int) (yVelocity*speed + getY()));
+            setX((int) (xVelocity + getX()));
+            setY((int) (yVelocity + getY()));
             if (checkCollision(getX() ,getY(), target.getX(), target.getY())) {
-                damage();
+                target.damage(damage);
                 alive = false;
-            }else if(getTimePassed() > MAX_LIFETIME*5){
+
+            }else if(getTimePassed() > MAX_LIFETIME*3){
                 alive = false;
             }
         }
@@ -61,10 +75,6 @@ public class Projectile extends Element {
         return (x == x2 && (y == y2));
     }
 
-    public void damage() {
-        target.damage(damage);
-        alive = false;
-    }
 
     public long getTimePassed(){
         return System.currentTimeMillis() - pastTime;
@@ -83,8 +93,6 @@ public class Projectile extends Element {
     public int getDmg() {
         return damage;
     }
-    public Position getPosition() {
-        return new Position(getX(), getY());
-    }
+
 
 }

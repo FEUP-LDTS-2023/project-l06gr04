@@ -66,12 +66,7 @@ Tower extends Element {
     public char getTowerSymbol() {
         return towerSymbol;
     }
-    public void attack(Enemy enemy){
-        if (isInRange(enemy)) {
-            int damage = dealDamage();
-            enemy.hurt(damage);
-        }
-    }
+
     private Enemy acquireTarget() {
         Enemy closest = null;
         float closestDistance = 100000;
@@ -97,7 +92,7 @@ Tower extends Element {
 
 
     public abstract void upgrade();
-    abstract int dealDamage();
+    abstract int getDamage();
     public int getLevel(){
         return level;
     }
@@ -130,9 +125,9 @@ Tower extends Element {
 
         totalTime += getTimePassed();
         if (targeted && findDistance(target) < range && totalTime > getFiringSpeed()) {
-            Projectile novo = new Projectile(getX(),getY(),target,getFiringSpeed(),dealDamage());
-            projectiles.add(novo);
             shoot(target);
+            Projectile novo = new Projectile(getX()+1,getY()+1,target,getFiringSpeed(),getDamage());
+            projectiles.add(novo);
 
             totalTime -= getFiringSpeed();
         }
