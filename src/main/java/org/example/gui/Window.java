@@ -66,14 +66,14 @@ public class Window implements WindowInterface {
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text, SGR.BOLD);
+        tg.putString((int) position.getX(), (int) position.getY(), text, SGR.BOLD);
     }
     public void drawTextWithFontSize( Position position, String text, String color, int fontSize) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
 
         for (int i = 0; i < text.length(); i++) {
-            tg.setCharacter(position.getX() + i * fontSize, position.getY(),
+            tg.setCharacter((int) (position.getX() + i * fontSize), (int) position.getY(),
                     new TextCharacter(text.charAt(i), TextColor.Factory.fromString(color), TextColor.ANSI.DEFAULT));
         }
     }
@@ -90,20 +90,20 @@ public class Window implements WindowInterface {
 
     @Override
     public void drawWall(Position position) {
-        int x = position.getX();
-        int y = position.getY();
+        float x = position.getX();
+        float y = position.getY();
 
         TextCharacter wallCharacter = TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.WHITE);
 
 
-        screen.setCharacter(x, y, wallCharacter);
+        screen.setCharacter((int) x, (int) y, wallCharacter);
 
     }
 
-    void drawIntoGameChar(int x, int y, char c, String color) {
+    void drawIntoGameChar(float x, float y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y, "" + c);
+        tg.putString((int) x, (int) y, "" + c);
     }
     void drawIntoGameString(int x, int y, String c, String color) {
         TextGraphics tg = screen.newTextGraphics();
@@ -116,7 +116,7 @@ public class Window implements WindowInterface {
     public void drawIntoGameText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
+        tg.putString((int) position.getX(), (int) position.getY(), text);
     }
 
     @Override
@@ -136,13 +136,13 @@ public class Window implements WindowInterface {
 
     @Override
     public void drawPath(Position position) {
-        int x = position.getX();
-        int y = position.getY();
+        float x = position.getX();
+        float y = position.getY();
 
         TextCharacter wallCharacter = TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.WHITE);
 
 
-        screen.setCharacter(x, y, wallCharacter);
+        screen.setCharacter((int) x, (int) y, wallCharacter);
     }
 
     public void drawChest(Position position, Chest chest) {

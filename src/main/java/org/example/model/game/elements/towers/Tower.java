@@ -23,7 +23,7 @@ Tower extends Element {
     private long pastTime;
     private List<Projectile> projectiles;
 
-    public Tower(int life, int level, int range, int cost, int x, int y, List<Enemy> enemies ){
+    public Tower(int life, int level, int range, int cost, float x, float y, List<Enemy> enemies ){
         super(x,y);
         this.life = life;
         this.level = level;

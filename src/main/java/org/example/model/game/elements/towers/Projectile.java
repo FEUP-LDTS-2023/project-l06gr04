@@ -15,7 +15,7 @@ public class Projectile extends Element {
     private long pastTime;
     private final long MAX_LIFETIME = 500;
 
-    public Projectile(int x, int y , Enemy target, float speed, int damage) {
+    public Projectile(float x, float y , Enemy target, float speed, int damage) {
         super(x,y);
         this.speed = speed;
         this.damage = damage;
@@ -28,22 +28,34 @@ public class Projectile extends Element {
 
     public void calculateDirection() {
         float totalAllowedMovement = 1.0f;
+        /*
+        float deltaX = target.getX() - getX();
+        float deltaY = target.getY() - getY();
+
+        // Normalizar a direção
+        float distance = (float) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        float directionX = deltaX / distance;
+        float directionY = deltaY / distance;
+
+        */
         float xDistanceFromTarget = target.getX() - getX();
         float yDistanceFromTarget = target.getY() - getY();
         double angle = Math.atan2(yDistanceFromTarget, xDistanceFromTarget);
         xVelocity = (float) (totalAllowedMovement * Math.cos(angle));
         yVelocity = (float) (totalAllowedMovement * Math.sin(angle));
+        setX(getX()+xVelocity);
+        setY(getY()+yVelocity);
     }
     public void update() {
         if (alive) {
             calculateDirection();
-            setX((int) (xVelocity + getX()));
-            setY((int) (yVelocity + getY()));
+            //setX((int) (xVelocity + getX()));
+            //setY((int) (yVelocity + getY()));
             if (checkCollision(getX() ,getY(), target.getX(), target.getY())) {
                 target.damage(damage);
                 alive = false;
 
-            }else if(getTimePassed() > MAX_LIFETIME*3){
+            }else if(getTimePassed() > MAX_LIFETIME*5){
                 alive = false;
             }
         }
@@ -52,8 +64,10 @@ public class Projectile extends Element {
     public boolean isAlive() {
         return alive;
     }
-    private boolean checkCollision(int x, int y, int x2, int y2) {
-        return (x == x2 && (y == y2));
+    private boolean checkCollision(float x, float y, float x2, float y2) {
+        float tolerance = 0.5f;
+
+        return Math.abs(x - x2) < tolerance && Math.abs(y - y2) < tolerance;
     }
 
 

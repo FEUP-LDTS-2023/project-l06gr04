@@ -4,7 +4,6 @@ package org.example.model.game.elements.towers;
 import org.example.model.game.elements.enemys.Enemy;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CanonTower extends Tower{
     private static final int CT_LIFE = 300;
@@ -13,7 +12,7 @@ public class CanonTower extends Tower{
     private static final int COST = 100;
     private int firingSpeed, damage;
 
-    public CanonTower(int x, int y) {
+    public CanonTower(float x, float y) {
         super(CT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>());
         this.towerSymbol = 'C';
         this.firingSpeed=9;
