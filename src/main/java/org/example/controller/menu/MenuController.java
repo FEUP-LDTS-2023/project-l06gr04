@@ -30,6 +30,9 @@ public class MenuController extends Controller<Menu> {
                 if (getModel().isSelectedLeaderboard()) game.setState(new LeaderboardState(new Leaderboard(),game.getWindow()));
                 if (getModel().isSelectedControls()) game.setState(new ControlsState(new Controls(),game.getWindow()));
                 if (getModel().isSelectedStart()) game.setState(new GameState(new LoaderArenaBuilder().createArena(), game.getWindow()));
+                break;
+            default:
+                break;
         }
     }
 }

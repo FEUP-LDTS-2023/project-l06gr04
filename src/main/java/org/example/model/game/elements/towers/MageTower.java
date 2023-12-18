@@ -13,23 +13,17 @@ public class MageTower extends Tower {
     private static final int RANGE= 10;
     private static final int COST = 500;
     private final int firingSpeed,damage;
-    private float timeSinceLastShoot;
-    private List<Projectile> projectiles;
+
     public MageTower(int x, int y){
         super(MT_LIFE, LEVEL, RANGE, COST,x,y,new ArrayList<>());
         this.towerSymbol = 'M';
         this.damage=50;
-        this.firingSpeed = 4;
-        this.timeSinceLastShoot=0;
-        this.projectiles = new ArrayList<Projectile>();
+        this.firingSpeed = 7;
         setCost(COST);
     }
     @Override
     public void shoot(Enemy target) throws Exception {
         target.reduceHiddenHealth(damage);
-        if (target.getHiddenHealth()<=0) {
-            target.die();
-        }
     }
 
     @Override
@@ -40,8 +34,8 @@ public class MageTower extends Tower {
 
 
     @Override
-    public int dealDamage() {
-        return 20 + getLevel() * 5;
+    public int getDamage() {
+        return damage;
     }
 
     @Override

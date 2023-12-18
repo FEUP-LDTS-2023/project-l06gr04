@@ -28,10 +28,9 @@ public class GameState extends State<Arena> {
     private final EnemyController enemyController;
     private final TowerController towerController;
 
-    private final ArenaController arenaController;
     private final long TIME_FIXED = 100;
     private final ScoreController scoreController;
-    private Game game;
+
     private final Arena arena;
     private long totalTime, pastTime;
     Window window;
@@ -43,7 +42,6 @@ public class GameState extends State<Arena> {
         this.window = window;
         enemyController = new EnemyController(arena);
         towerController = new TowerController(arena);
-        arenaController = new ArenaController(getModel());
         scoreController = new ScoreController(arena, new Score());
         initialize();
     }

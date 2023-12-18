@@ -11,12 +11,7 @@ import org.example.viewer.Viewer;
 import java.util.List;
 
 public class GameViewer extends Viewer<Arena> {
-    private ElementViewer<Chest> chestViewer;
-    private ElementViewer<Enemy> enemyViewer;
-    private static final int TARGET_FPS = 60;
-    private TowerPositionsViewer towerViewer;
-    private PathViewer pathViewer;
-    private WallViewer wallViewer;
+
 
     public GameViewer(Arena arena) {
         super(arena);

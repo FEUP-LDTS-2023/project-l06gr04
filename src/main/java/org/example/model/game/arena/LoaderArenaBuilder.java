@@ -6,9 +6,11 @@ import org.example.model.game.elements.TowerPositions;
 import org.example.model.game.elements.Wall;
 
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
     private final List<String> lines;
     private Arena arena;
 
-    public LoaderArenaBuilder() throws IOException {
+    public LoaderArenaBuilder() throws IOException,  NullPointerException {
 
         URL resource = LoaderArenaBuilder.class.getResource( "/map");
         BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
@@ -85,6 +87,7 @@ public class LoaderArenaBuilder extends ArenaBuilder {
         }
         return chest;
     }
+    @Override
     protected List<TowerPositions> createTowerPositions() {
         List<TowerPositions> towerPositions = new ArrayList<>();
         for (int y = 0; y < lines.size(); y++) {

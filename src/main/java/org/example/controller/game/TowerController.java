@@ -14,7 +14,6 @@ public class TowerController extends GameController {
     private final List<Tower> towerList;
     private final Arena arena;
     private boolean selected;
-    private long lastMovement;
     private Position position;
     public TowerController(Arena arena) {
         super(arena);
@@ -29,9 +28,9 @@ public class TowerController extends GameController {
         for(Tower tower: arena.getTowers()){
             tower.update();
         }
-        ArcherTower ArcherTower;
-        CanonTower CanonTower;
-        MageTower MageTower;
+        ArcherTower archerTower;
+        CanonTower canonTower;
+        MageTower mageTower;
         coins = getModel().getCoins();
         switch (action) {
             case NUM_1:
@@ -75,8 +74,8 @@ public class TowerController extends GameController {
                     if (arena.getCoins() >= 100) {
                         int newCoins = arena.getCoins() - 100;
                         arena.setCoins(newCoins);
-                        CanonTower = new CanonTower(position.getX(), position.getY());
-                        arena.addTowers(CanonTower);
+                        canonTower = new CanonTower(position.getX(), position.getY());
+                        arena.addTowers(canonTower);
                     }
                 }
                 break;
@@ -85,8 +84,8 @@ public class TowerController extends GameController {
                     if (arena.getCoins() >= 250) {
                         int newCoins = arena.getCoins() - 250;
                         arena.setCoins(newCoins);
-                        ArcherTower = new ArcherTower(position.getX(), position.getY());
-                        arena.addTowers(ArcherTower);
+                        archerTower = new ArcherTower(position.getX(), position.getY());
+                        arena.addTowers(archerTower);
                     }
                 }
                 break;
@@ -95,8 +94,8 @@ public class TowerController extends GameController {
                     if (arena.getCoins() >= 500) {
                         int newCoins = arena.getCoins() - 500;
                         arena.setCoins(newCoins);
-                        MageTower = new MageTower(position.getX(), position.getY());
-                        arena.addTowers(MageTower);
+                        mageTower = new MageTower(position.getX(), position.getY());
+                        arena.addTowers(mageTower);
                     }
                 }
                 break;

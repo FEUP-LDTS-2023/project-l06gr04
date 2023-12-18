@@ -54,8 +54,8 @@ public abstract class Enemy extends Element {
         hiddenHP-=damage;
     }
     public void damage(int amount) {
-        hiddenHP-=amount;
-        if (hiddenHP<0){
+        actHP-=amount;
+        if (actHP<0){
             die();
         }
     }
@@ -70,17 +70,17 @@ public abstract class Enemy extends Element {
     public void moveEnemies(Enemy enemy) {
         switch (enemy.getEnemySymbol()) {
             case 'S':
-                for(int i=0;i<enemy.getSpeed()*4;i++){
+                for(int i=0;i<enemy.getSpeed();i++){
                     moveSkeleton(enemy);
                 }
                 break;
             case 'G':
-                for(int i=0;i<enemy.getSpeed()*4;i++){
+                for(int i=0;i<enemy.getSpeed();i++){
                     moveGolem(enemy);
                 }
                 break;
             case 'O':
-                for(int i=0;i<enemy.getSpeed()*4;i++){
+                for(int i=0;i<enemy.getSpeed();i++){
                     moveOrc(enemy);
                 }
                 break;

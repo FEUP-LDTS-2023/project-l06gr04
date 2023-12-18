@@ -1,7 +1,8 @@
 package org.example.controller;
 
 import org.example.Game;
-import org.example.gui.Window;
+
+import org.example.gui.WindowInterface;
 
 
 public abstract class Controller<T> {
@@ -15,5 +16,5 @@ public abstract class Controller<T> {
         return model;
     }
 
-    public abstract void step(Game game, Window.KEY action, long time) throws Exception;
+    public abstract void step(Game game, WindowInterface.KEY action, long time) throws Exception;
 }
