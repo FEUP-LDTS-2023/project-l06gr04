@@ -3,7 +3,6 @@ package org.example.model.game.elements.towers;
 import org.example.model.game.elements.enemys.Enemy;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ArcherTower extends Tower {
     private static final int AT_LIFE = 250;
@@ -30,13 +29,7 @@ public class ArcherTower extends Tower {
 
     @Override
     public void shoot(Enemy target) {
-
         target.reduceHiddenHealth(damage);
-        //if (target.getHiddenHealth()<=0) {
-        //    target.die();
-        //}
-
-
     }
 
 
