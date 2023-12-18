@@ -11,7 +11,7 @@ public class ArcherTower extends Tower {
     private static final int COST = 250;
     private final int firingSpeed,damage;
 
-    public ArcherTower(int x, int y) {
+    public ArcherTower(float x, float y) {
         super(AT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>());
         this.towerSymbol = 'A';
         this.firingSpeed=4;

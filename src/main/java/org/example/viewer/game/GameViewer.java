@@ -22,8 +22,8 @@ public class GameViewer extends Viewer<Arena> {
     public void drawElements(Window window) {
         drawElements(window, getModel().getWalls(), new WallViewer());
         drawElements(window, getModel().getTowerPositions(), new TowerPositionsViewer());
-        drawElements(window, getModel().getTowers(), new TowerViewer());
         drawElements(window, getModel().getProjectiles(), new ProjectileViewer());
+        drawElements(window, getModel().getTowers(), new TowerViewer());
         drawElements(window, getModel().getPaths(), new PathViewer());
         Chest chest = (Chest) getModel().getChest();
         drawElements(window, getModel().getEnemies(), new EnemyViewer());
