@@ -2,7 +2,6 @@ package org.example.model.game.elements.towers;
 
 import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.CanonTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -17,16 +16,16 @@ public class CanonTowerTest {
         Mockito.when(enemy.getPosition()).thenReturn(new Position(2, 3));
         CanonTower canonTower = new CanonTower(1,1);
         if(canonTower.isInRange(enemy)) {
-            canonTower.attack(enemy);
+            canonTower.shoot(enemy);
         }
-        verify(enemy).hurt(canonTower.dealDamage());
+        verify(enemy).reduceHiddenHealth(canonTower.getDamage());
     }
 
     @Test
     public void testDealDamage() {
         CanonTower canonTower = new CanonTower(1,1);
-        int damage = canonTower.dealDamage();
-        assertEquals(6, damage);
+        int damage = canonTower.getDamage();
+        assertEquals(60, damage);
     }
 
     @Test

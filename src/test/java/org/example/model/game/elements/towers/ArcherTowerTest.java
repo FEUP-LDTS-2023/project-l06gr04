@@ -2,13 +2,10 @@ package org.example.model.game.elements.towers;
 
 import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.enemys.Orc;
-import org.example.model.game.elements.towers.ArcherTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
 
 public class ArcherTowerTest {
     @Test
@@ -17,17 +14,17 @@ public class ArcherTowerTest {
         Mockito.when(enemy.getPosition()).thenReturn(new Position(2, 3));
         ArcherTower archerTower = new ArcherTower(1, 1);
         if (archerTower.isInRange(enemy)) {
-            archerTower.attack(enemy);
+            archerTower.shoot(enemy);
         }
-        Mockito.verify(enemy).hurt(archerTower.dealDamage());
+        Mockito.verify(enemy).reduceHiddenHealth(archerTower.getDamage());
     }
 
 
     @Test
     public void testDealDamage() {
         ArcherTower archerTower = new ArcherTower(1,1);
-        int damage = archerTower.dealDamage();
-        assertEquals(5 + archerTower.getLevel() * 5, damage);
+        int damage = archerTower.getDamage();
+        assertEquals(25, damage);
     }
 
     @Test

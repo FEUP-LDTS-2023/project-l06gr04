@@ -1,31 +1,31 @@
 package org.example.model.game.elements.towers;
+
 import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Enemy;
-import org.example.model.game.elements.towers.MageTower;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 public class MageTowerTest {
 
     @Test
-    public void testAttack() {
+    public void testAttack() throws Exception {
         Enemy enemy = Mockito.mock(Enemy.class);
         Mockito.when(enemy.getPosition()).thenReturn(new Position(2, 3));
         MageTower mageTower = new MageTower(1,1);
         if(mageTower.isInRange(enemy)){
-            mageTower.attack(enemy);
+            mageTower.shoot(enemy);
         }
-        verify(enemy).hurt(mageTower.dealDamage());
+        verify(enemy).reduceHiddenHealth(mageTower.getDamage());
     }
 
     @Test
     public void testDealDamage() {
         MageTower mageTower = new MageTower(1,1);
-        int damage = mageTower.dealDamage();
-        assertEquals(25, damage);
+        int damage = mageTower.getDamage();
+        assertEquals(50, damage);
     }
 
     @Test
