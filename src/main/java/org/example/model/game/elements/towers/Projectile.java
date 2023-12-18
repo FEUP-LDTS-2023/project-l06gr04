@@ -1,6 +1,5 @@
 package org.example.model.game.elements.towers;
 
-import org.example.model.game.Position;
 import org.example.model.game.elements.Element;
 import org.example.model.game.elements.enemys.Enemy;
 
@@ -27,31 +26,13 @@ public class Projectile extends Element {
         initialize();
     }
 
-    private void calculateDirection() {
+    public void calculateDirection() {
         float totalAllowedMovement = 1.0f;
-
         float xDistanceFromTarget = target.getX() - getX();
         float yDistanceFromTarget = target.getY() - getY();
-
-        // Calcula o ângulo entre o tiro e o alvo
         double angle = Math.atan2(yDistanceFromTarget, xDistanceFromTarget);
-
-        // Calcula as componentes x e y da velocidade com base no ângulo
         xVelocity = (float) (totalAllowedMovement * Math.cos(angle));
         yVelocity = (float) (totalAllowedMovement * Math.sin(angle));
-        /*
-        float totalAllowedMovement= 1.0f;
-        float xDistanceFromTarget =Math.abs(target.getX()-getX()-(1/4+1/2));
-        float yDistanceFromTarget =Math.abs(target.getY()-getY()-(1/4+1/2));
-        //float xDistanceFromTarget =Math.abs(target.getX() - getX());
-        //float yDistanceFromTarget =Math.abs(target.getY() - getY());
-        float totalDistanceFromTarget= xDistanceFromTarget+yDistanceFromTarget;
-        float xPercentOfMovement= xDistanceFromTarget/totalDistanceFromTarget;
-        xVelocity=xPercentOfMovement;
-        yVelocity=totalAllowedMovement-xPercentOfMovement;
-        if(target.getX()<getX()) xVelocity*=-1;
-        if(target.getY() < getY()) yVelocity*=-1;
-         */
     }
     public void update() {
         if (alive) {

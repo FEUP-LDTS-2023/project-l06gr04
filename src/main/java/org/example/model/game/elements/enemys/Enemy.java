@@ -115,7 +115,7 @@ public abstract class Enemy extends Element {
         }
     }
 
-    private void setDeathPosition(Position position) {
+    public void setDeathPosition(Position position) {
         this.deathPosition = position;
     }
 
