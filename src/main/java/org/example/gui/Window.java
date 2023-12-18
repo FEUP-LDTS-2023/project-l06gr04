@@ -87,14 +87,7 @@ public class Window implements WindowInterface {
     public void drawEnemy(Position position, Enemy enemy) {
         drawIntoGameChar(position.getX(), position.getY(), enemy.getEnemySymbol(), "RED");
     }
-    @Override
-    public void drawScore(String score) {
-        drawIntoGameString(21, 0, score, "WHITE");
-    }
 
-    public void drawLevel(String level) {
-        drawIntoGameString(20, 0, level, "CYAN");
-    }
     @Override
     public void drawWall(Position position) {
         int x = position.getX();
