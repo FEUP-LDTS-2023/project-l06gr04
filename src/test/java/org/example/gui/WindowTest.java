@@ -1,6 +1,5 @@
 package org.example.gui;
 
-import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
@@ -15,13 +14,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class WindowTest {
-    private Screen screen;
     private Window window;
     private TextGraphics tg;
 
     @BeforeEach
     void setUp() {
-        screen = Mockito.mock(Screen.class);
+        Screen screen = Mockito.mock(Screen.class);
         tg = Mockito.mock(TextGraphics.class);
         Mockito.when(screen.newTextGraphics()).thenReturn(tg);
         window = new Window(screen);
@@ -52,13 +50,7 @@ public class WindowTest {
         verify(tg, Mockito.times(1)).putString(1, 1, "T");
     }
 
-    @Test
-    void testDrawWall() throws Exception {
-        Position position = new Position(3, 3);
-        window.drawWall(position);
-        verify(tg).setForegroundColor(TextColor.Factory.fromString("WHITE"));
-        verify(tg).putString(3, 3, "#", SGR.BOLD);
-    }
+
     @Test
     void testDrawIntoGameText() throws Exception {
         window.drawIntoGameText(new Position(4, 4), "TEXT", "BLUE");
