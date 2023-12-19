@@ -7,10 +7,12 @@ import org.example.viewer.menu.LeaderboardViewer;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.io.IOException;
+
 class LeaderboardViewerTest {
 
     @Test
-    void drawElements() {
+    void drawElements() throws IOException {
         Leaderboard leaderboard = new Leaderboard(); // You need to create an instance of Leaderboard with some entries
         LeaderboardViewer leaderboardViewer = new LeaderboardViewer(leaderboard);
 

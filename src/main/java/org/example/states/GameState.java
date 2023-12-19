@@ -20,7 +20,13 @@ import org.example.model.menu.Menu;
 import org.example.viewer.Viewer;
 import org.example.viewer.game.GameViewer;
 
+import java.io.*;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -77,6 +83,41 @@ public class GameState extends State<Arena> {
             return;
         }
         if(getModel().getChest().getLife()<=0){
+            List<Integer> highScores = new ArrayList<>();
+            int novoScore = getModel().getScore().getScore();
+
+            URL resource = Leaderboard.class.getResource("/scores");
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(resource.openStream()))) {
+                String linha;
+                int contador = 0;
+                while ((linha = br.readLine()) != null && contador < 6) {
+                    highScores.add(Integer.parseInt(linha.trim()));
+                    contador++;
+                }
+            } catch (IOException | NumberFormatException e) {
+                e.printStackTrace();
+            }
+
+            highScores.add(novoScore);
+
+            Collections.sort(highScores, Collections.reverseOrder());
+
+            if (highScores.size() > 6) {
+                highScores = highScores.subList(0, 6);
+            }
+
+            File tempFile = File.createTempFile("tempScores", ".tmp");
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile))) {
+                for (int score : highScores) {
+                    bw.write(Integer.toString(score));
+                    bw.newLine();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Files.copy(tempFile.toPath(), Paths.get(resource.toURI()), StandardCopyOption.REPLACE_EXISTING);
+            tempFile.delete();
             game.setState(new MenuState(new Menu(),window));
         }
 
