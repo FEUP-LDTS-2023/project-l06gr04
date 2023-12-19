@@ -6,7 +6,12 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LevelTest {
-
+    @Test
+    void setThreshold() {
+        Level level = new Level();
+        level.setScoreThreshold(1000);
+        assertEquals(1000, level.getScoreThreshold());
+    }
     @Test
     public void testUpdateLevelBelowScoreThreshold() {
         Level level = new Level();

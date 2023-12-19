@@ -16,10 +16,10 @@ Tower extends Element {
     private int range;
     private int cost;
     private List<Enemy> enemies;
-    private Enemy target;
-    private boolean targeted;
+    public Enemy target;
+    public boolean targeted;
 
-    private long totalTime;
+    public long totalTime;
     private long pastTime;
     private List<Projectile> projectiles;
 
@@ -67,7 +67,7 @@ Tower extends Element {
         return towerSymbol;
     }
 
-    private Enemy acquireTarget() {
+    public Enemy acquireTarget() {
         Enemy closest = null;
         float closestDistance = 100000;
 
@@ -98,9 +98,6 @@ Tower extends Element {
     }
     public int getRange(){
         return range;
-    }
-    int cost(){
-        return cost;
     }
     void setLevel(int level){
         this.level = level;
@@ -140,5 +137,8 @@ Tower extends Element {
     }
     public List<Projectile> getProjectiles() {
         return projectiles;
+    }
+    public void setProjectiles(List<Projectile> projectiles) {
+        this.projectiles = projectiles;
     }
 }

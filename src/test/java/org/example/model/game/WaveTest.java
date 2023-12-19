@@ -21,9 +21,9 @@ public class WaveTest {
         Orc orc = Mockito.mock(Orc.class);
         Golem golem = Mockito.mock(Golem.class);
         Skeleton skeleton = Mockito.mock(Skeleton.class);
-        when(orc.getX()).thenReturn(0);
-        when(golem.getX()).thenReturn(0);
-        when(skeleton.getX()).thenReturn(0);
+        when(orc.getX()).thenReturn(0f);
+        when(golem.getX()).thenReturn(0f);
+        when(skeleton.getX()).thenReturn(0f);
         List<Enemy> enemyList = wave.spawn(level);
         assertNotNull(enemyList);
         assertFalse(enemyList.isEmpty());

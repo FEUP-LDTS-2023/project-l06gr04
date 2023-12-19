@@ -28,16 +28,6 @@ public class Projectile extends Element {
 
     public void calculateDirection() {
         float totalAllowedMovement = 1.0f;
-        /*
-        float deltaX = target.getX() - getX();
-        float deltaY = target.getY() - getY();
-
-        // Normalizar a direção
-        float distance = (float) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        float directionX = deltaX / distance;
-        float directionY = deltaY / distance;
-
-        */
         float xDistanceFromTarget = target.getX() - getX();
         float yDistanceFromTarget = target.getY() - getY();
         double angle = Math.atan2(yDistanceFromTarget, xDistanceFromTarget);
@@ -49,8 +39,6 @@ public class Projectile extends Element {
     public void update() {
         if (alive) {
             calculateDirection();
-            //setX((int) (xVelocity + getX()));
-            //setY((int) (yVelocity + getY()));
             if (checkCollision(getX() ,getY(), target.getX(), target.getY())) {
                 target.damage(damage);
                 alive = false;

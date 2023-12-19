@@ -20,7 +20,16 @@ public class MageTowerTest {
         }
         verify(enemy).reduceHiddenHealth(mageTower.getDamage());
     }
-
+    @Test
+    void testGetTowerSymbol() {
+        MageTower mageTower = new MageTower(1,1);
+        assertEquals('M', mageTower.getTowerSymbol());
+    }
+    @Test
+    void testGetFiringSpeed() {
+        MageTower mageTower = new MageTower(1,1);
+        assertEquals(7.0f, mageTower.getFiringSpeed());
+    }
     @Test
     public void testDealDamage() {
         MageTower mageTower = new MageTower(1,1);

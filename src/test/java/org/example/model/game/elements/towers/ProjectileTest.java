@@ -9,10 +9,26 @@ import static org.mockito.Mockito.*;
 
 public class ProjectileTest {
     @Test
+    void testIs_active() {
+        Projectile projectile = new Projectile(0, 0, null, 1.0f, 10);
+        assertTrue(projectile.isActive());
+    }
+    @Test
+    void testSetActive() {
+        Projectile projectile = new Projectile(0, 0, null, 1.0f, 10);
+        projectile.setActive(false);
+        assertFalse(projectile.isActive());
+    }
+    @Test
+    void testGetDamage() {
+        Projectile projectile = new Projectile(0, 0, null, 1.0f, 10);
+        assertEquals(10, projectile.getDmg());
+    }
+    @Test
     public void testCalculateDirection() {
         Enemy target = Mockito.mock(Enemy.class);
-        when(target.getX()).thenReturn(5);
-        when(target.getY()).thenReturn(5);
+        when(target.getX()).thenReturn(5f);
+        when(target.getY()).thenReturn(5f);
         Projectile projectile = new Projectile(0, 0, target, 1.0f, 10);
         projectile.calculateDirection();
         assertNotNull(projectile.getX());
@@ -22,8 +38,8 @@ public class ProjectileTest {
     @Test
     public void testProjectileNotCollided() {
         Enemy target = Mockito.mock(Enemy.class);
-        when(target.getX()).thenReturn(10);
-        when(target.getY()).thenReturn(10);
+        when(target.getX()).thenReturn(10f);
+        when(target.getY()).thenReturn(10f);
 
         Projectile projectile = new Projectile(0, 0, target, 1.0f, 10);
         projectile.update();
