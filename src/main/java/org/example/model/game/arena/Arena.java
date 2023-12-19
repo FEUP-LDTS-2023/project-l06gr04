@@ -3,6 +3,7 @@ package org.example.model.game.arena;
 import org.example.model.game.Level;
 import org.example.model.game.Position;
 import org.example.model.game.Score;
+import org.example.model.game.Wave;
 import org.example.model.game.elements.*;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Projectile;
@@ -11,7 +12,7 @@ import org.example.model.game.elements.towers.Tower;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Arena{
+public class Arena {
     private List<Path> paths;
     private final int width;
     private final int height;
@@ -25,6 +26,9 @@ public class Arena{
     private Chest chest;
     private List<Projectile> projectiles;
     private List<TowerPositions> towerPositions;
+    private Wave wave;
+    private Object levelController;
+
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
@@ -43,15 +47,19 @@ public class Arena{
     public int getHeight() {
         return height;
     }
+
     public List<Path> getPaths() {
         return paths;
     }
-    public void setChest(Chest chest){
+
+    public void setChest(Chest chest) {
         this.chest = chest;
     }
-    public void setScore(Score score){
+
+    public void setScore(Score score) {
         this.score = score;
     }
+
     public List<Enemy> getEnemies() {
         return enemies;
     }
@@ -68,6 +76,7 @@ public class Arena{
     public List<Wall> getWalls() {
         return walls;
     }
+
     public List<Pixel> getPixeis() {
         return pixeis;
     }
@@ -79,6 +88,7 @@ public class Arena{
     public void setProjectiles(List<Projectile> projectiles) {
         this.projectiles = projectiles;
     }
+
     public List<Projectile> getProjectiles() {
         return projectiles;
     }
@@ -86,24 +96,31 @@ public class Arena{
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
+
     public void setTowerPositions(List<TowerPositions> towerPositions) {
         this.towerPositions = towerPositions;
     }
-    public void setTowers(List<Tower> towers){
+
+    public void setTowers(List<Tower> towers) {
         this.towers = towers;
     }
-    public void addTowers(Tower tower){
+
+    public void addTowers(Tower tower) {
         towers.add(tower);
     }
+
     public Score getScore() {
         return score;
     }
+
     public List<TowerPositions> getTowerPositions() {
         return towerPositions;
     }
-    public Level getLevel(){
+
+    public Level getLevel() {
         return level;
     }
+
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
@@ -127,3 +144,4 @@ public class Arena{
         this.coins = i;
     }
 }
+

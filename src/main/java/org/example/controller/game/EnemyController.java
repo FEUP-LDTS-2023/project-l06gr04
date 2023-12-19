@@ -52,7 +52,7 @@ public class EnemyController extends GameController {
             this.lastMovement = time;
         }
     }
-    private void moveEnemies() {
+    public void moveEnemies() {
         List<Enemy> deadEnemies = new ArrayList<>();
 
         for (Enemy enemy : enemies) {
@@ -68,7 +68,7 @@ public class EnemyController extends GameController {
         }
 
     }
-    private void updateScore(Enemy enemy) {
+    public void updateScore(Enemy enemy) {
         switch (enemy.getEnemySymbol()) {
             case 'S':
                 scoreModel.incrementScore(10 + level.getLevel() * 2);
