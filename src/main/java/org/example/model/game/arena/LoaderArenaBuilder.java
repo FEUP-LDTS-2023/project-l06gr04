@@ -1,9 +1,6 @@
 package org.example.model.game.arena;
 
-import org.example.model.game.elements.Chest;
-import org.example.model.game.elements.Path;
-import org.example.model.game.elements.TowerPositions;
-import org.example.model.game.elements.Wall;
+import org.example.model.game.elements.*;
 
 
 import java.awt.*;
@@ -61,6 +58,16 @@ public class LoaderArenaBuilder extends ArenaBuilder {
 
         }
         return walls;
+    }
+    @Override
+    protected List<Pixel> createPixeis() {
+        List<Pixel> pixeis = new ArrayList<>();
+        for (int y = 0; y < lines.size(); y++) {
+            String line = lines.get(y);
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == ',') pixeis.add(new Pixel(x, y));
+        }
+        return pixeis;
     }
     @Override
     protected List<Path> createPaths() {

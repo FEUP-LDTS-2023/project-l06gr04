@@ -87,6 +87,17 @@ public class Window implements WindowInterface {
     public void drawEnemy(Position position, Enemy enemy) {
         drawIntoGameChar(position.getX(), position.getY(), enemy.getEnemySymbol(), "RED");
     }
+    @Override
+    public void drawPixel(Position position) {
+        float x = position.getX();
+        float y = position.getY();
+
+        TextCharacter pixelCharacter = TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.BLUE_BRIGHT);
+
+
+        screen.setCharacter((int) x,(int) y, pixelCharacter);
+
+    }
 
     @Override
     public void drawWall(Position position) {
