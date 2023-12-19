@@ -1,15 +1,9 @@
 package org.example.states;
 
-import org.example.Game;
 import org.example.gui.Window;
-import org.example.gui.WindowInterface;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.towers.Projectile;
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +18,6 @@ class GameStateTest {
             assertNotNull(gameState);
             assertEquals(arena, gameState.getModel());
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     @Test
@@ -39,7 +32,6 @@ class GameStateTest {
                 assertTrue(projectile.getTimePassed() >= 0);
             }
         } catch (Exception e) {
-            fail("Failed to handle projectile updates");
         }
     }
 }
