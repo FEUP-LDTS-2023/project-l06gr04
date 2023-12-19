@@ -16,6 +16,7 @@ public interface WindowInterface {
     void drawIntoGameText(Position position, String text, String color);
 
     void drawPath(Position position);
+    void drawPixel(Position position);
 
     enum KEY {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT,A,C,M,U,
         NUM_1, NUM_2, NUM_3, NUM_4, NUM_5, NUM_6, NUM_7, NUM_8, NUM_9;

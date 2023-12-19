@@ -1,9 +1,6 @@
 package org.example.model.game.arena;
 
-import org.example.model.game.elements.Chest;
-import org.example.model.game.elements.Path;
-import org.example.model.game.elements.TowerPositions;
-import org.example.model.game.elements.Wall;
+import org.example.model.game.elements.*;
 
 import java.util.List;
 
@@ -13,6 +10,8 @@ public abstract class ArenaBuilder {
         Arena arena = new Arena(getWidth(), getHeight());
         List<Wall> walls = createWalls();
         arena.setWalls(walls);
+        List<Pixel> pixeis = createPixeis();
+        arena.setPixeis(pixeis);
         List<TowerPositions> towerPositions= createTowerPositions();
         arena.setTowerPositions(towerPositions);
         List<Path> paths = createPaths();
@@ -30,6 +29,7 @@ public abstract class ArenaBuilder {
     protected abstract int getHeight();
 
     protected abstract List<Wall> createWalls();
+    protected abstract List<Pixel> createPixeis();
 
     protected abstract List<Path> createPaths();
 

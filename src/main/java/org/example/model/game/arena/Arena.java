@@ -3,10 +3,7 @@ package org.example.model.game.arena;
 import org.example.model.game.Level;
 import org.example.model.game.Position;
 import org.example.model.game.Score;
-import org.example.model.game.elements.Chest;
-import org.example.model.game.elements.Path;
-import org.example.model.game.elements.TowerPositions;
-import org.example.model.game.elements.Wall;
+import org.example.model.game.elements.*;
 import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.Projectile;
 import org.example.model.game.elements.towers.Tower;
@@ -22,6 +19,7 @@ public class Arena{
     private List<Tower> towers;
     private List<Enemy> enemies;
     private List<Wall> walls;
+    private List<Pixel> pixeis;
     private Score score;
     private Level level;
     private Chest chest;
@@ -69,6 +67,13 @@ public class Arena{
 
     public List<Wall> getWalls() {
         return walls;
+    }
+    public List<Pixel> getPixeis() {
+        return pixeis;
+    }
+
+    public void setPixeis(List<Pixel> pixeis) {
+        this.pixeis = pixeis;
     }
 
     public void setProjectiles(List<Projectile> projectiles) {
