@@ -31,14 +31,15 @@ import java.util.Iterator;
 import java.util.List;
 
 public class GameState extends State<Arena> {
-    private final EnemyController enemyController;
-    private final TowerController towerController;
+    public EnemyController enemyController;
+    public TowerController towerController;
 
     private final long TIME_FIXED = 100;
-    private final ScoreController scoreController;
+    public ScoreController scoreController;
 
     private final Arena arena;
-    private long totalTime, pastTime;
+    public long totalTime;
+    private long pastTime;
     Window window;
 
 

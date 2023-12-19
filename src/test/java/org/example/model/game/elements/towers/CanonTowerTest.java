@@ -20,7 +20,16 @@ public class CanonTowerTest {
         }
         verify(enemy).reduceHiddenHealth(canonTower.getDamage());
     }
-
+    @Test
+    void testGetTowerSymbol() {
+        CanonTower canonTower = new CanonTower(1,1);
+        assertEquals('C', canonTower.getTowerSymbol());
+    }
+    @Test
+    void testGetFiringSpeed() {
+        CanonTower canonTower = new CanonTower(1,1);
+        assertEquals(9.0f, canonTower.getFiringSpeed());
+    }
     @Test
     public void testDealDamage() {
         CanonTower canonTower = new CanonTower(1,1);
