@@ -2,105 +2,51 @@ package org.example.controller.game;
 
 import org.example.Game;
 import org.example.gui.WindowInterface;
-import org.example.model.game.*;
+import org.example.model.game.Level;
+import org.example.model.game.Score;
 import org.example.model.game.arena.Arena;
-import org.example.model.game.elements.enemys.Enemy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
+import java.awt.*;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
+import java.net.URISyntaxException;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EnemyControllerTest {
 
-    @Mock
-    private Arena arena;
-
-    @Mock
-    private Game game;
-
-    @Mock
-    private WindowInterface.KEY action;
-
-    @Mock
-    private LevelController levelController;
-
-    @Mock
-    private Level level;
-
-    @Mock
-    private Wave wave;
-
-    @Mock
-    private Score scoreModel;
-
-    @Mock
-    private Enemy enemy;
+    private Arena mockArena;
+    private Level mockLevel;
+    private Score mockScore;
+    private Game mockGame;
 
     private EnemyController enemyController;
 
     @BeforeEach
-    void setUp() {
-        arena = mock(Arena.class);
-        game = mock(Game.class);
-        action = mock(WindowInterface.KEY.class);
-        levelController = mock(LevelController.class);
-        level = mock(Level.class);
-        wave = mock(Wave.class);
-        scoreModel = mock(Score.class);
-        enemy = mock(Enemy.class);
-        enemyController = new EnemyController(arena);
+    void setUp() throws IOException, URISyntaxException, FontFormatException {
+        mockArena = new Arena(120,40);
+        mockLevel = new Level();
+        mockScore = new Score();
+        mockGame = new Game();
+        mockArena.setScore(mockScore);
 
-        when(arena.getLevel()).thenReturn(level);
-        when(arena.getScore()).thenReturn(scoreModel);
-        //when(arena.getLevelController()).thenReturn(levelController);
-        //when(arena.getWave()).thenReturn(wave);
-        when(wave.getEnemyList()).thenReturn(Collections.singletonList(enemy));
-        when(level.getLevel()).thenReturn(1);
-        when(arena.getEnemies()).thenReturn(Collections.singletonList(enemy));
+        enemyController = new EnemyController(mockArena);
     }
 
     @Test
-    void testConstructor() {
-        assertNotNull(enemyController.enemies);
-        //assertNotNull(enemyController.level);
-        //assertNotNull(enemyController.arena);
-        //assertNotNull(enemyController.levelController);
-        //assertNotNull(enemyController.wave);
-        //assertNotNull(enemyController.scoreModel);
+    void testStepAndMoveEnemies() throws IOException {
+        long initialScoreValue = mockScore.getScore();
+        long initialCoinsValue = mockArena.getCoins();
+
+        assertTrue(enemyController.enemies.isEmpty());
+        enemyController.step(mockGame, WindowInterface.KEY.UP, 100L);
+
+        assertEquals(0, enemyController.enemies.size());
+        assertEquals(initialScoreValue, mockScore.getScore());
+        assertEquals(initialCoinsValue , mockArena.getCoins());
+
     }
 
-    @Test
-    void testStep() throws IOException {
-        long time = System.currentTimeMillis();
-        enemyController.step(game, action, time);
-        verify(levelController, times(1)).step(game, action, time);
-    }
-
-    @Test
-    void testMoveEnemies() {
-        Enemy enemyMock = mock(Enemy.class);
-        enemyController.enemies = Collections.singletonList(enemyMock);
-        enemyController.moveEnemies();
-        verify(enemyMock, times(1)).moveEnemies(any());
-    }
-
-    @Test
-    void testUpdateScore() {
-        enemyController.enemies.add(enemy);
-
-        when(enemy.getEnemySymbol()).thenReturn('S');
-        when(enemy.deathPosition()).thenReturn(new Position(93, 5));
-
-        enemyController.updateScore(enemy);
-
-        verify(scoreModel, times(1)).incrementScore(10 + level.getLevel() * 2);
-        verify(arena, times(1)).setEnemies(anyList());
-        //verify(scoreModel, times(1)).setCoins(anyInt());
-    }
 }

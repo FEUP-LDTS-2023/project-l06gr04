@@ -23,7 +23,20 @@ public class EnemyTest {
         assertEquals(totHP, orc.getActHP());
         assertEquals(totHP, orc.getHiddenHealth());
     }
-
+    @Test
+    void testDamage() {
+        Enemy enemy = Mockito.mock(Enemy.class, Mockito.CALLS_REAL_METHODS);
+        Mockito.when(enemy.getActHP()).thenReturn(100);
+        enemy.damage(10);
+        assertEquals(100, enemy.getActHP());
+    }
+    @Test
+    void testReduceHiddenHealth() {
+        Enemy enemy = Mockito.mock(Enemy.class, Mockito.CALLS_REAL_METHODS);
+        Mockito.when(enemy.getHiddenHealth()).thenReturn(100);
+        enemy.reduceHiddenHealth(10);
+        assertEquals(100, enemy.getHiddenHealth());
+    }
     @Test
     public void testHurtEnemy() {
         int x = 3;

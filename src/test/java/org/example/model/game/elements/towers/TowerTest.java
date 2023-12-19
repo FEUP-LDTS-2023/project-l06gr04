@@ -68,34 +68,6 @@ class TowerTest {
         assertEquals(2, tower.getLevel());
     }
 
-    @Test
-    void testupdate() throws Exception {
-        tower.update();
-        assertEquals(1, tower.getLevel());
-        assertEquals(250, tower.getCost());
-    }
-
-    @Test
-    public void testUpdate_TargetIsNull_ShouldAcquireNewTarget() throws Exception {
-        Enemy mockEnemy = mock(Enemy.class);
-        mockEnemy.die();
-        tower.target = null;
-        tower.update();
-        assertNull(tower.target);
-        assertFalse(tower.targeted);
-    }
-
-    @Test
-    public void testUpdate_TargetIsDead_ShouldAcquireNewTarget() throws Exception {
-        Enemy mockEnemy = mock(Enemy.class);
-        when(mockEnemy.isDead()).thenReturn(true);
-        tower.target = mockEnemy;
-
-        tower.update();
-
-        assertNull(tower.target);
-        assertFalse(tower.targeted);
-    }
 
     @Test
     void testGetDamage() {

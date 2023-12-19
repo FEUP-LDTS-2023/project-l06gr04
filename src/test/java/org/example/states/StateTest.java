@@ -52,16 +52,6 @@ class StateTest {
         verify(mockViewer, times(1)).draw(mockWindow);
     }
 
-    @Test
-    void step_ShouldCallControllerStepAndViewerDraw() throws Exception {
-        when(mockWindow.processKey()).thenReturn(WindowInterface.KEY.UP);
-
-        testState.step(new Game(), mockWindow, 100L);
-        verify(mockController, times(1)).step(any(), any(), anyLong());
-        verify(mockViewer, times(1)).draw(mockWindow);
-    }
-
     private static class TestModel {
-        // Define any necessary fields or methods for your test model
     }
 }

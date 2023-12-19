@@ -121,12 +121,6 @@ public class Arena {
         return level;
     }
 
-    public boolean isEmpty(Position position) {
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(position))
-                return false;
-        return true;
-    }
 
     public void setPaths(List<Path> paths) {
         this.paths = paths;
