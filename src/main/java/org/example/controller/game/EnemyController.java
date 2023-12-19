@@ -54,7 +54,6 @@ public class EnemyController extends GameController {
     }
     public void moveEnemies() {
         List<Enemy> deadEnemies = new ArrayList<>();
-
         for (Enemy enemy : enemies) {
             enemy.moveEnemies(enemy);
 

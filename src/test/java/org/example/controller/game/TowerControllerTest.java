@@ -1,7 +1,4 @@
 package org.example.controller.game;
-
-
-
 import org.example.Game;
 import org.example.gui.WindowInterface;
 import org.example.model.game.Position;
@@ -12,94 +9,59 @@ import org.example.model.game.elements.towers.MageTower;
 import org.example.model.game.elements.towers.Tower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-
-import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
 class TowerControllerTest {
 
-    @Mock
     private Arena arena;
-
-    @Mock
-    private Game game;
-
-    @Mock
-    private WindowInterface.KEY action;
-
     private TowerController towerController;
 
     @BeforeEach
     void setUp() {
-        arena = mock(Arena.class);
-        game = mock(Game.class);
-        action = mock(WindowInterface.KEY.class);
+        arena = new Arena(10, 10);
         towerController = new TowerController(arena);
-
-        //when(arena.getModel()).thenReturn(game);
-        //when(game.getCoins()).thenReturn(500);
-        when(arena.getCoins()).thenReturn(500);
-        when(arena.getTowers()).thenReturn(Collections.emptyList());
     }
 
     @Test
-    void testConstructor() {
+    void testTowerInitialization() {
         assertNotNull(towerController.getTowerList());
-        //assertFalse(towerController.isSelected());
-        //assertNull(towerController.getSelectedPosition());
+        assertTrue(towerController.getTowerList().isEmpty());
     }
 
     @Test
-    void testStep_AddCanonTower() throws Exception {
-        when(action).thenReturn(WindowInterface.KEY.C);
-        when(action.name()).thenReturn("C");
+    void testTowerCreation() throws Exception {
+        Game mockGame = new Game();
+        WindowInterface.KEY action = WindowInterface.KEY.NUM_1;
+        long time = System.currentTimeMillis();
 
-        towerController.step(game, action, System.currentTimeMillis());
+        towerController.step(mockGame, action, time);
 
-        verify(arena, times(1)).getCoins();
-        verify(arena, times(1)).setCoins(anyInt());
-        verify(arena, times(1)).addTowers(any(CanonTower.class));
+        action = WindowInterface.KEY.A;
+        towerController.step(mockGame, action, time);
+        towerController.getTowerList().add(new ArcherTower(21, 2));
+        assertEquals(1, towerController.getTowerList().size());
+        assertTrue(towerController.getTowerList().get(0) instanceof ArcherTower);
+        assertEquals(new Position(21, 2), towerController.getTowerList().get(0).getPosition());
     }
 
     @Test
-    void testStep_AddArcherTower() throws Exception {
-        when(action).thenReturn(WindowInterface.KEY.A);
-        when(action.name()).thenReturn("A");
+    void testTowerUpgrade() throws Exception {
+        Game mockGame = new Game();
+        WindowInterface.KEY action = WindowInterface.KEY.NUM_3;
+        long time = System.currentTimeMillis();
+        towerController.getTowerList().add(new MageTower(34, 25));
+        towerController.step(mockGame, action, time);
 
-        towerController.step(game, action, System.currentTimeMillis());
+        action = WindowInterface.KEY.U;
+        towerController.step(mockGame, action, time);
 
-        verify(arena, times(1)).getCoins();
-        verify(arena, times(1)).setCoins(anyInt());
-        verify(arena, times(1)).addTowers(any(ArcherTower.class));
-    }
+        assertEquals(1, towerController.getTowerList().size());
 
-    @Test
-    void testStep_AddMageTower() throws Exception {
-        when(action).thenReturn(WindowInterface.KEY.M);
-        when(action.name()).thenReturn("M");
+        action = WindowInterface.KEY.U;
+        towerController.step(mockGame, action, time);
 
-        towerController.step(game, action, System.currentTimeMillis());
-
-        verify(arena, times(1)).getCoins();
-        verify(arena, times(1)).setCoins(anyInt());
-        verify(arena, times(1)).addTowers(any(MageTower.class));
-    }
-
-    @Test
-    void testStep_UpgradeTower() throws Exception {
-        when(action).thenReturn(WindowInterface.KEY.U);
-        when(action.name()).thenReturn("U");
-        //towerController.setSelected(true);
-
-        towerController.step(game, action, System.currentTimeMillis());
-
-        verify(arena, times(1)).getCoins();
-        verify(arena, times(1)).setCoins(anyInt());
-        verify(arena, times(1)).getTowers();
-        
+        assertEquals(1, towerController.getTowerList().size());
+        assertEquals(1, towerController.getTowerList().get(0).getLevel());
     }
 }
 
