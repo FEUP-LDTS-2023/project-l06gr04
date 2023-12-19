@@ -30,7 +30,7 @@ public class ScoreController extends GameController {
             this.lastMovement = time;
         }
     }
-    private void updateScore() {
+    public void updateScore() {
         List<Enemy> enemies = getModel().getEnemies();
 
         for (Enemy enemy : enemies) {
