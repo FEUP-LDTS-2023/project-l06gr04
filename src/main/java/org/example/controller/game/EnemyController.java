@@ -38,7 +38,7 @@ public class EnemyController extends GameController {
     @Override
     public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
         levelController.step(game,action,time);
-        if (time - lastMovement > 1) {
+        if (time - lastMovement > 500) {
             moveEnemies();
             level.updateLevel(scoreModel);
             if (enemies.isEmpty()) {
