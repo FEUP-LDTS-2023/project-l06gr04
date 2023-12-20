@@ -10,15 +10,12 @@ This project was developed by David Carvalho (up202208654@fe.up.pt), Diogo Vieir
 - **Tower Placement** - Place different types of towers, including Mage Tower, Archer Tower, and Canon Tower, at strategic positions on the game grid.
 - **Different Enemys** - Creation of various enemy classes such as Orc, Skeleton, and Golem, each with unique attributes and behaviors.
 - **Upgrades and Resources** - Allow players to upgrade towers and manage resources to enhance their defense capabilities.
-
-
-### PLANNED FEATURES
-
+- **Wave System** - Waves of enemies that increase in difficulty as the game progresses and the level player is.
 - **Money System** - Players earn in-game currency by successfully defeating enemies. Each enemy defeated adds a certain amount of currency to the player's resources, creating a dynamic and rewarding system tied directly to player skill in battle.
 - **Interactive Tower Selection Menu** - An interactive tower selection menu to empower players with more control over their strategic decisions.
 - **Initial Control Menu** - An initial control menu that serves as the gateway for players to choose and engage with different levels within the game.
 - **Different Levels** - The creation of diverse levels with varying degrees of difficulty.
-
+- **Leaderboard Menu** - Includes a Leaderboard that keeps record of the best scores achieved by players.
 
 ### DESIGN
 
