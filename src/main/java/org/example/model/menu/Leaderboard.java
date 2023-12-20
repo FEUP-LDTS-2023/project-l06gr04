@@ -3,7 +3,6 @@ package org.example.model.menu;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,13 +24,20 @@ public class Leaderboard {
                 "##     ## ####  ######   ##     ##  ######   ######   #######  ##     ## ######## ");
         this.entries = Arrays.asList("1.", "2.","3.","4.","5.","6.");
         this.scores = new ArrayList<>();
-        URL resource = Leaderboard.class.getResource("/scores");
-        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
-        String linha;
-        while ((linha = br.readLine()) != null) {
-            scores.add(linha);
+        String FILE_PATH = "src/main/scores/scores.txt";
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                scores.add(linha);
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        Collections.sort(this.scores,Collections.reverseOrder());
+
+        Collections.sort(scores, Collections.reverseOrder());
     }
     public String getTitle(int i){
         return title.get(i);
