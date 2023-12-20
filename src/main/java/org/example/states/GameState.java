@@ -15,6 +15,7 @@ import org.example.model.game.elements.enemys.Enemy;
 import org.example.model.game.elements.towers.ArcherTower;
 import org.example.model.game.elements.towers.Projectile;
 import org.example.model.game.elements.towers.Tower;
+import org.example.model.menu.Gameover;
 import org.example.model.menu.Leaderboard;
 import org.example.model.menu.Menu;
 import org.example.viewer.Viewer;
@@ -119,7 +120,7 @@ public class GameState extends State<Arena> {
 
             Files.copy(tempFile.toPath(), Paths.get(resource.toURI()), StandardCopyOption.REPLACE_EXISTING);
             tempFile.delete();
-            game.setState(new MenuState(new Menu(),window));
+            game.setState(new GameoverState(new Gameover(),window));
         }
 
         totalTime += getTimePassed();
