@@ -155,7 +155,9 @@ public class Window implements WindowInterface {
 
         screen.setCharacter((int) x, (int) y, wallCharacter);
     }
-
+    public Screen getScreen() {
+        return screen;
+    }
     public void drawChest(Position position, Chest chest) {
         drawIntoGameChar(position.getX(), position.getY(), chest.getChestSymbol(), "YELLOW");
     }

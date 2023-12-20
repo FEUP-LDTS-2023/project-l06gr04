@@ -14,6 +14,7 @@ import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 class EnemyControllerTest {
 
@@ -29,7 +30,7 @@ class EnemyControllerTest {
         mockArena = new Arena(120,40);
         mockLevel = new Level();
         mockScore = new Score();
-        mockGame = new Game();
+        mockGame = mock(Game.class);
         mockArena.setScore(mockScore);
 
         enemyController = new EnemyController(mockArena);

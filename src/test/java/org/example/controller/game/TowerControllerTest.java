@@ -1,24 +1,31 @@
 package org.example.controller.game;
+import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.screen.Screen;
 import org.example.Game;
+import org.example.gui.Window;
 import org.example.gui.WindowInterface;
 import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.towers.ArcherTower;
-import org.example.model.game.elements.towers.CanonTower;
 import org.example.model.game.elements.towers.MageTower;
-import org.example.model.game.elements.towers.Tower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+
 class TowerControllerTest {
 
     private Arena arena;
     private TowerController towerController;
+    private TextGraphics tg;
+    private Game mockGame;
 
     @BeforeEach
     void setUp() {
         arena = new Arena(10, 10);
+        mockGame = mock(Game.class);
         towerController = new TowerController(arena);
     }
 
@@ -30,7 +37,6 @@ class TowerControllerTest {
 
     @Test
     void testTowerCreation() throws Exception {
-        Game mockGame = new Game();
         WindowInterface.KEY action = WindowInterface.KEY.NUM_1;
         long time = System.currentTimeMillis();
 
@@ -46,7 +52,6 @@ class TowerControllerTest {
 
     @Test
     void testTowerUpgrade() throws Exception {
-        Game mockGame = new Game();
         WindowInterface.KEY action = WindowInterface.KEY.NUM_3;
         long time = System.currentTimeMillis();
         towerController.getTowerList().add(new MageTower(34, 25));

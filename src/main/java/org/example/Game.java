@@ -28,11 +28,14 @@ public class Game {
         return window;
     }
 
+    public State getState() {
+        return state;
+    }
     public static void main(String[] args) throws Exception {
         new Game().start();
     }
 
-    private void start() throws Exception {
+    public void start() throws Exception {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 

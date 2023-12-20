@@ -6,6 +6,8 @@ import org.example.model.menu.Leaderboard;
 import org.example.states.MenuState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
 
@@ -31,12 +33,11 @@ class LeaderboardControllerTest {
         leaderboardController.step(mockGame, quitKey, System.currentTimeMillis());
         verify(mockGame).setState(any(MenuState.class));
     }
-
-    @Test
-    void testNonQuitAction() throws Exception {
-        WindowInterface.KEY nonQuitKey = WindowInterface.KEY.A;
+    @ParameterizedTest
+    @ValueSource(strings = {"UP", "DOWN", "LEFT", "RIGHT","NUM_1", "A", "C", "M","U", "NUM_2", "NUM_3", "NUM_4", "NUM_5", "NUM_6", "NUM_7", "NUM_8", "NUM_9"})
+    void testNonQuitAction(String key) throws Exception {
+        WindowInterface.KEY nonQuitKey = WindowInterface.KEY.valueOf(key);
         leaderboardController.step(mockGame, nonQuitKey, System.currentTimeMillis());
         verify(mockGame, never()).setState(any(MenuState.class));
     }
-
 }
