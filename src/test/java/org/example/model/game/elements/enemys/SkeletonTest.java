@@ -8,6 +8,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SkeletonTest {
     @Test
+    public void testSkeletonPlacement() {
+        Skeleton skel = new Skeleton(1,1);
+        skel.setPosition(new Position(30,1));
+        assertEquals(30, skel.getX());
+        assertEquals(1, skel.getY());
+    }
+    @Test
+    public void testSkeletonSpeed() {
+        Skeleton skel = new Skeleton(1,1);
+        assertEquals(1, skel.getSpeed());
+    }
+    @Test
+    public void testSkeletonActHP() {
+        Skeleton skel = new Skeleton(1,1);
+        assertEquals(100, skel.getActHP());
+    }
+    @Test
+    public void testHiddenHealth() {
+        Skeleton skel = new Skeleton(1,1);
+        assertEquals(100, skel.getHiddenHealth());
+    }
+    @Test
     public void testHurt() {
         Skeleton skel = new Skeleton(1,1);
         skel.hurt(50);

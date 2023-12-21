@@ -7,8 +7,11 @@ import org.example.model.menu.Menu;
 import org.example.states.ControlsState;
 import org.example.states.GameState;
 import org.example.states.LeaderboardState;
+import org.example.states.MenuState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -90,6 +93,13 @@ class MenuControllerTest {
         menuController.getModel().nextEntry();
         menuController.step(mockGame, selectKey, System.currentTimeMillis());
         verify(mockGame).setState(null);
+    }
+    @ParameterizedTest
+    @ValueSource(strings = {"UP", "DOWN", "LEFT", "RIGHT","NUM_1", "A", "C", "M","U", "NUM_2", "NUM_3", "NUM_4", "NUM_5", "NUM_6", "NUM_7", "NUM_8", "NUM_9"})
+    void testNonQuitAction(String key) throws Exception {
+        WindowInterface.KEY nonQuitKey = WindowInterface.KEY.valueOf(key);
+        menuController.step(mockGame, nonQuitKey, System.currentTimeMillis());
+        verify(mockGame, never()).setState(any(MenuState.class));
     }
 }
 

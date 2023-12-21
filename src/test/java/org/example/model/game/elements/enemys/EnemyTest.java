@@ -90,4 +90,40 @@ public class EnemyTest {
         orc.moveEnemies(orc);
         assertFalse(originalPosition.equals(orc.getPosition()));
     }
+    @Test
+    public void testMoveGolemDown() {
+        Golem golem = new Golem(41, 20);
+        golem.moveGolem(golem);
+        assertEquals(new Position(41, 21), golem.getPosition());
+    }
+
+    @Test
+    public void testMoveGolemLeft() {
+        Golem golem = new Golem(23, 21);
+        golem.moveGolem(golem);
+        assertEquals(new Position(22, 21), golem.getPosition());
+    }
+
+    @Test
+    public void testMoveGolemUp() {
+        Golem golem = new Golem(22, 31);
+        golem.moveGolem(golem);
+        assertEquals(new Position(22, 32), golem.getPosition());
+    }
+
+    @Test
+    public void testMoveGolemRight() {
+        Golem golem = new Golem(91, 32);
+        golem.moveGolem(golem);
+        assertEquals(new Position(92, 32), golem.getPosition());
+    }
+
+
+    @Test
+    public void testMoveGolemRightToEnd() {
+        Golem golem = new Golem(40, 6);
+        golem.moveGolem(golem);
+        assertEquals(new Position(41, 6), golem.getPosition());
+    }
+
 }
