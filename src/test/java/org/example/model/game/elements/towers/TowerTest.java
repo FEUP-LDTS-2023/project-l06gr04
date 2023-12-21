@@ -89,7 +89,7 @@ class TowerTest {
 
     @Test
     void testGetFiringSpeed() {
-        assertEquals(4, tower.getFiringSpeed());
+        assertEquals(3, tower.getFiringSpeed());
     }
     @Test
     void testShoot() throws Exception {

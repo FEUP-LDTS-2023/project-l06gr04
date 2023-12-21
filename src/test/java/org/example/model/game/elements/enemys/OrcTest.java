@@ -17,7 +17,7 @@ public class OrcTest {
     @Test
     public void testOrcSpeed() {
         Orc orc = new Orc(1,1);
-        assertEquals(1.0, orc.getSpeed());
+        assertEquals(2.0, orc.getSpeed());
     }
     @Test
     public void testOrcActHP() {
