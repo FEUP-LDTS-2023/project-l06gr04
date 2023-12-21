@@ -79,6 +79,10 @@ Code Coverage image:
 ![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/CodeCoverage2.png)
 ![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/CodeCoverage3.png)
 
+Mutation report:
+![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/MutationReport.png)
+
+
 ### SELF-EVALUATION
 
 In our collaborative effort to develop our tower-defense game, we organized the workload among the team members to ensure efficiency and specialization in different aspects of the project. Each student took responsibility for a specific group of implementations, contributing expertise to their respective areas: (Enemy and Projectiles, Arena and Window, Towers and Position).
