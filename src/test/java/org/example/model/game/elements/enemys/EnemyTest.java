@@ -44,7 +44,7 @@ public class EnemyTest {
         int damage = 30;
         Orc orc = new Orc(x, y);
 
-        orc.hurt(damage);
+        orc.damage(damage);
 
         assertEquals(270, orc.getActHP());
     }

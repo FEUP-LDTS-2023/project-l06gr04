@@ -40,7 +40,7 @@ public class OrcTest {
     @Test
     public void testHurt() {
         Orc orc = new Orc(1,1);
-        orc.hurt(10);
+        orc.damage(10);
         assertEquals(290, orc.getActHP());
     }
     @Test

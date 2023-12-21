@@ -17,7 +17,6 @@ class EnemyControllerTest {
 
     private Arena mockArena;
     private Score mockScore;
-    private LevelController mockLevelController;
     private Game mockGame;
 
     private EnemyController enemyController;
@@ -28,7 +27,6 @@ class EnemyControllerTest {
         mockScore = new Score();
         mockGame = mock(Game.class);
         mockArena.setScore(mockScore);
-        mockLevelController = new LevelController(mockArena, mockArena.getLevel());
         enemyController = new EnemyController(mockArena);
     }
 
@@ -51,6 +49,7 @@ class EnemyControllerTest {
 
         assertTrue(enemyController.enemies.isEmpty());
         enemyController.step(mockGame, WindowInterface.KEY.UP, 500);
+
 
         assertEquals(0, enemyController.enemies.size());
         assertEquals(initialScoreValue, mockScore.getScore());

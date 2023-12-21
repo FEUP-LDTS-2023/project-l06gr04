@@ -32,7 +32,7 @@ public class SkeletonTest {
     @Test
     public void testHurt() {
         Skeleton skel = new Skeleton(1,1);
-        skel.hurt(50);
+        skel.damage(50);
         assertEquals(50, skel.getActHP());
     }
     @Test

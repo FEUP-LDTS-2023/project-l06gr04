@@ -31,13 +31,9 @@ public abstract class Enemy extends Element {
     public double getSpeed() {
         return speed;
     }
-    public void hurt(int damage) {
-        actHP -= damage;
-        if (actHP <= 0)
-            die();
-    }
-    public Position deathPosition() {
-        return this.deathPosition;
+
+    public Position getDeathPosition(){
+        return deathPosition;
     }
 
     public void die() {
@@ -63,8 +59,8 @@ public abstract class Enemy extends Element {
         return isDead;
     }
 
-    public void setDead(boolean b) {
-        isDead = b;
+    public void setDead(boolean target) {
+        isDead = target;
     }
 
     public void moveEnemies(Enemy enemy) {

@@ -32,7 +32,7 @@ public class GolemTest {
     @Test
     public void testHurt() {
         Golem golem = new Golem(1,1);
-        golem.hurt(30);
+        golem.damage(30);
         assertEquals(970, golem.getActHP());
     }
     @Test
