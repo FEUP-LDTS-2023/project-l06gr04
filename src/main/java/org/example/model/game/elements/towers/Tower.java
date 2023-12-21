@@ -10,21 +10,23 @@ import java.util.List;
 public abstract class
 Tower extends Element {
 
-    public char towerSymbol;
+    private char towerSymbol;
     private int life;
     private int level;
     private int range;
     private int cost;
     private List<Enemy> enemies;
-    public Enemy target;
-    public boolean targeted;
+    private Enemy target;
+    private boolean targeted;
 
-    public long totalTime;
+    private long totalTime;
     private long pastTime;
     private List<Projectile> projectiles;
+    private final long MAX_LIFETIME = 500;
 
-    public Tower(int life, int level, int range, int cost, float x, float y, List<Enemy> enemies ){
+    public Tower(int life, int level, int range, int cost, float x, float y, List<Enemy> enemies,char sim ){
         super(x,y);
+        this.towerSymbol=sim;
         this.life = life;
         this.level = level;
         this.range = range;
@@ -36,7 +38,9 @@ Tower extends Element {
 
     }
 
-
+    public char getTowerSymbol() {
+        return towerSymbol;
+    }
     protected abstract void shoot(Enemy target) throws Exception;
 
     protected abstract int getFiringSpeed();
@@ -63,9 +67,7 @@ Tower extends Element {
         return life;
     }
 
-    public char getTowerSymbol() {
-        return towerSymbol;
-    }
+
 
     public Enemy acquireTarget() {
         Enemy closest = null;
@@ -115,19 +117,21 @@ Tower extends Element {
         return cost;
     }
     public void update() throws Exception {
+
         if (target == null || target.isDead() || !isInRange(target)) {
             targeted = false;
             target = acquireTarget();
         }
 
         totalTime += getTimePassed();
-        if (targeted && findDistance(target) < range && totalTime > getFiringSpeed()) {
+        if (targeted && findDistance(target) < range && totalTime >getTimePassed()* getFiringSpeed()) {
             shoot(target);
             Projectile novo = new Projectile(getX()+1,getY()+1,target,getFiringSpeed(),getDamage());
             projectiles.add(novo);
 
-            totalTime -= getFiringSpeed();
+           // totalTime -= getFiringSpeed();
         }
+
     }
     private long getTimePassed() {
         long currentTime = System.currentTimeMillis();

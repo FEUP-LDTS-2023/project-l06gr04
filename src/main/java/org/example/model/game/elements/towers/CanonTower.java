@@ -6,6 +6,7 @@ import org.example.model.game.elements.enemys.Enemy;
 import java.util.ArrayList;
 
 public class CanonTower extends Tower{
+
     private static final int CT_LIFE = 300;
     private static final int LEVEL = 1;
     private static final int RANGE= 20;
@@ -13,13 +14,13 @@ public class CanonTower extends Tower{
     private int firingSpeed, damage;
 
     public CanonTower(float x, float y) {
-        super(CT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>());
-        this.towerSymbol = 'C';
-        this.firingSpeed=9;
+        super(CT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>(),'C');
+        this.firingSpeed=7;
         this.damage=60;
 
         setCost(COST);
     }
+
 
     @Override
     public void shoot(Enemy target){

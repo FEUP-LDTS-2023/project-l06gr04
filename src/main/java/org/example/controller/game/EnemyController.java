@@ -19,7 +19,6 @@
         private final Level level;
         private long lastMovement;
         private final Arena arena;
-        private final LevelController levelController;
         private final Wave wave;
         private final Score scoreModel;
 
@@ -31,13 +30,11 @@
             this.lastMovement = 0;
             this.level= arena.getLevel();
             this.scoreModel = arena.getScore();
-            this.levelController= new LevelController(arena,level);
             this.wave= new Wave();
             wave.spawn(level.getLevel());
         }
         @Override
         public void step(Game game, WindowInterface.KEY action, long time) throws IOException {
-            levelController.step(game,action,time);
             if (time - lastMovement > 500) {
                 moveEnemies();
                 level.updateLevel(scoreModel);
@@ -68,33 +65,39 @@
 
         }
         public void updateScore(Enemy enemy) {
+            Position deathPosition;
             switch (enemy.getEnemySymbol()) {
                 case 'S':
-                    scoreModel.incrementScore(10 + level.getLevel() * 2);
-                    getModel().setScore(scoreModel);
-                    getModel().setCoins(getModel().getCoins() + 25);
-                    Position deathPosition = enemy.deathPosition();
+                    deathPosition = enemy.getDeathPosition();
                     if (deathPosition.getX() == 93 && deathPosition.getY() == 5) {
                         getModel().getChest().decreaseLife();
+                        break;
                     }
+                    scoreModel.incrementScore(10 );
+                    getModel().setScore(scoreModel);
+                    getModel().setCoins(getModel().getCoins() + 3);
                     break;
                 case 'O':
-                    scoreModel.incrementScore(20 + level.getLevel() * 2);
-                    getModel().setScore(scoreModel);
-                    getModel().setCoins(getModel().getCoins() + 50);
-                    deathPosition = enemy.deathPosition();
+                    deathPosition = enemy.getDeathPosition();
                     if (deathPosition.getX() == 91 && deathPosition.getY() == 5) {
                         getModel().getChest().decreaseLife();
+                        break;
                     }
+                    scoreModel.incrementScore(20 );
+                    getModel().setScore(scoreModel);
+                    getModel().setCoins(getModel().getCoins() + 6);
+
                     break;
                 case 'G':
-                    scoreModel.incrementScore(50 + level.getLevel() * 3);
-                    getModel().setScore(scoreModel);
-                    getModel().setCoins(getModel().getCoins() + 100);
-                    deathPosition = enemy.deathPosition();
+                    deathPosition = enemy.getDeathPosition();
                     if (deathPosition.getX() == 92 && deathPosition.getY() == 5) {
                         getModel().getChest().decreaseLife();
+                        break;
                     }
+                    scoreModel.incrementScore(50 );
+                    getModel().setScore(scoreModel);
+                    getModel().setCoins(getModel().getCoins() + 10);
+
                     break;
             }
         }

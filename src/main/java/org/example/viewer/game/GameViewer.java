@@ -5,7 +5,6 @@ import org.example.model.game.Position;
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.Element;
-import org.example.model.game.elements.enemys.Enemy;
 import org.example.viewer.Viewer;
 
 import java.util.List;
@@ -25,7 +24,7 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(window, getModel().getTowerPositions(), new TowerPositionsViewer());
         drawElements(window, getModel().getPaths(), new PathViewer());
         drawElements(window, getModel().getProjectiles(), new ProjectileViewer());
-        Chest chest = (Chest) getModel().getChest();
+        Chest chest = getModel().getChest();
         drawElements(window, getModel().getEnemies(), new EnemyViewer());
         drawElements(window, getModel().getTowers(), new TowerViewer());
         drawElement(window, chest, new ChestViewer());

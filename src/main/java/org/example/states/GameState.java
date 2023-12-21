@@ -7,7 +7,6 @@ import org.example.controller.game.EnemyController;
 import org.example.controller.game.TowerController;
 import org.example.gui.Window;
 import org.example.gui.WindowInterface;
-import org.example.model.game.Score;
 
 import org.example.model.game.arena.Arena;
 import org.example.model.game.elements.towers.Projectile;
