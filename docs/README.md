@@ -80,7 +80,7 @@ Code Coverage image:
 ![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/CodeCoverage3.png)
 
 Mutation report:
-![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/MutationReport.png)
+![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/MutationReport.png)
 
 
 ### SELF-EVALUATION
