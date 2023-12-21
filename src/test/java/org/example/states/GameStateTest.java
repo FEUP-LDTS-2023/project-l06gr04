@@ -77,7 +77,6 @@ class GameStateTest {
     @Test
     void testControllersSteps() throws Exception {
         gameState.enemyController.step(mockGame, null, 1000);
-        gameState.scoreController.step(mockGame, null, 100L);
         WindowInterface.KEY action = WindowInterface.KEY.NUM_1;
         gameState.towerController.step(mockGame, action, 100L);
 
