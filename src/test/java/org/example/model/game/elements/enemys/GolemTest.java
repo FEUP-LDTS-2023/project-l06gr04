@@ -8,6 +8,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GolemTest {
     @Test
+    public void testGolemPlacement() {
+        Golem golem = new Golem(1,1);
+        golem.setPosition(new Position(30,1));
+        assertEquals(30, golem.getX());
+        assertEquals(1, golem.getY());
+    }
+    @Test
+    public void testGolemSpeed() {
+        Golem golem = new Golem(1,1);
+        assertEquals(1, golem.getSpeed());
+    }
+    @Test
+    public void testGolemActHP() {
+        Golem golem = new Golem(1,1);
+        assertEquals(1000, golem.getActHP());
+    }
+    @Test
+    public void testHiddenHealth() {
+        Golem golem = new Golem(1,1);
+        assertEquals(1000, golem.getHiddenHealth());
+    }
+    @Test
     public void testHurt() {
         Golem golem = new Golem(1,1);
         golem.hurt(30);

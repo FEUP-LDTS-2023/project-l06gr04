@@ -1,8 +1,6 @@
 package org.example;
 
 import org.example.gui.Window;
-import org.example.model.game.Level;
-import org.example.model.game.Score;
 import org.example.model.menu.Menu;
 import org.example.states.MenuState;
 import org.example.states.State;
@@ -32,7 +30,7 @@ public class Game {
         new Game().start();
     }
 
-    private void start() throws Exception {
+    public void start() throws Exception {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
