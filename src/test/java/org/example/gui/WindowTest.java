@@ -1,12 +1,15 @@
 package org.example.gui;
 
 import com.googlecode.lanterna.SGR;
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.SwingTerminalFrame;
 import org.example.model.game.Position;
 import org.example.model.game.elements.Chest;
 import org.example.model.game.elements.TowerPositions;
@@ -21,9 +24,9 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class WindowTest {
@@ -75,7 +78,16 @@ public class WindowTest {
         window.drawPath(new Position(1, 1));
         verify(window.getScreen(), times(1)).setCharacter(1, 1, TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.WHITE));
     }
-
+    @Test
+    void testClear() throws Exception {
+        window.clear();
+        verify(window.getScreen(), times(1)).clear();
+    }
+    @Test
+    void testClose() throws Exception {
+        window.close();
+        verify(window.getScreen(), times(1)).close();
+    }
     @Test
     void testDrawTowerPositions() throws Exception {
         window.drawTowerPositions(new Position(1, 1), towerPositions.get(0));
@@ -113,9 +125,28 @@ public class WindowTest {
         verify(tg).putString(1, 1, "Test Text", SGR.BOLD);
     }
     @Test
+    void drawProjectileTest() {
+        Position position = new Position(1, 1);
+        window.drawProjectiles(position, window);
+        verify(tg).putString(1, 1, "o");
+    }
+    @Test
     void testDrawIntoGameChar() throws Exception {
         window.drawIntoGameChar(5, 5, 'C', "YELLOW");
         verify(tg).setForegroundColor(TextColor.Factory.fromString("YELLOW"));
         verify(tg).putString(5, 5, "C");
     }
+    @Test
+    void testFromNumericValue() {
+        assertEquals(WindowInterface.KEY.NUM_1, WindowInterface.KEY.fromNumericValue(1));
+        assertEquals(WindowInterface.KEY.NUM_2, WindowInterface.KEY.fromNumericValue(2));
+        assertEquals(WindowInterface.KEY.NUM_3, WindowInterface.KEY.fromNumericValue(3));
+        assertEquals(WindowInterface.KEY.NUM_4, WindowInterface.KEY.fromNumericValue(4));
+        assertEquals(WindowInterface.KEY.NUM_5, WindowInterface.KEY.fromNumericValue(5));
+        assertEquals(WindowInterface.KEY.NUM_6, WindowInterface.KEY.fromNumericValue(6));
+        assertEquals(WindowInterface.KEY.NUM_7, WindowInterface.KEY.fromNumericValue(7));
+        assertEquals(WindowInterface.KEY.NUM_8, WindowInterface.KEY.fromNumericValue(8));
+        assertEquals(WindowInterface.KEY.NUM_9, WindowInterface.KEY.fromNumericValue(9));
+    }
+
 }

@@ -42,4 +42,10 @@ public class LevelTest {
         assertEquals(3, level.getLevel());
         assertEquals(3000, level.getScoreThreshold());
     }
+
+    @Test
+    void testGetLevel() {
+        Level level = new Level();
+        assertEquals(1, level.getLevel());
+    }
 }

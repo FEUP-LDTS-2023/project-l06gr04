@@ -1,8 +1,6 @@
 package org.example;
 
 import org.example.gui.Window;
-import org.example.model.game.Level;
-import org.example.model.game.Score;
 import org.example.model.menu.Menu;
 import org.example.states.MenuState;
 import org.example.states.State;
@@ -28,9 +26,6 @@ public class Game {
         return window;
     }
 
-    public State getState() {
-        return state;
-    }
     public static void main(String[] args) throws Exception {
         new Game().start();
     }

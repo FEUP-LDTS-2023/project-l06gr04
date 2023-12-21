@@ -21,14 +21,17 @@ class StateTest {
     private Viewer<TestModel> mockViewer;
     private Controller<TestModel> mockController;
     private Window mockWindow;
+    private State<TestModel> state;
+    private Game mockGame;
 
     @BeforeEach
     void setUp() {
-        testModel = new TestModel();
+        mockGame = Mockito.mock(Game.class);
+        mockWindow = Mockito.mock(Window.class);
         mockViewer = Mockito.mock(Viewer.class);
         mockController = Mockito.mock(Controller.class);
-        mockWindow = Mockito.mock(Window.class);
-        testState = new State<TestModel>(testModel, mockWindow) {
+
+        state = new State<TestModel>(new TestModel(), mockWindow) {
             @Override
             protected Viewer<TestModel> getViewer() {
                 return mockViewer;
@@ -40,16 +43,31 @@ class StateTest {
             }
         };
     }
-
     @Test
-    void getModel_ShouldReturnModel() {
-        assertEquals(testModel, testState.getModel());
+    void step_ShouldInvokeControllerStep() throws Exception {
+        WindowInterface.KEY action = WindowInterface.KEY.UP;
+        long time = System.currentTimeMillis();
+
+        when(mockWindow.processKey()).thenReturn(action);
+
+        state.step(mockGame, mockWindow, time);
+        verify(mockController).step(mockGame, action, time);
     }
 
     @Test
-    void draw_ShouldCallViewerDraw() throws IOException, URISyntaxException {
-        testState.draw(mockWindow);
-        verify(mockViewer, times(1)).draw(mockWindow);
+    void step_ShouldInvokeViewerDrawAfterControllerStep() throws Exception {
+        WindowInterface.KEY action = WindowInterface.KEY.DOWN;
+        long time = System.currentTimeMillis();
+
+        when(mockWindow.processKey()).thenReturn(action);
+        state.step(mockGame, mockWindow, time);
+        inOrder(mockController, mockViewer).verify(mockController).step(mockGame, action, time);
+        inOrder(mockController, mockViewer).verify(mockViewer).draw(mockWindow);
+    }
+    @Test
+    void draw_ShouldInvokeViewerDraw() throws IOException, URISyntaxException {
+        state.draw(mockWindow);
+        verify(mockViewer).draw(mockWindow);
     }
 
     private static class TestModel {

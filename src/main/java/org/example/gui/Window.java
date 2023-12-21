@@ -116,13 +116,6 @@ public class Window implements WindowInterface {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString((int) x, (int) y, "" + c);
     }
-    void drawIntoGameString(int x, int y, String c, String color) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        for (int i = 0; i < c.length(); i++) {
-            tg.putString(x, y, "" + c.charAt(i));
-        }
-    }
     @Override
     public void drawIntoGameText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
