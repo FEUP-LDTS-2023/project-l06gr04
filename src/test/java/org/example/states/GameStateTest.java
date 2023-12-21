@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 class GameStateTest {
     private Window mockWindow;
@@ -29,7 +30,7 @@ class GameStateTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        mockGame = new Game();
+        mockGame = mock(Game.class);
         mockArena = new Arena(120,40);
         mockArena.setEnemies(Arrays.asList(new Orc(12,34), new Skeleton(24,45), new Golem(12,37)));
         mockArena.setPixeis(Arrays.asList(new Pixel(0,0), new Pixel(0,1), new Pixel(0,2), new Pixel(0,3)));
@@ -39,14 +40,14 @@ class GameStateTest {
         mockArena.setWalls(Arrays.asList(new Wall(0,40), new Wall(20,0), new Wall(120,36)));
         mockArena.setPaths(Arrays.asList(new Path(0,0), new Path(0,1), new Path(0,2), new Path(0,3)));
         mockArena.setProjectiles(Arrays.asList(new Projectile(0,0,mockArena.getEnemies().get(0),1,20)));
-        mockWindow = new Window();
+        mockWindow = mock(Window.class);
         gameState = new GameState(mockArena, mockWindow);
     }
 
     @Test
     public void testInitialize_ShouldInitializeGameState() {
         Arena arena = new Arena(120,40);
-        Window window = new Window();
+        Window window = mock(Window.class);
 
         try {
             GameState gameState = new GameState(arena, window);
@@ -58,7 +59,7 @@ class GameStateTest {
     @Test
     public void testUpdateProjectiles_ShouldHandleProjectileUpdates() {
         Arena arena = new Arena(120,40);
-        Window window = new Window();
+        Window window = mock(Window.class);
 
         try {
             GameState gameState = new GameState(arena, window);

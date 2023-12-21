@@ -4,7 +4,6 @@ import org.example.Game;
 import org.example.controller.Controller;
 import org.example.controller.game.ArenaController;
 import org.example.controller.game.EnemyController;
-import org.example.controller.game.ScoreController;
 import org.example.controller.game.TowerController;
 import org.example.gui.Window;
 import org.example.gui.WindowInterface;
@@ -31,7 +30,6 @@ public class GameState extends State<Arena> {
     public TowerController towerController;
 
     private final long TIME_FIXED = 100;
-    public ScoreController scoreController;
 
     private final Arena arena;
     public long totalTime;
@@ -45,7 +43,6 @@ public class GameState extends State<Arena> {
         this.window = window;
         enemyController = new EnemyController(arena);
         towerController = new TowerController(arena);
-        scoreController = new ScoreController(arena, new Score());
         initialize();
     }
 
@@ -65,7 +62,6 @@ public class GameState extends State<Arena> {
     }
     public void update(Game game,WindowInterface.KEY action, Window window) throws Exception {
         enemyController.step(game, null, System.currentTimeMillis());
-        scoreController.step(game, null, System.currentTimeMillis());
         towerController.step(game, action, System.currentTimeMillis());
         updateProjectiles();
 
