@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class
-Tower extends Element {
+public abstract class Tower extends Element {
 
     private char towerSymbol;
     private int life;

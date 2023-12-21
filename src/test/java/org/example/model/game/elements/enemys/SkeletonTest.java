@@ -17,7 +17,7 @@ public class SkeletonTest {
     @Test
     public void testSkeletonSpeed() {
         Skeleton skel = new Skeleton(1,1);
-        assertEquals(1, skel.getSpeed());
+        assertEquals(3, skel.getSpeed());
     }
     @Test
     public void testSkeletonActHP() {

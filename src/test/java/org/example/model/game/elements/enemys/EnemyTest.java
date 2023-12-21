@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class EnemyTest {
     @Test
     public void testEnemyInitialization() {
-        double speed = 1.0;
+        double speed = 2.0;
         int totHP = 300;
         int x = 3;
         int y = 4;

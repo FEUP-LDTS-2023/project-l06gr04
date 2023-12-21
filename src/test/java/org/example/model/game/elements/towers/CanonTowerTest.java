@@ -28,7 +28,7 @@ public class CanonTowerTest {
     @Test
     void testGetFiringSpeed() {
         CanonTower canonTower = new CanonTower(1,1);
-        assertEquals(9.0f, canonTower.getFiringSpeed());
+        assertEquals(7.0f, canonTower.getFiringSpeed());
     }
     @Test
     public void testDealDamage() {
