@@ -17,6 +17,10 @@ This project was developed by David Carvalho (up202208654@fe.up.pt), Diogo Vieir
 - **Different Levels** - The creation of diverse levels with varying degrees of difficulty.
 - **Leaderboard Menu** - Includes a Leaderboard that keeps record of the best scores achieved by players.
 
+### Planned Features
+
+All the planned features were successfully implemented.
+
 ### DESIGN
 
 #### CODE DUPLICATION
