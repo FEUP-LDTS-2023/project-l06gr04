@@ -21,7 +21,6 @@ public abstract class Tower extends Element {
     private long totalTime;
     private long pastTime;
     private List<Projectile> projectiles;
-    private final long MAX_LIFETIME = 500;
 
     public Tower(int life, int level, int range, int cost, float x, float y, List<Enemy> enemies,char sim ){
         super(x,y);

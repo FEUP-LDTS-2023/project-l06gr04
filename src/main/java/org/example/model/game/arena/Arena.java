@@ -26,8 +26,6 @@ public class Arena {
     private Chest chest;
     private List<Projectile> projectiles;
     private List<TowerPositions> towerPositions;
-    private Wave wave;
-    private Object levelController;
 
     public Arena(int width, int height) {
         this.width = width;

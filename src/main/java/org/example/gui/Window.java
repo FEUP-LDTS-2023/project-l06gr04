@@ -63,11 +63,13 @@ public class Window implements WindowInterface {
 
         return KEY.NONE;
     }
+    @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString((int) position.getX(), (int) position.getY(), text, SGR.BOLD);
     }
+
     public void drawTextWithFontSize( Position position, String text, String color, int fontSize) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
@@ -92,7 +94,7 @@ public class Window implements WindowInterface {
         float x = position.getX();
         float y = position.getY();
 
-        TextCharacter pixelCharacter = TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.BLUE_BRIGHT);
+        TextCharacter pixelCharacter = TextCharacter.DEFAULT_CHARACTER.withBackgroundColor(TextColor.ANSI.GREEN_BRIGHT);
 
 
         screen.setCharacter((int) x,(int) y, pixelCharacter);
@@ -157,6 +159,7 @@ public class Window implements WindowInterface {
     public void drawTowerPositions(Position position, TowerPositions towerPositions) {
         drawIntoGameChar(position.getX(), position.getY(), towerPositions.getSymbol(), "GREEN");
     }
+    @Override
     public void drawProjectiles(Position position, Window window){
         drawIntoGameChar(position.getX(), position.getY(), 'o', "RED");
     }
