@@ -54,7 +54,7 @@ These classes can be found in the following files:
 
 **Consequences**
 
-The use of the Factory Abstract pattern, Factory pattern, and Model-View-Controller pattern played a central role in overcoming initial implementation challenges, resulting in a more modular, scalable, and maintainable tower-defense game.
+The use of Factory Abstract, Factory, Model-View-Controller, State, Composite, Builder, and Command patterns was crucial in transforming our tower-defense game into a more modular, scalable, and easily maintainable system. The Factory Abstract and Factory patterns reduced redundancy and allowed for the seamless addition of new types of towers and enemies. Model-View-Controller improved code organization, making it more readable and adaptable. The State pattern facilitated dynamic changes in entity behavior. The Composite pattern organized complex relationships, while the Builder simplified object construction. Finally, the Command pattern enhanced command management, implementing undo/redo functionalities and making user interaction more seamless. Together, these patterns significantly elevated the architecture of our game.
 
 
 #### KNOWN CODE SMELLS
