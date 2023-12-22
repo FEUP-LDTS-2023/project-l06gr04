@@ -17,8 +17,9 @@ public class Wave {
     }
 
     public List<Enemy> spawn(int level){
-        int numberOfEnemies = 15 * level;
-        for (int i = 0; i < numberOfEnemies; i++) {
+
+        int numberOfEnemies = 4 * level;
+        for (int i = 0; i <= numberOfEnemies; i++) {
             int enemyTypeIndex = 1 + (int) (Math.random() * 3);
             Enemy enemy;
             switch (enemyTypeIndex) {

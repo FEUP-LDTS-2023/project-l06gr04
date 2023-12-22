@@ -75,7 +75,7 @@
                     }
                     scoreModel.incrementScore(10 );
                     getModel().setScore(scoreModel);
-                    getModel().setCoins(getModel().getCoins() + 3);
+                    getModel().setCoins(getModel().getCoins() + 10);
                     break;
                 case 'O':
                     deathPosition = enemy.getDeathPosition();
@@ -85,7 +85,7 @@
                     }
                     scoreModel.incrementScore(20 );
                     getModel().setScore(scoreModel);
-                    getModel().setCoins(getModel().getCoins() + 6);
+                    getModel().setCoins(getModel().getCoins() + 20);
 
                     break;
                 case 'G':
@@ -96,7 +96,7 @@
                     }
                     scoreModel.incrementScore(50 );
                     getModel().setScore(scoreModel);
-                    getModel().setCoins(getModel().getCoins() + 10);
+                    getModel().setCoins(getModel().getCoins() + 35);
 
                     break;
             }

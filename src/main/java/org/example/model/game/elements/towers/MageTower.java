@@ -9,13 +9,13 @@ public class MageTower extends Tower {
     private static final int MT_LIFE = 100;
     private static final int LEVEL = 1;
     private static final int RANGE= 10;
-    private static final int COST = 500;
+    private static final int COST = 400;
     private final int firingSpeed,damage;
 
     public MageTower(float x, float y){
         super(MT_LIFE, LEVEL, RANGE, COST,x,y,new ArrayList<>(),'M');
         this.damage=50;
-        this.firingSpeed = 5;
+        this.firingSpeed = 750;
         setCost(COST);
     }
 
