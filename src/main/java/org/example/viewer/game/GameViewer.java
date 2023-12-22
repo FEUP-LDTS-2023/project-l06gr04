@@ -33,7 +33,7 @@ public class GameViewer extends Viewer<Arena> {
         window.drawText(new Position(0, 42), "LEVEL :" + getModel().getLevel().getLevel(), "WHITE");
         window.drawText(new Position(0, 43), "COINS :" + getModel().getCoins(), "WHITE");
         window.drawText(new Position(0, 44), "CHEST LIFE :" + getModel().getChest().getLife(), "WHITE");
-        window.drawText(new Position(0, 45), "CanonTower - 100 $, ArcherTower - 250 $, MageTower - 500 $", "WHITE");
+        window.drawText(new Position(0, 45), "CanonTower - 150 $, ArcherTower - 250 $, MageTower - 400 $", "WHITE");
     }
 
 

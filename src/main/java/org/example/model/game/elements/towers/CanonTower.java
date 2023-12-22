@@ -10,13 +10,13 @@ public class CanonTower extends Tower{
     private static final int CT_LIFE = 300;
     private static final int LEVEL = 1;
     private static final int RANGE= 20;
-    private static final int COST = 100;
+    private static final int COST = 150;
     private int firingSpeed, damage;
 
     public CanonTower(float x, float y) {
         super(CT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>(),'C');
-        this.firingSpeed=7;
-        this.damage=60;
+        this.firingSpeed=1500;
+        this.damage=80;
 
         setCost(COST);
     }

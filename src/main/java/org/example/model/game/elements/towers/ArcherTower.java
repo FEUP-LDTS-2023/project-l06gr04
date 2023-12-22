@@ -13,8 +13,8 @@ public class ArcherTower extends Tower {
 
     public ArcherTower(float x, float y) {
         super(AT_LIFE, LEVEL, RANGE, COST, x, y,new ArrayList<>(),'A');
-        this.firingSpeed=3;
-        this.damage=25;
+        this.firingSpeed=350;
+        this.damage=20;
 
         setCost(COST);
 

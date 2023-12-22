@@ -18,10 +18,10 @@ public abstract class Tower extends Element {
     private Enemy target;
     private boolean targeted;
 
-    private long totalTime;
+    //private long totalTime;
     private long pastTime;
     private List<Projectile> projectiles;
-
+    private long lastFiredTime;
     public Tower(int life, int level, int range, int cost, float x, float y, List<Enemy> enemies,char sim ){
         super(x,y);
         this.towerSymbol=sim;
@@ -32,7 +32,8 @@ public abstract class Tower extends Element {
         this.targeted=false;
         this.projectiles=new ArrayList<>();
         this.enemies= enemies;
-        initialize();
+        this.lastFiredTime = System.currentTimeMillis();
+        //initialize();
 
     }
 
@@ -53,7 +54,7 @@ public abstract class Tower extends Element {
         return false;
     }
     public void initialize(){
-        totalTime = 0;
+        //totalTime = 0;
         pastTime = System.currentTimeMillis();
     }
     public float findDistance(Enemy enemy) {
@@ -115,28 +116,26 @@ public abstract class Tower extends Element {
         return cost;
     }
     public void update() throws Exception {
-
         if (target == null || target.isDead() || !isInRange(target)) {
             targeted = false;
             target = acquireTarget();
         }
 
-        totalTime += getTimePassed();
-        if (targeted && findDistance(target) < range && totalTime >getTimePassed()* getFiringSpeed()) {
+        long currentTime = System.currentTimeMillis();
+        //pastTime = currentTime;
+
+
+        long timeSinceLastFired = currentTime - lastFiredTime;
+        if (targeted && findDistance(target) < range && timeSinceLastFired >= getFiringSpeed()) {
             shoot(target);
-            Projectile novo = new Projectile(getX()+1,getY()+1,target,getFiringSpeed(),getDamage());
+            Projectile novo = new Projectile(getX() + 1, getY() + 1, target, getFiringSpeed(), getDamage());
             projectiles.add(novo);
 
-           // totalTime -= getFiringSpeed();
+            lastFiredTime = currentTime;
         }
+    }
 
-    }
-    private long getTimePassed() {
-        long currentTime = System.currentTimeMillis();
-        long timePassed = currentTime - pastTime;
-        pastTime = currentTime;
-        return timePassed;
-    }
+
     public List<Projectile> getProjectiles() {
         return projectiles;
     }
