@@ -63,16 +63,7 @@ The use of Factory Abstract, Factory, Model-View-Controller, State, Composite, B
 
 #### KNOWN CODE SMELLS
 
-In the process of developing our tower-defense game, several code smells have emerged, indicating potential areas for improvement in the codebase. Addressing these code smells is crucial for maintaining a clean, efficient, and scalable game. Below, we outline three significant code smells that we have identified:
-
-1. Monolithic Game Loop Function:
-   The presence of a monolithic game loop function responsible for handling various game mechanics, such as spawning enemies, updating player resources, and managing towers.
-
-2. Inconsistent Naming Conventions:
-   The inconsistent naming of variables, functions, and classes throughout the codebase. In some instances, abbreviations and variations in naming conventions have been used, leading to confusion and decreased code readability.
-
-3. Code Duplication in Enemy Behavior Handling:
-   The duplication of code related to enemy behavior across different sections of the codebase. Similar logic for enemy movement, attack, and health management is repeated, leading to redundancy and increased chances of introducing bugs during updates or enhancements.
+We have fixed all the errors reported by error-prone. No other major code smells identified. 
 
 
 ### TESTING
