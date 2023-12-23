@@ -43,7 +43,7 @@ public class Projectile extends Element {
                 target.damage(damage);
                 alive = false;
 
-            }else if(getTimePassed() > MAX_LIFETIME*5){
+            }else if(getTimePassed() > MAX_LIFETIME*10){
                 alive = false;
             }
         }

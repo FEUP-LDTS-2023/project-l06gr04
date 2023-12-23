@@ -73,7 +73,7 @@
                         getModel().getChest().decreaseLife();
                         break;
                     }
-                    scoreModel.incrementScore(10 );
+                    scoreModel.incrementScore(50 );
                     getModel().setScore(scoreModel);
                     getModel().setCoins(getModel().getCoins() + 10);
                     break;
@@ -83,7 +83,7 @@
                         getModel().getChest().decreaseLife();
                         break;
                     }
-                    scoreModel.incrementScore(20 );
+                    scoreModel.incrementScore(75 );
                     getModel().setScore(scoreModel);
                     getModel().setCoins(getModel().getCoins() + 20);
 
@@ -94,7 +94,7 @@
                         getModel().getChest().decreaseLife();
                         break;
                     }
-                    scoreModel.incrementScore(50 );
+                    scoreModel.incrementScore(100 );
                     getModel().setScore(scoreModel);
                     getModel().setCoins(getModel().getCoins() + 35);
 
