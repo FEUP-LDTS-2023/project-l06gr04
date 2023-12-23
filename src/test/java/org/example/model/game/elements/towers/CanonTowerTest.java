@@ -28,13 +28,13 @@ public class CanonTowerTest {
     @Test
     void testGetFiringSpeed() {
         CanonTower canonTower = new CanonTower(1,1);
-        assertEquals(7.0f, canonTower.getFiringSpeed());
+        assertEquals(1500, canonTower.getFiringSpeed());
     }
     @Test
     public void testDealDamage() {
         CanonTower canonTower = new CanonTower(1,1);
         int damage = canonTower.getDamage();
-        assertEquals(60, damage);
+        assertEquals(80, damage);
     }
 
     @Test

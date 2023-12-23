@@ -24,7 +24,7 @@ public class ArcherTowerTest {
     public void testDealDamage() {
         ArcherTower archerTower = new ArcherTower(1,1);
         int damage = archerTower.getDamage();
-        assertEquals(25, damage);
+        assertEquals(20, damage);
     }
 
     @Test

@@ -4,7 +4,7 @@ import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Orc;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class OrcTest {
     @Test
@@ -23,6 +23,25 @@ public class OrcTest {
     public void testOrcActHP() {
         Orc orc = new Orc(1,1);
         assertEquals(300, orc.getActHP());
+    }
+    @Test
+    public void testOrcDamageNeg() {
+        Orc orc = new Orc(1,1);
+        orc.damage(-30);
+        assertEquals(330, orc.getActHP());
+    }
+    @Test void testOrcDamageZero() {
+        Orc orc = new Orc(1,1);
+        orc.damage(0);
+        assertEquals(300, orc.getActHP());
+    }
+    @Test
+    void testDamageWithExcessAmount() {
+        Enemy enemy = new Orc(2,2);
+        assertEquals(300, enemy.getActHP());
+        enemy.damage(60);
+        assertFalse(enemy.isDead());
+        assertEquals(240, enemy.getActHP());
     }
     @Test 
     public void testHiddenHealth() {
