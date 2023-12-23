@@ -71,7 +71,7 @@ class TowerTest {
 
     @Test
     void testGetDamage() {
-        assertEquals(25, tower.getDamage());
+        assertEquals(20, tower.getDamage());
     }
 
     @Test
@@ -89,11 +89,11 @@ class TowerTest {
 
     @Test
     void testGetFiringSpeed() {
-        assertEquals(3, tower.getFiringSpeed());
+        assertEquals(350, tower.getFiringSpeed());
     }
     @Test
     void testShoot() throws Exception {
         tower.shoot(mockEnemy);
-        verify(mockEnemy).reduceHiddenHealth(25);
+        verify(mockEnemy).reduceHiddenHealth(20);
     }
 }

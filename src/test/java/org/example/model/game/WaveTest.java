@@ -27,7 +27,7 @@ public class WaveTest {
         List<Enemy> enemyList = wave.spawn(level);
         assertNotNull(enemyList);
         assertFalse(enemyList.isEmpty());
-        assertEquals(15 * level, enemyList.size());
+        assertEquals(5 * level, enemyList.size());
         for (Enemy enemy : enemyList) {
             assertTrue(enemy.getX() <= 0);
         }
