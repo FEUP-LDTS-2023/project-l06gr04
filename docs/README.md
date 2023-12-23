@@ -70,9 +70,8 @@ We have fixed all the errors reported by error-prone. No other major code smells
 
 Code Coverage image:
 
-![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/CodeCoverage1.png)
-![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/CodeCoverage2.png)
-![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/CodeCoverage3.png)
+![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/Code_Coverage0.png)
+![img](https://github.com/FEUP-LDTS-2023/project-l06gr04/blob/main/docs/Code_Coverage1.png)
 
 Mutation report:
 
