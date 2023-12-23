@@ -4,7 +4,7 @@ import org.example.model.game.Position;
 import org.example.model.game.elements.enemys.Golem;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GolemTest {
     @Test
@@ -22,18 +22,37 @@ public class GolemTest {
     @Test
     public void testGolemActHP() {
         Golem golem = new Golem(1,1);
-        assertEquals(1000, golem.getActHP());
+        assertEquals(600, golem.getActHP());
+    }
+    @Test
+    public void testGolemDamageNeg() {
+        Golem golem = new Golem(1,1);
+        golem.damage(-30);
+        assertEquals(630, golem.getActHP());
+    }
+    @Test void testGolemDamageZero() {
+        Golem golem = new Golem(1,1);
+        golem.damage(0);
+        assertEquals(600, golem.getActHP());
+    }
+    @Test
+    void testDamageWithExcessAmount() {
+        Enemy enemy = new Golem(2,2);
+        assertEquals(600, enemy.getActHP());
+        enemy.damage(60);
+        assertFalse(enemy.isDead());
+        assertEquals(540, enemy.getActHP());
     }
     @Test
     public void testHiddenHealth() {
         Golem golem = new Golem(1,1);
-        assertEquals(1000, golem.getHiddenHealth());
+        assertEquals(600, golem.getHiddenHealth());
     }
     @Test
     public void testHurt() {
         Golem golem = new Golem(1,1);
         golem.damage(30);
-        assertEquals(970, golem.getActHP());
+        assertEquals(570, golem.getActHP());
     }
     @Test
     public void testGetX() {

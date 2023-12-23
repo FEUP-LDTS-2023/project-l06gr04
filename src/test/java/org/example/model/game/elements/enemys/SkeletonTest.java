@@ -25,6 +25,25 @@ public class SkeletonTest {
         assertEquals(100, skel.getActHP());
     }
     @Test
+    public void testSkeletonDamageNeg() {
+        Skeleton skel = new Skeleton(1,1);
+        skel.damage(-30);
+        assertEquals(130, skel.getActHP());
+    }
+    @Test
+    void testSkeletonDamageZero() {
+        Skeleton skel = new Skeleton(1,1);
+        skel.damage(0);
+        assertEquals(100, skel.getActHP());
+    }
+    @Test
+    void testDamageWithExcessAmount() {
+        Enemy enemy = new Skeleton(2,2);
+        assertEquals(100, enemy.getActHP());
+        enemy.damage(60);
+        assertEquals(40, enemy.getActHP());
+    }
+    @Test
     public void testHiddenHealth() {
         Skeleton skel = new Skeleton(1,1);
         assertEquals(100, skel.getHiddenHealth());

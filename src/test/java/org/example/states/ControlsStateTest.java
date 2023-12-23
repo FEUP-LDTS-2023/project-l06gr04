@@ -13,7 +13,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 class ControlsStateTest {
-
     private ControlsState controlsState;
     private Controls mockControls;
     private Window mockWindow;

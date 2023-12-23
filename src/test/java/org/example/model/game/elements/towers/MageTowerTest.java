@@ -28,7 +28,7 @@ public class MageTowerTest {
     @Test
     void testGetFiringSpeed() {
         MageTower mageTower = new MageTower(1,1);
-        assertEquals(5.0f, mageTower.getFiringSpeed());
+        assertEquals(750, mageTower.getFiringSpeed());
     }
     @Test
     public void testDealDamage() {

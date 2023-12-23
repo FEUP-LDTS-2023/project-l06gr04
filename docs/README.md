@@ -17,6 +17,10 @@ This project was developed by David Carvalho (up202208654@fe.up.pt), Diogo Vieir
 - **Different Levels** - The creation of diverse levels with varying degrees of difficulty.
 - **Leaderboard Menu** - Includes a Leaderboard that keeps record of the best scores achieved by players.
 
+### Planned Features
+
+All the planned features were successfully implemented.
+
 ### DESIGN
 
 #### CODE DUPLICATION
@@ -54,21 +58,12 @@ These classes can be found in the following files:
 
 **Consequences**
 
-The use of the Factory Abstract pattern, Factory pattern, and Model-View-Controller pattern played a central role in overcoming initial implementation challenges, resulting in a more modular, scalable, and maintainable tower-defense game.
+The use of Factory Abstract, Factory, Model-View-Controller, State, Composite, Builder, and Command patterns was crucial in transforming our tower-defense game into a more modular, scalable, and easily maintainable system. The Factory Abstract and Factory patterns reduced redundancy and allowed for the seamless addition of new types of towers and enemies. Model-View-Controller improved code organization, making it more readable and adaptable. The State pattern facilitated dynamic changes in entity behavior. The Composite pattern organized complex relationships, while the Builder simplified object construction. Finally, the Command pattern enhanced command management, implementing undo/redo functionalities and making user interaction more seamless. Together, these patterns significantly elevated the architecture of our game.
 
 
 #### KNOWN CODE SMELLS
 
-In the process of developing our tower-defense game, several code smells have emerged, indicating potential areas for improvement in the codebase. Addressing these code smells is crucial for maintaining a clean, efficient, and scalable game. Below, we outline three significant code smells that we have identified:
-
-1. Monolithic Game Loop Function:
-   The presence of a monolithic game loop function responsible for handling various game mechanics, such as spawning enemies, updating player resources, and managing towers.
-
-2. Inconsistent Naming Conventions:
-   The inconsistent naming of variables, functions, and classes throughout the codebase. In some instances, abbreviations and variations in naming conventions have been used, leading to confusion and decreased code readability.
-
-3. Code Duplication in Enemy Behavior Handling:
-   The duplication of code related to enemy behavior across different sections of the codebase. Similar logic for enemy movement, attack, and health management is repeated, leading to redundancy and increased chances of introducing bugs during updates or enhancements.
+We have fixed all the errors reported by error-prone. No other major code smells identified. 
 
 
 ### TESTING
